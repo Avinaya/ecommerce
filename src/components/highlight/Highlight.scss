@@ -1,0 +1,56 @@
+@import "../../style/variable";
+
+.highlight {
+  margin: 1rem 2rem;
+  height: auto;
+
+  &-tools {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem;
+
+    &-item {
+      height: auto;
+    }
+  }
+
+  &-item2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    & img {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    &-items {
+      height: auto;
+    }
+  }
+
+  &-item1 {
+    & img {
+      border-radius: 5px;
+      height: 27.6vw;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .highlight {
+    margin: 1rem 0.5rem;
+
+    &-tools {
+      display: block;
+
+      &-item {
+        margin-bottom: 1rem;
+      }
+    }
+    &-item1 img{
+      height: auto;
+    }
+  }
+}
+

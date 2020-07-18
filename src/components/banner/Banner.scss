@@ -1,0 +1,33 @@
+@import "../../style/variable";
+
+.banner {
+
+    margin: 0rem 1rem;
+
+    &-tools{
+    display: flex;
+    flex-wrap: nowrap;
+
+    &-item{
+        background-color: $color-white;
+        width: 15rem;
+        margin: 1rem;
+        text-align: center;
+        border-radius: 5px !important;
+        padding: .5rem;
+
+
+        & img{
+            width: 100%;
+        }
+    }
+  }
+  
+
+}
+
+@media screen and (max-width: 768px) {
+    .banner{
+        display: none;
+    }
+  }

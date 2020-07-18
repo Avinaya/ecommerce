@@ -1,0 +1,97 @@
+@import "../../style/variable";
+
+.menu {
+  width: 100%;
+  background-color: $color-primary;
+
+  &-tools {
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5ch;
+    align-items: center;
+
+    &-item {
+      text-align: center;
+      
+    }
+  }
+  &-dropdown {
+    border-radius: 0 !important;
+    font-size: 0.87rem !important;
+
+    &:hover {
+      background-color: $color-white !important;
+      color: $color-black !important;
+    }
+  }
+}
+
+.drop-menu {
+  position: static !important;
+}
+
+.dropdown-menu-tools {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  top: inherit !important;
+  width: 90vw !important;
+  border: none !important;
+  margin-left: 5vw !important;
+
+}
+.menu-dropdown {
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+
+}
+
+
+
+
+///Menu item scss file
+
+.menu-item {
+  width: 85vw;
+  &-tools {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    &-item {
+        margin-left: 3vw;
+      & h5 {
+        font-size: .9rem;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+.list-group {
+  border: none !important;
+  margin-left: -1rem;
+
+  &-item {
+    border: none !important;
+    text-transform: capitalize;
+  }
+}
+
+.menu-link {
+  text-decoration: none;
+  color: $color-black;
+  font-size: 0.8rem;
+
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+
+@media screen and (max-width:768px){
+
+  .menu{
+    display: none;
+
+  }
+}
