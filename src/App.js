@@ -8,6 +8,7 @@ import Featured from './components/featured/Featured';
 import Latest from './components/products/latest/Latest';
 import Recommended from './components/products/recommended/Recommended';
 import PopularCategories from './components/popularCategories/PopularCategories';
+import Banner2 from './components/banner/banner2/Banner2';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
    <Featured/>
    <Latest/>
    <PopularCategories/>
+   <Banner2/>
    </React.Fragment>
   );
 }

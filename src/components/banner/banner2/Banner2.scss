@@ -1,0 +1,30 @@
+@import "../../../style/variable";
+
+.banner2 {
+  margin: 1rem 2rem;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  grid-gap: 1rem;
+  background-color: $color-white;
+
+  &-item {
+    padding: .5rem;
+
+    & img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  }
+}
+
+@media screen and (max-width:768px){
+
+  .banner2{
+    grid-template-columns: 1fr;
+    margin: 1rem .5rem;
+
+  }
+}

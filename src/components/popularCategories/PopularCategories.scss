@@ -2,8 +2,10 @@
 
 .popular{
     margin: 1rem 2rem;
-    background-color: $color-white;
     height: auto;
+    background-color: $color-white;
+    border-radius: 5px;
+
 
     & h5{
         border-top-right-radius: 5px;

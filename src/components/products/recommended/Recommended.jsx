@@ -11,7 +11,7 @@ class Recommended extends Component {
   }
 
   getRecommended(){
-    axios.get(`http://202.51.74.64:8080/justNep/product/recommended`)
+    axios.get(`https://202.51.74.64:8443/ecommerce-site/product/recommended`)
     .then(res => {
       const posts = res.data.map(obj => obj);
       this.setState({posts});
