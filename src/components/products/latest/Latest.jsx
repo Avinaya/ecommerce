@@ -11,7 +11,7 @@ class Latest extends Component {
 
   getLatest() {
     axios
-      .get(`https://202.51.74.64:8443/ecommerce-site/product/latest`)
+      .get(`http://202.51.74.64:8080/ecommerce-site/product/latest`)
       .then((res) => {
         const posts = res.data.latestProduct.map((obj) => obj);
         this.setState({ posts });
