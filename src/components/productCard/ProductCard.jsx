@@ -23,7 +23,7 @@ const ProductCard = (props) => {
                   </div>
                   <div className="recommended-tools-item-product">
                     <p className="recommended-tools-item-product-desc">
-                      {val.name}
+                      {val.description}
                     </p>
                     <span className="recommended-tools-item-product-actual">
                       Rs.{val.actualPrice}

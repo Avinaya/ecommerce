@@ -5,18 +5,16 @@ import ProductCard from "./../../productCard/ProductCard";
 const title = "Latest Products";
 
 class Latest extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.getLatest();
   }
 
   getLatest() {
-    axios
-      .get(`http://202.51.74.64:8080/ecommerce-site/product/latest`)
-      .then((res) => {
-        const posts = res.data.latestProduct.map((obj) => obj);
-        this.setState({ posts });
-        console.log(posts);
-      });
+    axios.get(`http://202.51.74.217:8081/hello/product/latest`).then((res) => {
+      const posts = res.data.latestProduct.map((obj) => obj);
+      this.setState({ posts });
+      console.log(posts);
+    });
   }
 
   constructor(props) {

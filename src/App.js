@@ -9,6 +9,9 @@ import Latest from './components/products/latest/Latest';
 import Recommended from './components/products/recommended/Recommended';
 import PopularCategories from './components/popularCategories/PopularCategories';
 import Banner2 from './components/banner/banner2/Banner2';
+import BestSelling from './components/products/bestSelling/BestSelling';
+import Banner3 from './components/banner/banner3/Banner3';
+import About from './components/about/About';
 
 function App() {
   return (
@@ -23,6 +26,10 @@ function App() {
    <Latest/>
    <PopularCategories/>
    <Banner2/>
+   <BestSelling/>
+   <Banner3/>
+   <About/>
+   
    </React.Fragment>
   );
 }

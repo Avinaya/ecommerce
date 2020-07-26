@@ -1,0 +1,51 @@
+@import '../../style/variable';
+
+.about{
+    margin: 1rem 2rem;
+    background-color: $color-white;
+    border-radius: 5px;
+    padding: 2rem 1.5rem 1rem 1.5rem;
+
+
+    &-heading{
+        margin-bottom: 1.5rem;
+        text-transform: capitalize;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $color-text;
+
+
+    }
+
+    &-paragraph{
+        color: $color-text;
+        line-height: 1.9;
+
+    }
+}
+
+@media screen and (max-width:768px){
+
+    .about{
+        margin: .5rem;
+        padding: 1rem .5rem;
+
+        &-heading{
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+
+
+
+        }
+        &-paragraph{
+            text-align: justify;
+
+        }
+    }
+}
+
+@media screen and (max-width:576px){
+    .about{
+        display: none;
+    }
+}

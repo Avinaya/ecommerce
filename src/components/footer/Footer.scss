@@ -1,0 +1,54 @@
+@import "../../style/variable";
+
+.footer {
+  height: 90vh;
+  background-color: black;
+  color: white;
+
+  &-tools-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    background-color: #2e2e2e;
+    grid-gap: 1rem;
+
+    &-item {
+      padding: 0.5rem;
+      // background-color: orangered;
+
+      &-icon {
+        font-size: 1.5rem;
+        padding: 0.9rem;
+        margin-right: 0.5rem;
+        background-color: orchid;
+        border-radius: 50%;
+      }
+
+      &-heading {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+    }
+
+    &-mail-phone {
+      display: flex;
+      grid-template-columns: 5rem 1fr;
+      align-items: center;
+    }
+  }
+
+  &-form {
+    &-input {
+      height: 2.5rem;
+    }
+
+    &-btn {
+      height: 2.5rem;
+      width: auto;
+      padding: 0.1rem !important;
+      background-color: $color-primary !important;
+    }
+  }
+
+  &-tools-bottom {
+  }
+}
