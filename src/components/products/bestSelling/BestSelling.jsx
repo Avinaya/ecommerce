@@ -15,7 +15,7 @@ class BestSelling extends Component {
 
   getRecommended() {
     axios
-      .get(`http://202.51.74.217:8081/hello/product/bestSelling`)
+      .get(`https://saptasoch.herokuapp.com/product/bestSelling`)
       .then((res) => {
         const posts = res.data.map((obj) => obj);
         this.setState({ posts });

@@ -11,7 +11,7 @@ class Recommended extends Component {
 
   getRecommended() {
     axios
-      .get(`http://202.51.74.217:8081/hello/product/recommended`)
+      .get(`https://saptasoch.herokuapp.com/product/recommended`)
       .then((res) => {
         const posts = res.data.map((obj) => obj);
         this.setState({ posts });

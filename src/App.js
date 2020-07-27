@@ -12,6 +12,7 @@ import Banner2 from './components/banner/banner2/Banner2';
 import BestSelling from './components/products/bestSelling/BestSelling';
 import Banner3 from './components/banner/banner3/Banner3';
 import About from './components/about/About';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
    <BestSelling/>
    <Banner3/>
    <About/>
+   <Footer/>
    
    </React.Fragment>
   );

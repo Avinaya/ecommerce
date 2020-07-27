@@ -10,7 +10,7 @@ class Latest extends Component {
   }
 
   getLatest() {
-    axios.get(`http://202.51.74.217:8081/hello/product/latest`).then((res) => {
+    axios.get(`https://saptasoch.herokuapp.com/product/latest`).then((res) => {
       const posts = res.data.latestProduct.map((obj) => obj);
       this.setState({ posts });
       console.log(posts);
