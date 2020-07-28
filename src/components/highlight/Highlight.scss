@@ -9,9 +9,6 @@
     grid-template-columns: 2fr 1fr;
     grid-gap: 1rem;
 
-    &-item {
-      height: auto;
-    }
   }
 
   &-item2 {
@@ -21,18 +18,19 @@
 
     & img {
       width: 100%;
+      height: 100%;
       border-radius: 5px;
     }
 
     &-items {
-      height: auto;
+      height: inherit;
     }
   }
 
   &-item1 {
     & img {
       border-radius: 5px;
-      height: 27.6vw;
+      height: 65vh;
     }
   }
 }
