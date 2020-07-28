@@ -8,7 +8,7 @@ export default function CardWithDiscount(props) {
         <img src={props.data.image1} alt="image1" />
       </div>
       <div className="cardDiscount-item-des mt-2">
-        <p className=" text-truncate">
+        <p className="">
           {props.data.description}
         </p>
         <span className="cardDiscount-item-actual">

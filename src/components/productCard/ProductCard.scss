@@ -53,6 +53,10 @@
       }
 
       &-product {
+
+        &-text{
+          padding: .5rem;
+        }
         &-desc {
           margin-bottom: 0.5rem;
         }
@@ -72,8 +76,8 @@
         }
 
         & img {
-          height: 7rem;
-          width: 7rem;
+          height: auto;
+          width: 100%;
         }
       }
     }
