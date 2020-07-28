@@ -13,6 +13,7 @@ import BestSelling from './components/products/bestSelling/BestSelling';
 import Banner3 from './components/banner/banner3/Banner3';
 import About from './components/about/About';
 import Footer from './components/footer/Footer';
+import Banner4 from './components/banner/banner4/Banner4';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
    <PopularCategories/>
    <Banner2/>
    <BestSelling/>
+   <Banner4/>
    <Banner3/>
    <About/>
    <Footer/>

@@ -1,0 +1,70 @@
+@import "../../../style/variable";
+
+.banner4 {
+  // background-color: black;
+  margin: 1rem 2rem;
+  border-radius: 5px;
+
+  &-tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    grid-gap: 1rem;
+
+    &-item {
+      background-color: $color-white;
+
+      & img {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        width: 100%;
+        height: auto;
+      }
+
+      &-description {
+        padding: 1rem;
+        color: $color-text;
+        text-transform: capitalize;
+
+        & h6 {
+          font-size: 1.4rem;
+          font-weight: 600;
+        }
+      }
+
+      &-link {
+        color: $color-button !important;
+      }
+    }
+  }
+
+  &-link {
+    color: $color-text !important;
+    margin: 1.5rem 0rem;
+  }
+}
+
+@media screen and (max-width:768px){
+    .banner4{
+        margin: .5rem;
+
+        &-tools{
+            grid-gap: .5rem;
+
+            &-item{
+
+                &-description{
+                    padding: .5rem;
+                    font-size: .8rem;
+
+                    & h6{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        &-link{
+            margin: .5rem 0rem;
+        }
+    }
+}
