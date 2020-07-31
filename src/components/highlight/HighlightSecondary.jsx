@@ -11,7 +11,6 @@ class HighlightSecondary extends Component {
     axios.get(`https://saptasoch.herokuapp.com/secondaryHighlight`).then((res) => {
       const posts = res.data.map((obj) => obj);
       this.setState({ posts });
-      console.log(posts);
     });
   }
 
