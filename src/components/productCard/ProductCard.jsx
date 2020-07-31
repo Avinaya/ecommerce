@@ -2,6 +2,7 @@ import React from "react";
 import "./ProductCard.scss";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import Rating from './../rating/rating';
 
 const ProductCard = (props) => {
   const history = useHistory();
@@ -27,12 +28,13 @@ const ProductCard = (props) => {
             <div
               key={index}
               className="recommended-tools-item"
-              onClick={getDetail(val)}
+              
             >
               <div className="recommended-tools-item-product">
-                <img src={val.image1} alt="productName" />
+                <img src={val.image1} alt="productName" onClick={getDetail(val)} />
               </div>
               <div className="recommended-tools-item-product recommended-tools-item-product-text ">
+              <div onClick={getDetail(val)}>
                 <p className="recommended-tools-item-product-desc">
                   {val.description}
                 </p>
@@ -45,6 +47,8 @@ const ProductCard = (props) => {
                 <p className="recommended-tools-item-product-save">
                   You save Rs.{val.discountedPrice}
                 </p>
+                </div>
+                <span><Rating/></span>
               </div>
             </div>
           );

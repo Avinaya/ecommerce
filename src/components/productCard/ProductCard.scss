@@ -54,12 +54,14 @@
       }
 
       &-product {
-
-        &-text{
-          padding: .5rem;
+        &-text {
+          padding: 0.5rem;
         }
         &-desc {
           margin-bottom: 0.5rem;
+          line-height: 1.5em;
+          height: 3em; /* height is 2x line-height, so two lines will display */
+          overflow: hidden;
         }
 
         &-actual {
@@ -89,8 +91,9 @@
   .recommended-tools-item {
     display: block;
     text-align: center;
+    padding: 0.1rem;
   }
-  .recommended-tools-item-product-text{
+  .recommended-tools-item-product-text {
     padding: 0;
   }
 }
