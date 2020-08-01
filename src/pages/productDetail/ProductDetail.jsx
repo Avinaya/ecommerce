@@ -38,7 +38,8 @@ class ProductDetail extends Component {
         </div>
         <div className="detailProduct-tools">
           <div className="detailProduct-tools-item">
-          <ProductDetailImage data={this.state.posts} />
+          <ProductDetailImage data={this.state.posts}
+                                img1={this.state.posts.image1}/>
           </div>
           <div className="detailProduct-tools-item">
           <ProductDetailDesciption data={this.state.posts}/>
