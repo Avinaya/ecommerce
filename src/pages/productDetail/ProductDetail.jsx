@@ -4,6 +4,7 @@ import "./ProductDetail.scss";
 import { Link } from "react-router-dom";
 import ProductDetailImage from './productDetailImage/ProductDetailImage';
 import ProductDetailDesciption from "./ProductDetailDescription/ProductDetailDesciption";
+import ProductDetailDescriptionMenu from "./productDetailDescriptionMenu/ProductDetailDescriptionMenu";
 
 
 class ProductDetail extends Component {
@@ -51,6 +52,7 @@ class ProductDetail extends Component {
         <span>Sold by <Link className="link ml-2 detailProduct-sold-link1" to="/">Aalmari</Link></span>
         <span><Link className="link detailProduct-sold-link2" to="/">Learn More</Link></span>
         </div>
+        <ProductDetailDescriptionMenu/>
       </div>
     );
   }

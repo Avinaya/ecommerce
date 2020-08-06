@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductCard.scss";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import Rating from './../rating/rating';
+import Rating from "./../rating/rating";
 
 const ProductCard = (props) => {
   const history = useHistory();
@@ -10,7 +10,6 @@ const ProductCard = (props) => {
   const getDetail = (param) => (e) => {
     e.preventDefault();
     history.push(`/product/${param.productId}`);
-
   };
 
   var limited = props.data.filter((val, i) => i < 6);
@@ -25,30 +24,32 @@ const ProductCard = (props) => {
       <div className="recommended-tools">
         {limited.map((val, index) => {
           return (
-            <div
-              key={index}
-              className="recommended-tools-item"
-              
-            >
+            <div key={index} className="recommended-tools-item">
               <div className="recommended-tools-item-product">
-                <img src={val.image1} alt="productName" onClick={getDetail(val)} />
+                <img
+                  src={val.image1}
+                  alt="productName"
+                  onClick={getDetail(val)}
+                />
               </div>
               <div className="recommended-tools-item-product recommended-tools-item-product-text ">
-              <div onClick={getDetail(val)}>
-                <p className="recommended-tools-item-product-desc">
-                  {val.description}
-                </p>
-                <span className="recommended-tools-item-product-actual">
-                  Rs.{val.actualPrice}
-                </span>
-                <span className="recommended-tools-item-product-discount">
-                  Rs.{val.growPrice}
-                </span>
-                <p className="recommended-tools-item-product-save">
-                  You save Rs.{val.discountedPrice}
-                </p>
+                <div onClick={getDetail(val)}>
+                  <p className="recommended-tools-item-product-desc">
+                    {val.description}
+                  </p>
+                  <span className="recommended-tools-item-product-actual">
+                    Rs.{val.actualPrice}
+                  </span>
+                  <span className="recommended-tools-item-product-discount">
+                    Rs.{val.growPrice}
+                  </span>
+                  <p className="recommended-tools-item-product-save">
+                    You save Rs.{val.discountedPrice}
+                  </p>
                 </div>
-                <span><Rating/></span>
+                <span>
+                  <Rating />
+                </span>
               </div>
             </div>
           );

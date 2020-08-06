@@ -1,0 +1,21 @@
+@import "../../../style/variable";
+
+.productDetailDescriptionMenu {
+  margin: 1rem 2rem;
+  background-color: $color-white;
+  height: 90vh;
+
+  &-tools {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 1rem;
+    position: relative;
+
+    &-item {
+    //   background-color: blue;
+
+      
+    }
+  }
+}
+

@@ -70,7 +70,8 @@
     border-bottom: .0625rem solid #f2f2f2;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    grid-gap: 1rem;    padding: 1rem 0;
+    grid-gap: 1rem;    
+    padding: 1rem 0;
      & i{
        color: $color-button;
        font-size: 1.3rem;
