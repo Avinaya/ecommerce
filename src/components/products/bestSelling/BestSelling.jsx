@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import CardWithDiscount from "../../productCard/cardWithDiscount/CardWithDiscount";
-import "./BestSelling.scss";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import { Link } from "react-router-dom";
-import Setting from "./setting";
+import ProductCard from './../../productCard/ProductCard';
+
+const title = "Best Selling Products";
 
 class BestSelling extends Component {
   componentDidMount() {
@@ -19,7 +15,6 @@ class BestSelling extends Component {
       .then((res) => {
         const posts = res.data.map((obj) => obj);
         this.setState({ posts });
-        console.log(posts);
       });
   }
 
@@ -33,24 +28,7 @@ class BestSelling extends Component {
   }
 
   render() {
-    return (
-      <div className="bestSelling">
-        <h5>Best Selling Products</h5>
-        <div className="bestSelling-tools">
-          <Slider {...Setting}>
-            {this.state.posts.map((val, key) => {
-              return (
-                <Link key={key} className="link" to="/">
-                  <div className="bestSelling-tools-item">
-                    <CardWithDiscount data={val} />
-                  </div>
-                </Link>
-              );
-            })}
-          </Slider>
-        </div>
-      </div>
-    );
+    return <ProductCard data={this.state.posts} title={title} />;
   }
 }
 

@@ -35,6 +35,7 @@
       padding: 1rem;
       display: grid;
       height: 100%;
+      cursor: pointer;
       grid-template-columns: 1fr 2fr;
       // background-color: orange;
       // grid-gap: 1rem;
@@ -42,9 +43,13 @@
         0 1px 10px 0 rgba(0, 0, 0, 0.1);
       transition: all 0.5s;
 
+
       &:hover {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+      &:hover .recommended-tools-item-product img {
+        transform: scale(1.1);       
       }
 
       &-link {
@@ -53,8 +58,14 @@
       }
 
       &-product {
+        &-text {
+          padding: 0.5rem;
+        }
         &-desc {
           margin-bottom: 0.5rem;
+          line-height: 1.5em;
+          height: 3em; /* height is 2x line-height, so two lines will display */
+          overflow: hidden;
         }
 
         &-actual {
@@ -72,8 +83,9 @@
         }
 
         & img {
-          height: 7rem;
-          width: 7rem;
+          transition: all 0.5s;
+          height: auto;
+          width: 100%;
         }
       }
     }
@@ -84,6 +96,10 @@
   .recommended-tools-item {
     display: block;
     text-align: center;
+    padding: 0.1rem;
+  }
+  .recommended-tools-item-product-text {
+    padding: 0;
   }
 }
 

@@ -1,0 +1,83 @@
+@import "../../style/variable";
+
+.detailProduct {
+  &-tag {
+    padding: 1rem 2rem;
+    text-transform: capitalize;
+    background-color: $color-white;
+
+    &-heading {
+      font-weight: 600;
+    }
+  }
+
+  &-tools {
+    margin: 1rem 2rem;
+    background-color: $color-white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: .1rem;
+
+    &-item {
+    padding: 2rem;  
+    }
+  }
+
+  &-sold{
+    margin: 1rem 2rem;
+    background-color: $color-white;
+    padding: 1rem 1rem;
+
+    &-link1{
+      color: #644ba0 !important;
+      font-weight: 600;
+      
+    }
+    &-link2{
+      color: $color-button !important;
+      font-weight: 600;
+      border-bottom: 1px solid  $color-button;
+      
+    }
+
+    & span:nth-child(1){
+      background-color: $color-primary;
+      padding: .5rem 1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: $color-white;
+    }
+    & span:nth-child(2){
+      font-size: 1.3rem;
+    margin: 0 2rem;
+    }
+  }
+}
+
+@media screen and (max-width:768px){
+.detailProduct{
+
+  &-tools{
+    margin: .5rem;
+    grid-template-columns: 1fr;
+
+    &-item{
+      padding: .5rem;
+    }
+  }
+
+  &-sold{
+    margin: .5rem;
+
+    & span:nth-child(3){
+      display: none;
+    }
+  }
+}
+}
+
+
+
+
+

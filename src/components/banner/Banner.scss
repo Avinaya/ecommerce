@@ -2,10 +2,12 @@
 
 .banner {
 
-    margin: 0rem 1rem;
+    margin: 1rem 1rem;
 
     &-tools{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: nowrap;
 
     &-item{
