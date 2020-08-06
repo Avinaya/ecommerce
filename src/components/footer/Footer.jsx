@@ -65,32 +65,32 @@ const Footer = () => {
 
                 <ul className="about-konga">
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Contact Us
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       About Us
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Careers
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Our Blog
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Forum
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Terms & Conditions
                     </a>
                   </li>
@@ -103,27 +103,27 @@ const Footer = () => {
 
                 <ul className="about-konga">
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       KongaPay
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Wallet
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Verve
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Mastercard
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Visa
                     </a>
                   </li>
@@ -137,32 +137,32 @@ const Footer = () => {
 
                 <ul className="about-konga">
                   <li>
-                    <a className="op" target="_self" href="#">
+                    <a className="op" target="_self" href="/">
                       Buyer Safety Centre
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       FAQs
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Delivery
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Konga Return Policy
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Digital Services
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Bulk Purchase
                     </a>
                   </li>
@@ -175,22 +175,22 @@ const Footer = () => {
 
                 <ul className="about-konga">
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Site Map
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Track My Order
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Privacy Policy
                     </a>
                   </li>
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Authentic Items Policy
                     </a>
                   </li>
@@ -203,7 +203,7 @@ const Footer = () => {
 
                 <ul className="about-konga">
                   <li>
-                    <a className="op" href="#">
+                    <a className="op" href="/">
                       Become a Konga Affiliate
                     </a>
                   </li>
@@ -231,7 +231,7 @@ const Footer = () => {
                   <a className="op1" href="/">
                     <div className="footer-tools-bottom-item-side2-one-part-Imag">
                       <img
-                        src={require("../../image/app store1.png")}
+                        src={require("../../image/app store1.png" ) } alt=""
                         height="28"
                         width="24"
                       ></img>
@@ -248,16 +248,16 @@ const Footer = () => {
                 <div className="unique">CONNECT WITH US</div>
                 <div className="footer-tools-bottom-item-side2-part2-links">
                   <a className="op2" href="/">
-                    <img src={require("../../image/fb.png")}></img>
+                    <img src={require("../../image/fb.png")} alt=""></img>
                   </a>
                   <a className="op2" href="/">
-                    <img src={require("../../image/tw.png")}></img>
+                    <img src={require("../../image/tw.png")} alt=""></img>
                   </a>
                   <a className="op2" href="/">
-                    <img src={require("../../image/fb.png")}></img>
+                    <img src={require("../../image/fb.png")} alt=""></img>
                   </a>
                   <a className="op2" href="/">
-                    <img src={require("../../image/you.png")}></img>
+                    <img src={require("../../image/you.png")} alt=""></img>
                   </a>
                 </div>
               </div>
