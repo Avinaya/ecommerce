@@ -221,6 +221,7 @@ const Footer = () => {
                         src={require("../../image/app store1.png")}
                         height="28"
                         width="24"
+                        alt=""
                       ></img>
                     </div>
                     <div className="footer-tools-bottom-item-side2-one-part-text">
