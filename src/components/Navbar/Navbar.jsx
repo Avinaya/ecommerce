@@ -3,6 +3,7 @@ import "./Navbar.scss";
 import Image from "../../image/konga.png";
 import { Link } from "react-router-dom";
 import CollasableMenu from "../collapsMenu/CollasableMenu";
+import Search from "./search/Search";
 
 const Navbar = () => {
   return (
@@ -11,7 +12,8 @@ const Navbar = () => {
         <div className="header-tools">
           <div className="header-tools-item i1">
             <Link className="header-link" to="/">
-<img src={Image} alt="konga" /></Link>
+              <img src={Image} alt="konga" />
+            </Link>
           </div>
           <div className="header-tools-item i2">
             <div className="dropdown">
@@ -38,28 +40,25 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+
+
           <div className="header-tools-item i3">
-            <form>
-              <div className="input-group py-2">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search Products, Brands, Categories......"
-                />
-                <div className="input-group-append">
-                  <button className="btn header-search-btn"><i className="fa fa-search"></i></button>
-                </div>
-              </div>
-            </form>
+            <Search/>
           </div>
+
+
           <div className="header-tools-item i4">
-          <Link  className="header-link"to="/">Sells On Kanga</Link>
+            <Link className="header-link" to="/">
+              Sells On Kanga
+            </Link>
           </div>
           <div className="header-tools-item i5">
-          <Link  className="header-link"to="/"><i className="fa fa-user-o"></i> Login / SignUp</Link>
+            <Link className="header-link" to="/">
+              <i className="fa fa-user-o"></i> Login / SignUp
+            </Link>
           </div>
         </div>
-        <CollasableMenu/>
+        <CollasableMenu />
       </div>
     </React.Fragment>
   );

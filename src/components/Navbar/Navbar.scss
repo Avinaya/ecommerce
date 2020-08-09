@@ -16,6 +16,7 @@
     grid-gap: 0.5rem;
 
     &-item {
+      margin-top: .6rem;
       & img {
         height: 2.5rem;
       }
@@ -38,7 +39,8 @@
  }
 }
 .i3 {
-  width: 50vw;
+  width: 40vw;
+  position: relative;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus{

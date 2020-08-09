@@ -1,0 +1,10 @@
+@import '../../../style/variable';
+
+.search-dropdown{
+    text-align: start;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    left: 1rem;
+    // display: none !important;
+}

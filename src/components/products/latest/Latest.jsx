@@ -5,6 +5,15 @@ import ProductCard from "./../../productCard/ProductCard";
 const title = "Latest Products";
 
 class Latest extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      posts: [],
+    };
+    this.getLatest = this.getLatest.bind(this);
+  }
+
   componentDidMount() {
     this.getLatest();
   }
@@ -16,14 +25,7 @@ class Latest extends Component {
     });
   }
 
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      posts: [],
-    };
-    this.getLatest = this.getLatest.bind(this);
-  }
 
   render() {
     return <ProductCard data={this.state.posts} title={title} />;
