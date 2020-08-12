@@ -51,16 +51,12 @@ const Footer = () => {
       </div>
 
       <div>
-      <div className="more-option-menu">
-      <span>
-      MORE OPTIONS</span>
-      </div>
         <div className="footer-tools-bottom">
           <div className="footer-tools-bottom-item">
             <div className="footer-tools-bottom-item-side1">
               <div className="footer-tools-bottom-item-side1-AK">
                 <Link className="footer-tools-bottom-link" to="/">
-                  ABOUT KONGA
+                  ABOUT SAPTABAZAR
                 </Link>
 
                 <ul className="about-konga">
@@ -104,7 +100,7 @@ const Footer = () => {
                 <ul className="about-konga">
                   <li>
                     <a className="op" href="/">
-                      KongaPay
+                      Saptabazar Pay
                     </a>
                   </li>
                   <li>
@@ -132,7 +128,7 @@ const Footer = () => {
 
               <div className="footer-tools-bottom-item-side1-AK">
                 <Link className="footer-tools-bottom-link" to="/">
-                  BUYING ON KONGO
+                  BUYING ON SAPTABAZAR
                 </Link>
 
                 <ul className="about-konga">
@@ -153,7 +149,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a className="op" href="/">
-                      Konga Return Policy
+                    SaptaBazar Return Policy
                     </a>
                   </li>
                   <li>
@@ -204,7 +200,7 @@ const Footer = () => {
                 <ul className="about-konga">
                   <li>
                     <a className="op" href="/">
-                      Become a Konga Affiliate
+                      Become a SaptaBazar Affiliate
                     </a>
                   </li>
                 </ul>

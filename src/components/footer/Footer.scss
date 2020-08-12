@@ -4,28 +4,28 @@
 .footer {
   font-family: Helvetica;
   background-color: #1c1d1f;
-  color: #b5b5b5;
+  color: $color-white;
 
   &-tools-top {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     background-color: #2e2e2e;
-    grid-gap: 1rem;
 
     &-item {
       padding: 0.5rem;
-      // background-color: orangered;
 
       &-icon {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         padding: 0.9rem;
         margin-right: 0.5rem;
-        background-color: orchid;
+        background-color: $color-white;
+        color: $color-black;
         border-radius: 50%;
       }
 
       &-heading {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-transform: uppercase;
       }
     }
@@ -360,38 +360,5 @@ display: block;
   }
   
 }
-@media screen and (max-width: 576px){
-  .footer {
-    &-tools-bottom-item-side2-one-part{
-      justify-content: space-around;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-    }
-  }
-}
-
-// ==================
-
-@media screen and (max-width: 576px){
-#op1{
-  margin: 0;
-    width: 0.75rem;
-}
-}
 
 
-// =========================
-@media screen and (max-width: 576px){
-  .more-option-menu {
-    background-color: #0c0c0c;
-    border-bottom: .0625rem solid #333;
-    color: #b5b5b5;
-    display: block;
-    font-weight: 600;
-    letter-spacing: .025rem;
-    padding: 1.25rem 1.3125rem;
-    width: 100%;
-
-}
-}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.scss";
-import Image from "../../image/konga.png";
+// import Image from "../../image/konga.png";
 import { Link } from "react-router-dom";
 import CollasableMenu from "../collapsMenu/CollasableMenu";
 import Search from "./search/Search";
@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="header-tools">
           <div className="header-tools-item i1">
             <Link className="header-link" to="/">
-              <img src={Image} alt="konga" />
+              <span className="logo-heading">Sapta</span><span className="logo-heading-1">Bazar</span> 
             </Link>
           </div>
           <div className="header-tools-item i2">
@@ -49,7 +49,7 @@ const Navbar = () => {
 
           <div className="header-tools-item i4">
             <Link className="header-link" to="/">
-              Sells On Kanga
+              Sells On SaptaBazar
             </Link>
           </div>
           <div className="header-tools-item i5">

@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="banner-tools">
         <div className="banner-tools-item">
           <Link to="/">
-            <img src={require("../../image/kongabanner.png")} alt="banner" />
+            <img src={require("../../image/returnPolicy.png")} alt="banner" />
           </Link>
         </div>
         <div className="banner-tools-item">

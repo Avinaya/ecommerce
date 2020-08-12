@@ -4,9 +4,9 @@ import './About.scss'
 export default function About() {
   return (
     <div className="about">
-      <h6 className="about-heading">Online Shopping on Konga.com – Nigeria’s Largest Online Mall</h6>
+      <h6 className="about-heading">Online Shopping on saptabazar.com – Nepal's Largest Online Mall</h6>
       <p className="about-paragraph">
-        Konga.com is Nigeria’s number one online Shopping destination.We pride
+        Saptabazar.com is Nepal's number one online Shopping destination.We pride
         ourselves in having everything you could possibly need for life and
         living at the best prices than anywhere else. Our access to Original
         Equipment Manufacturers and premium sellers gives us a wide range of
