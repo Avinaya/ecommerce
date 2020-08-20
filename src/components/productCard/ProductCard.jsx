@@ -11,7 +11,6 @@ const ProductCard = (props) => {
     e.preventDefault();
     history.push(`/product/${param.productId}`);
   };
-
   var limited = props.data.filter((val, i) => i < 6);
   return (
     <div className="recommended">
@@ -24,27 +23,26 @@ const ProductCard = (props) => {
       <div className="recommended-tools">
         {limited.map((val, index) => {
           return (
-            <div key={index} className="recommended-tools-item">
+            <div key={index} className="recommended-tools-item" onClick={getDetail(val)}>
               <div className="recommended-tools-item-product">
                 <img
-                  src={val.image1}
+                  src={val.productImageList[0].image}
                   alt="productName"
-                  onClick={getDetail(val)}
                 />
               </div>
               <div className="recommended-tools-item-product recommended-tools-item-product-text ">
-                <div onClick={getDetail(val)}>
+                <div>
                   <p className="recommended-tools-item-product-desc">
-                    {val.description}
+                    {val.productName}
                   </p>
                   <span className="recommended-tools-item-product-actual">
-                    Rs.{val.actualPrice}
+                    Rs.{val.salePrice}
                   </span>
                   <span className="recommended-tools-item-product-discount">
-                    Rs.{val.growPrice}
+                    Rs.{(val.salePrice)+(val.discountValue)}
                   </span>
                   <p className="recommended-tools-item-product-save">
-                    You save Rs.{val.discountedPrice}
+                    You save Rs.{val.discountValue}
                   </p>
                 </div>
                 <span>

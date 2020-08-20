@@ -4,8 +4,8 @@
     &-main{
 
         img{
-            width: 55%;
-            height: 20rem;
+            width: auto;
+            height:50vh;
             margin-left: auto;
             margin-right: auto;
             display: block;
@@ -15,9 +15,10 @@
 
     &-sample{
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         grid-gap: 1rem;
-        margin-top: 5rem;
+        margin-top: 3rem;
         &-item{
             height: 5rem;
             width: 5rem;

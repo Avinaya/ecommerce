@@ -1,13 +1,25 @@
 @import "../../style/variable";
 
 .detailProduct {
-  &-tag {
+  &-menu {
     padding: 1rem 2rem;
     text-transform: capitalize;
     background-color: $color-white;
 
-    &-heading {
+    & span{
+      font-size: .8rem;
+    }
+    & i{
+      color: $color-text-shadow;
+    }
+
+    &-subcategory{
+      color: $color-primary;
+    }
+
+    &-subcategorytype{
       font-weight: 600;
+      margin-top: .7rem;
     }
   }
 

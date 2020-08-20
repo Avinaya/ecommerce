@@ -1,38 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductDetailImage.scss";
 
 const ProductDetailImage = (props) => {
-  const [imgSrc, setImgSrc] = useState(props.img1);
+  const initialImage = props.data.productImageList;
 
-  React.useEffect(() => {
-    setImgSrc(props.img1);
-  }, [props.img1]);
+  const [imgSrc, setImgSrc] = useState();
+
+  useEffect(() => {
+    setImgSrc(initialImage && initialImage[0].image);
+  }, [initialImage]);
 
   const getImage = (param) => (e) => {
     e.preventDefault();
-    setImgSrc(param)
-
+    setImgSrc(param);
   };
+
   return (
     <div className="productDetailImage">
       <div className="productDetailImage-main">
         <img id="img-area" src={imgSrc} alt=""></img>
       </div>
       <div className="productDetailImage-sample">
-        <div className="productDetailImage-sample-item" >
-          <img
-            src={props.data.image1}
-            alt=""
-            onClick={getImage(props.data.image1)}
-          ></img>
-        </div>
-        <div className="productDetailImage-sample-item">
-          <img
-            src={props.data.image2}
-            alt=""
-            onClick={getImage(props.data.image2)}
-          ></img>
-        </div>
+        {initialImage &&
+          initialImage.map((val, index) => {
+            return (
+              <div className="productDetailImage-sample-item" key={index}>
+                <img src={val.image} alt="" onClick={getImage(val.image)}></img>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

@@ -5,28 +5,30 @@ import Quantity from "./../quantity/Quantity";
 import Rating from '../../../components/rating/rating'
 
 function ProductDetailDesciption(props) {
+
+  const brand = props.data.brand;
+
   return (
     <div className="productDetailDesciption">
       <div className="productDetailDesciption-heading">
-        <h4>{props.data.description}</h4>
-        <span className="d-block">Product Code: 374893</span>
+        <h4>{props.data.productName}</h4>
+        <span className="d-block">Product Code: {props.data.productCode}</span>
         <span>
-          Brand:{" "}
           <Link className="link" to="/">
-            Samsung
+          Brand: {brand && brand.brandName}
           </Link>
         </span>
         <Rating/>
         </div>
       <div className="productDetailDesciption-price">
         <h4 className="d-inline productDetailDesciption-price-actualPrice">
-          Rs.{props.data.actualPrice}
+          Rs.{props.data.salePrice}
         </h4>
-        <span className="d-inline mx-3 productDetailDesciption-price-growPrice">
-          Rs.{props.data.growPrice}
+        <span className="d-inline mx-2 productDetailDesciption-price-growPrice">
+          Rs.{(props.data.salePrice)+(props.data.discountValue)}
         </span>
         <p className="d-inline productDetailDesciption-price-discountPrice">
-          You save Rs.{props.data.discountedPrice}
+          You save Rs.{props.data.discountValue}
         </p>
       </div>
       <div className="productDetailDesciption-quantity">

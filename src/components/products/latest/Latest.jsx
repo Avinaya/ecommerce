@@ -19,8 +19,8 @@ class Latest extends Component {
   }
 
   getLatest() {
-    axios.get(`https://saptasoch.herokuapp.com/product/latest`).then((res) => {
-      const posts = res.data.latestProduct.map((obj) => obj);
+    axios.get(`https://saptasoch.herokuapp.com/product/tag/latest`).then((res) => {
+      const posts = res.data.map((obj) => obj);
       this.setState({ posts });
     });
   }

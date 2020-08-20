@@ -11,7 +11,7 @@ class Highlight extends Component {
   }
 
   getHighlight() {
-    axios.get(`https://saptasoch.herokuapp.com/highlight`).then((res) => {
+    axios.get(`https://saptasoch.herokuapp.com/mainSlider`).then((res) => {
       const posts = res.data.map((obj) => obj);
       this.setState({ posts });
     });
