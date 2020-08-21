@@ -2,6 +2,7 @@
 
 .detailProduct {
   &-menu {
+    margin-top: 1rem;
     padding: 1rem 2rem;
     text-transform: capitalize;
     background-color: $color-white;
@@ -87,6 +88,14 @@
     }
   }
 }
+}
+
+@media screen and (max-width: 576px) {
+  .detailProduct {
+    &-menu {
+      padding: 1rem;
+    }
+  }
 }
 
 

@@ -5,6 +5,7 @@ import ProductDetail from "./pages/productDetail/ProductDetail";
 import Navbar from "./components/Navbar/Navbar";
 import Mobheader from "./components/mob-header/Mobheader";
 import Menu from "./components/menu/Menu";
+import Footer from './components/footer/Footer'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/Product/:productId" component={ProductDetail} />
       </Switch>
+      <Footer/>
     </React.Fragment>
   );
 }

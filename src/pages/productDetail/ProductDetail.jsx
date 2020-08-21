@@ -4,7 +4,8 @@ import "./ProductDetail.scss";
 import { Link } from "react-router-dom";
 import ProductDetailImage from "./productDetailImage/ProductDetailImage";
 import ProductDetailDesciption from "./ProductDetailDescription/ProductDetailDesciption";
-import ProductDetailDescriptionMenu from "./productDetailDescriptionMenu/ProductDetailDescriptionMenu";
+import ProductDetailMenu from "./ProductDetailMenu/ProductDetailMenu";
+import ProductDetailMenuMobile from "./ProductDetailMenu/ProductDetailMenuMobile/ProductDetailMenuMobile";
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -44,8 +45,8 @@ class ProductDetail extends Component {
   render() {
     return (
       <div className="detailProduct">
+      
         <div className="detailProduct-menu">
-
            <Link to="/" className="link"><span>Home</span></Link> 
             <i className="fa fa-angle-right mx-2"></i>
             <Link to="/" className="link"><span>{this.state.categories.category}</span></Link> 
@@ -56,6 +57,7 @@ class ProductDetail extends Component {
            {this.state.categories.subCategoryType}
           </h4>
         </div>
+
         <div className="detailProduct-tools">
           <div className="detailProduct-tools-item">
             <ProductDetailImage data={this.state.posts} />
@@ -79,8 +81,11 @@ class ProductDetail extends Component {
             </Link>
           </span>
         </div>
-        <ProductDetailDescriptionMenu data={this.state.posts}/>
+
+        <ProductDetailMenu data={this.state.posts}/>
+        <ProductDetailMenuMobile data={this.state.posts}/>
       </div>
+      
     );
   }
 }

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+@import '../../../../style/variable';
+
+.accordion{
+    margin: .5rem;
+  } 
+  
+  .tab-input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  // Layout
+  .row {
+    display:flex;
+    .col {
+      flex:1;
+      &:last-child {
+        margin-left: 1em;
+      }
+    }
+  }
+  /* Accordion styles */
+  .tabs {
+    overflow: hidden;
+  }
+  .tab {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid $color-white-shadow;
+    // margin-bottom: .3rem;
+    &-label {
+      display: flex;
+      justify-content: space-between;
+      padding: 1em;
+      background: $color-white;
+      font-weight: bold;
+      cursor: pointer;
+      /* Icon */
+    
+      &::after {
+        content: "\276F";
+        width: 1em;
+        height: 1em;
+        text-align: center;
+        transition: all .35s;
+      }
+    }
+    &-content {
+      max-height: 0;
+      background: $color-white;
+      transition: all .35s;
+      color: #000;
+    }
+    &-close {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1em;
+      font-size: 0.75em;
+      cursor: pointer;
+    }
+  }
+  
+  // :checked
+  input:checked {
+    + .tab-label {
+      &::after {
+        transform: rotate(90deg);
+      }
+    }
+    ~ .tab-content {
+      max-height: inherit;
+      padding-bottom: 1em;
+    }
+  }
+  
+  //large screen
+  @media screen and (min-width:769px){
+    .accordion{
+        display: none !important;
+    }
+    .productDetailMenuContent{
+      padding: 2rem;
+      &-list-item{
+        line-height: 2.5;
+      }
+    }
+  }
