@@ -16,7 +16,7 @@ class Search extends Component {
 
   searchApi(text) {
     axios
-      .get(`https://saptasoch.herokuapp.com/product/search?keyword=${text}`)
+      .get(`https://saptasoch.herokuapp.com/product/search/${text}`)
       .then((res) => {
         const posts = res.data.map((obj) => obj);
         console.log(posts);
@@ -72,7 +72,7 @@ class Search extends Component {
                 key={index}
                 className="list-group-item list-group-item-action"
               >
-                {val.description}
+                {val.productName}
               </Link>
             );
           })}

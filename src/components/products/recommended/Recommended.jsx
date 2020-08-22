@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ProductCard from "./../../productCard/ProductCard";
+import ProductCard from './../../productCard/firstProductCard/ProductCard';
 import { RecommendedProductConsumer } from "../../contexApi/contexApiRecommended/ContexApiRecommended";
 
-const title = "Recommended Products";
+const title = "Recommended";
 
 class Recommended extends Component {
   render() {

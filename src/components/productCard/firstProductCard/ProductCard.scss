@@ -1,6 +1,6 @@
-@import "../../style/variable";
+@import "../../../style/variable";
 
-.recommended {
+.productCard {
   margin: 1rem 2rem;
   background-color: $color-white;
   border-radius: 5px;
@@ -90,24 +90,24 @@
 }
 
 @media screen and (max-width: 600px) {
-  .recommended-tools-item {
+  .productCard-tools-item {
     display: block;
     text-align: center;
     padding: 0.1rem;
   }
-  .recommended-tools-item-product-text {
+  .productCard-tools-item-product-text {
     padding: 0;
   }
 }
 
 @media screen and (max-width: 375px) {
-  .recommended-heading {
+  .productCard-heading {
     &-title {
       font-size: 0.9rem;
     }
     font-size: 0.8rem;
   }
-  .recommended-tools-item-product {
+  .productCard-tools-item-product {
     &-discount {
       display: none;
     }
@@ -124,7 +124,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .recommended {
+  .productCard {
     margin: 1rem 0.5rem;
 
     &-tools {

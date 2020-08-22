@@ -6,8 +6,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Mobheader from "./components/mob-header/Mobheader";
 import Menu from "./components/menu/Menu";
 import Footer from './components/footer/Footer'
+import ProductTagAll from "./pages/productTagAll/ProductTagAll";
 
-function App() {
+const App = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -20,7 +21,8 @@ function App() {
       <Menu />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/Product/:productId" component={ProductDetail} />
+        <Route  path="/product/:productId" component={ProductDetail} />
+        <Route  path="/:title" component={ProductTagAll}/>
       </Switch>
       <Footer/>
     </React.Fragment>

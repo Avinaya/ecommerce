@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ProductCard from "./../../productCard/ProductCard";
+import ProductCard from './../../productCard/firstProductCard/ProductCard';
 
-const title = "Latest Products";
+const title = "Latest";
 
 class Latest extends Component {
   constructor(props) {

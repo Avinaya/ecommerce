@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductDetailDesciption.scss";
 import { Link } from "react-router-dom";
 import Quantity from "./../quantity/Quantity";
-import Rating from '../../../components/rating/rating'
+import ProductRating from '../../../components/rating/ProductRating'
 
 function ProductDetailDesciption(props) {
 
@@ -18,7 +18,7 @@ function ProductDetailDesciption(props) {
           Brand: {brand && brand.brandName}
           </Link>
         </span>
-        <Rating/>
+        <ProductRating/>
         </div>
       <div className="productDetailDesciption-price">
         <h4 className="d-inline productDetailDesciption-price-actualPrice">

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ProductCard from './../../productCard/ProductCard';
+import ProductCard from "./../../productCard/firstProductCard/ProductCard";
 
-const title = "Best Selling Products";
+const title = "BestSelling";
 
 class BestSelling extends Component {
   componentDidMount() {

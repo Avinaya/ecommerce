@@ -1,0 +1,30 @@
+@import "../../style/variable";
+.productTagAll {
+  &-tag{
+    color: $color-primary !important;
+  }
+  &-tools {
+    margin: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    grid-gap: 1rem;
+    justify-content: space-between;
+
+    &-item {
+      background-color: $color-white;
+      // background-color: yellow;
+
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .productTagAll {
+
+    
+  
+    &-tools{
+      margin: .5rem;
+    }
+  }
+}
