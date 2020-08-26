@@ -1,10 +1,33 @@
 @import '../../../style/variable';
 
-.search-dropdown{
-    text-align: start;
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    left: 1rem;
-    // display: none !important;
+
+.searchBar {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  padding: 5px;
+  height: 2.18rem;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  border: none;
+}
+
+.searchButton {
+  width: 40px;
+  height: 2.18rem;
+  background: orange;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: White;
+  cursor: pointer;
+}   
+
+@media screen and (max-width: 768px) {
+  .searchTerm{
+    background-color: rgba(172, 172, 172, 0.658);
+  }
 }

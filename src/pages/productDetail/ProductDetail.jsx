@@ -6,17 +6,25 @@ import ProductDetailImage from "./productDetailImage/ProductDetailImage";
 import ProductDetailDesciption from "./ProductDetailDescription/ProductDetailDesciption";
 import ProductDetailMenu from "./ProductDetailMenu/ProductDetailMenu";
 import ProductDetailMenuMobile from "./ProductDetailMenu/ProductDetailMenuMobile/ProductDetailMenuMobile";
+import DetailTopBar from "../../components/detailTopBar/DatailTopBar";
 
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-       posts: [],
-       categories:[]
-   };
+      posts: [],
+      categories: [],
+    };
+    this.searchProduct = this.searchProduct.bind(this);
+    this.searchCategories = this.searchCategories.bind(this);
   }
 
   componentDidMount() {
+    this.searchProduct();
+    this.searchCategories();
+  }
+
+  searchProduct() {
     axios
       .get(
         `https://saptasoch.herokuapp.com/product/${this.props.match.params.productId}`
@@ -28,8 +36,10 @@ class ProductDetail extends Component {
       .catch(function (error) {
         console.log(error);
       });
+  }
 
-      axios
+  searchCategories() {
+    axios
       .get(
         `https://saptasoch.herokuapp.com/product/categoriesName/${this.props.match.params.productId}`
       )
@@ -45,18 +55,11 @@ class ProductDetail extends Component {
   render() {
     return (
       <div className="detailProduct">
-      
-        <div className="detailProduct-menu">
-           <Link to="/" className="link"><span>Home</span></Link> 
-            <i className="fa fa-angle-right mx-2"></i>
-            <Link to="/" className="link"><span>{this.state.categories.category}</span></Link> 
-            <i className="fa fa-angle-right mx-2"></i>
-            <Link to="/" className="link"><span className="detailProduct-menu-subcategory">{this.state.categories.subCategory}</span></Link> 
-
-           <h4 className="detailProduct-menu-subcategorytype">
-           {this.state.categories.subCategoryType}
-          </h4>
-        </div>
+        <DetailTopBar
+          category={this.state.categories.category}
+          subCategory={this.state.categories.subCategory}
+          heading={this.state.categories.subCategoryType}
+        />
 
         <div className="detailProduct-tools">
           <div className="detailProduct-tools-item">
@@ -82,10 +85,9 @@ class ProductDetail extends Component {
           </span>
         </div>
 
-        <ProductDetailMenu data={this.state.posts}/>
-        <ProductDetailMenuMobile data={this.state.posts}/>
+        <ProductDetailMenu data={this.state.posts} />
+        <ProductDetailMenuMobile data={this.state.posts} />
       </div>
-      
     );
   }
 }

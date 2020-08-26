@@ -1,66 +1,81 @@
 import React from "react";
 import "./Navbar.scss";
-// import Image from "../../image/konga.png";
 import { Link } from "react-router-dom";
-import CollasableMenu from "../collapsMenu/CollasableMenu";
 import Search from "./search/Search";
 
 const Navbar = () => {
   return (
-    <React.Fragment>
-      <div className="header">
-        <div className="header-tools">
-          <div className="header-tools-item i1">
-            <Link className="header-link" to="/">
-              <span className="logo-heading">Sapta</span><span className="logo-heading-1">Bazar</span> 
-            </Link>
-          </div>
-          <div className="header-tools-item i2">
-            <div className="dropdown">
-              <button
-                className="btn dropdown-toggle drop-btn"
-                type="button"
-                id="dropdownMenuButton"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Help
-              </button>
-              <div
-                className="dropdown-menu"
-                aria-labelledby="dropdownMenuButton"
-              >
-                <Link className="dropdown-item" to="/">
-                  FAQs
-                </Link>
-                <Link className="dropdown-item" to="/">
-                  Contact Us
-                </Link>
-              </div>
+    <nav className="navBar">
+      <div className="navBar-tools">
+        <div className="navBar-tools-item navBar-tools-item-logo">
+          <Link to="/" className="link">
+            <span className="navBar-tools-item-logo-text1">Sapta</span>
+            <span className="navBar-tools-item-logo-text2">Bazar</span>
+          </Link>
+        </div>
+        <div className="navBar-tools-item navBar-tools-item-store">
+          <Link to="/" className="link">
+            Store <br></br> Locator
+          </Link>
+        </div>
+        <div className="navBar-tools-item navBar-tools-item-help">
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle navBar-tools-item-help-btn"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Help
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/">
+                FAQs
+              </a>
+              <a class="dropdown-item" href="/">
+                Contact Us
+              </a>
             </div>
           </div>
+        </div>
+        <div className="navBar-tools-item navBar-tools-item-search">
+          <Search />
+        </div>
+        <div className="navBar-tools-item navBar-tools-item-sell">
+          <Link to="/" className="link">
+            Sells On <br></br>SaptaBazar
+          </Link>
+        </div>
+        <div className="navBar-tools-item navBar-tools-item-login">
+          <Link to="/" className="link">
+            Login / <br></br>Signup
+          </Link>
+        </div>
+        <div className="navBar-tools-item navBar-tools-item-cart">
+          <i class="fa fa-shopping-cart mr-1"></i>
+          <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
+          <span className="navBar-tools-item-item">0</span>
+        </div>
 
-
-          <div className="header-tools-item i3">
-            <Search/>
-          </div>
-
-
-          <div className="header-tools-item i4">
-            <Link className="header-link" to="/">
-              Sells On SaptaBazar
+        <div className="navBar-tools-item-sell_cart-mob">
+          <div className="navBar-tools-item-sell_cart-mob-sell mr-3">
+            <Link to="/" className="link">
+              <i class="fas fa-store-alt"></i>
             </Link>
           </div>
-          <div className="header-tools-item i5">
-            <Link className="header-link" to="/">
-              <i className="fa fa-user-o"></i> Login / SignUp
+          <div className="navBar-tools-item-sell_cart-mob-cart">
+            <Link to="/" className="link">
+              <i class="fa fa-shopping-cart mr-1"></i>
             </Link>
           </div>
         </div>
-        <CollasableMenu />
       </div>
-    </React.Fragment>
+      <div className="nav-searchBar-mob">
+        <Search />
+      </div>
+    </nav>
   );
 };
 

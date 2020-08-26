@@ -1,8 +1,5 @@
 @import "../../style/variable";
 .productTagAll {
-  &-tag{
-    color: $color-primary !important;
-  }
   &-tools {
     margin: 1rem 2rem;
     display: grid;
@@ -11,20 +8,17 @@
     justify-content: space-between;
 
     &-item {
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
+      0 1px 10px 0 rgba(0, 0, 0, 0.1);
       background-color: $color-white;
-      // background-color: yellow;
-
     }
   }
 }
 
 @media screen and (max-width: 768px) {
   .productTagAll {
-
-    
-  
-    &-tools{
-      margin: .5rem;
+    &-tools {
+      margin: 0.5rem;
     }
   }
 }

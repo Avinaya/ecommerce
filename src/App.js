@@ -1,13 +1,14 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Mobheader from "./components/mob-header/Mobheader";
-import Menu from "./components/menu/Menu";
+import SideBarMob from './components/sideBar/sideBarMob/SideBarMob';
+import Home from "./pages/home/Home"
+import Footer from "./components/footer/Footer"
+import ProductDetail from "./pages/productDetail/ProductDetail"
+import ProductTagAll from "./pages/productTagAll/ProductTagAll"
+import Categories from './components/category/Categories'
 
-const Home = lazy(() => import("./pages/home/Home"));
-const Footer = lazy(() => import("./components/footer/Footer"));
-const ProductDetail = lazy(() => import("./pages/productDetail/ProductDetail"));
-const ProductTagAll = lazy(() => import("./pages/productTagAll/ProductTagAll"));
 
 const App = () => {
   useEffect(() => {
@@ -17,16 +18,15 @@ const App = () => {
   return (
     <React.Fragment>
       <Navbar />
+      <SideBarMob/>
       <Mobheader />
-      <Menu />
-      <Suspense fallback={<div>Loading.....</div>}>
+      <Categories/>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/product/:productId" component={ProductDetail} />
-          <Route path="/:title" component={ProductTagAll} />
+          <Route exact path="/product/:productId" component={ProductDetail} />
+          <Route exact path="/:title" component={ProductTagAll} />
         </Switch>
-        <Footer />
-      </Suspense>
+        <Footer/>
     </React.Fragment>
   );
 };

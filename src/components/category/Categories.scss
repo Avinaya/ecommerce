@@ -5,25 +5,22 @@
   background-color: $color-primary;
 
   &-tools {
+    // background-color: red ;
+    padding: 0 0.5vw;
     background-color: rgba($color: #000000, $alpha: 0.4);
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5ch;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 
     &-item {
+      // background-color: blue;
       text-align: center;
-      
     }
   }
   &-dropdown {
     border-radius: 0 !important;
     font-size: 0.87rem !important;
-
-    &:hover {
-      background-color: $color-white !important;
-      color: $color-black !important;
-    }
+    color: white !important;
   }
 }
 
@@ -37,29 +34,24 @@
   width: 90vw !important;
   border: none !important;
   margin-left: 5vw !important;
-
 }
 .menu-dropdown {
   text-transform: uppercase;
   font-size: 0.8rem !important;
-
 }
 
-
-
-
 ///Menu item scss file
-
 .menu-item {
-  width: 85vw;
+  margin-top: -1rem;
+  padding-top: 2rem;
   &-tools {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 
     &-item {
-        margin-left: 3vw;
+      margin-left: 3vw;
       & h5 {
-        font-size: .9rem;
+        font-size: 0.9rem;
         font-weight: 600;
         text-transform: capitalize;
       }
@@ -81,17 +73,26 @@
   color: $color-black;
   font-size: 0.8rem;
 
-
   &:hover {
     color: $color-primary;
   }
 }
 
-
-@media screen and (max-width:768px){
-
-  .menu{
+@media screen and (max-width: 768px) {
+  .menu {
     display: none;
-
   }
 }
+  
+
+.drop-menu:hover button{ 
+  background-color: $color-white;
+  color: #000000 !important;
+ }
+
+
+
+ .aaa{
+   z-index: 1234;
+   font-size: 120rem;
+ }

@@ -7,15 +7,19 @@
     box-sizing: border-box;
     font-family: 'Muli', sans-serif;
 }
+
+html{
+    font-size: 100%;
+}
 body{
     background-color: #f1f1f1;
 
 }
 .link{
     text-decoration: none;
-    color: $color-black;
+    color: $color-white;
     &:hover{
-        color: $color-black;
+        color: $color-white;
     }
 }
 p{

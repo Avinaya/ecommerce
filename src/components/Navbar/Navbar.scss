@@ -1,96 +1,159 @@
 @import "../../style/variable";
 
-.header {
+.navBar {
   width: 100%;
   background-color: $color-primary;
-  box-shadow: 0 0.1rem .5rem rgba(0, 0, 0, 0.15) !important;
-  position: relative;
-
+  color: $color-white;
+  padding: 0.5rem 1rem 0.3rem 1rem;
 
   &-tools {
-    padding: 0rem 2rem 0rem 2rem;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    justify-content: center;
+    display: flex;
     align-items: center;
-    grid-gap: 1rem;
-    // background-color: orchid;
 
     &-item {
-      // background-color: orchid;
-
-      // margin-top: .6rem;
-      & img {
-        height: 2.5rem;
+      &-logo {
+        margin-right: 2vw;
+        &-text1 {
+          color: $color-white !important;
+          font-size: 2rem;
+          font-weight: 600;
+        }
+        &-text2 {
+          color: orange;
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
       }
 
-      text-align: center;
+      &-store {
+        margin-right: 2vw;
+      }
+
+      &-help {
+        margin-right: 2vw;
+        &-btn {
+          border: none !important;
+          background-color: inherit !important;
+        }
+      }
+
+      &-search {
+        margin-right: 2vw;
+        flex: 1;
+        // background-color: greenyellow;
+      }
+
+      &-sell {
+        margin-right: 2vw;
+      }
+      &-login {
+        margin-right: 2vw;
+      }
+      &-cart {
+        background-color: #33b27b;
+        padding: 0.5vw;
+
+        & i {
+          font-size: 1.5rem;
+        }
+      }
     }
   }
-
-  &-link {
-    text-decoration: none;
-    color: $color-white;
-    &:hover{
-      color: $color-white;
-    }
-  }
-  
-
- &-search-btn{
-   background-color: orange !important;
- }
 }
-.i3 {
-  width: 40vw;
-  position: relative;
+.navBar-tools-item-sell_cart-mob {
+  display: none;
 }
-
-.btn:focus, .btn:active:focus, .btn.active:focus{
-  outline:none !important;
-  box-shadow:none !important;
+.nav-searchBar-mob {
+  display: none;
 }
-.btn{
-  color: $color-white !important;
-
-}
-
-.dropdown:hover>.dropdown-menu {
+.dropdown:hover .dropdown-menu {
   display: block;
 }
-
-.dropdown>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
-    pointer-events: none;
-
+.dropdown {
+  position: relative !important;
 }
 
-@media (max-width:768px){
+.dropdown-menu {
+  position: absolute !important;
+  top: 2.1rem !important;
+  left: 0 !important;
+  border: none !important;
+}
 
-  .header{
-    
-    &-tools{
+@media only screen and (max-width: 850px) {
+  .navBar-tools-item-logo {
+    margin-right: 1vw;
+  }
+  .navBar-tools-item-store {
+    margin-right: 1vw;
+  }
+  .navBar-tools-item-help {
+    margin-right: 1vw;
+  }
+  .navBar-tools-item-search {
+    margin-right: 1vw;
+  }
+  .navBar-tools-item-sell {
+    margin-right: 1vw;
+  }
+  .navBar-tools-item-login {
+    margin-right: 1vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .nav-searchBar-mob {
     display: block;
-    padding: 1rem;
-    }
+  }
+  .navBar-tools-item-logo-text1 {
+    color: $color-black !important;
+    margin-left: 2rem;
+  }
 
-   
+  .navBar {
+    background-color: $color-white;
   }
-  .i3{
-    width: 100%;
+  .navBar-tools-item-logo {
+    margin-right: 1vw;
   }
-  .i2,.i4,.i5{
+  .navBar-tools-item-store {
     display: none;
   }
-}
+  .navBar-tools-item-help {
+    display: none;
+  }
+  .navBar-tools-item-search {
+    display: none;
+  }
+  .navBar-tools-item-sell {
+    display: none;
+  }
+  .navBar-tools-item-cart {
+    display: none;
+  }
 
-.logo-heading{
-font-size: 2rem;
-font-weight: 600;
+  .navBar-tools-item-login {
+    display: none;
+  }
 
-&-1{
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: orange;
-}
+  .navBar-tools {
+    position: relative;
+  }
+  .navBar-tools-item-sell_cart-mob {
+    position: absolute;
+    right: 0;
+    display: flex;
+
+    &-cart {
+      & i {
+        color: $color-popular;
+        font-size: 1.3rem;
+      }
+    }
+    &-sell {
+      & i {
+        font-size: 1.3rem;
+        color: $color-popular;
+      }
+    }
+  }
 }

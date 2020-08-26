@@ -1,29 +1,6 @@
 @import "../../style/variable";
 
 .detailProduct {
-  &-menu {
-    margin-top: 1rem;
-    padding: 1rem 2rem;
-    text-transform: capitalize;
-    background-color: $color-white;
-
-    & span{
-      font-size: .8rem;
-    }
-    & i{
-      color: $color-text-shadow;
-    }
-
-    &-subcategory{
-      color: $color-primary;
-    }
-
-    &-subcategorytype{
-      font-weight: 600;
-      margin-top: .7rem;
-    }
-  }
-
   &-tools {
     margin: 1rem 2rem;
     background-color: $color-white;
@@ -89,16 +66,5 @@
   }
 }
 }
-
-@media screen and (max-width: 576px) {
-  .detailProduct {
-    &-menu {
-      padding: 1rem;
-    }
-  }
-}
-
-
-
 
 
