@@ -26,6 +26,7 @@ const SecondProductCard = (props) => {
     <div className="secondProductCard" onClick={getDetail(props.data)}>
       <div className="secondProductCard-tools">
 
+      <div>
           <div className="secondProductCard-tools-item secondProductCard-tools-item1">
             <div className="secondProductCard-tools-item1-image">
               <img src={props.data.productImageList[0].image} alt="" />
@@ -34,6 +35,9 @@ const SecondProductCard = (props) => {
               {discount + "% Off"}
             </span>
           </div>
+          </div>
+
+          <div>
           <div className="secondProductCard-tools-item secondProductCard-tools-item-name">
             <span>{props.data.productName}</span>
           </div>
@@ -43,9 +47,12 @@ const SecondProductCard = (props) => {
               {"Rs." + (props.data.salePrice + props.data.discountValue)}
             </span>
           </div>
+          </div>
           <div className="secondProductCard-tools-item secondProductCard-tools-item-seller">
             <span>Sell by Saptabazar</span>
           </div>
+         
+
           <div className="secondProductCard-tools-item">
             <Rating />
           </div>
@@ -54,7 +61,8 @@ const SecondProductCard = (props) => {
               Add To Cart
             </button>
           </div>
-        </div>
+
+        </div>  
     </div>
   );
 };

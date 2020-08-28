@@ -2,10 +2,9 @@ import React from "react";
 import "./ProductDetailDesciption.scss";
 import { Link } from "react-router-dom";
 import Quantity from "./../quantity/Quantity";
-import ProductRating from '../../../components/rating/ProductRating'
+import ProductRating from "../../../components/rating/ProductRating";
 
 function ProductDetailDesciption(props) {
-
   const brand = props.data.brand;
 
   return (
@@ -13,19 +12,18 @@ function ProductDetailDesciption(props) {
       <div className="productDetailDesciption-heading">
         <h4>{props.data.productName}</h4>
         <span className="d-block">Product Code: {props.data.productCode}</span>
-        <span>
-          <Link className="link" to="/">
-          Brand: {brand && brand.brandName}
-          </Link>
-        </span>
-        <ProductRating/>
-        </div>
+        <Link className="link" to="/">
+          <span>Brand: {brand && brand.brandName}</span>
+        </Link>
+
+        <ProductRating />
+      </div>
       <div className="productDetailDesciption-price">
         <h4 className="d-inline productDetailDesciption-price-actualPrice">
           Rs.{props.data.salePrice}
         </h4>
         <span className="d-inline mx-2 productDetailDesciption-price-growPrice">
-          Rs.{(props.data.salePrice)+(props.data.discountValue)}
+          Rs.{props.data.salePrice + props.data.discountValue}
         </span>
         <p className="d-inline productDetailDesciption-price-discountPrice">
           You save Rs.{props.data.discountValue}
@@ -46,7 +44,8 @@ function ProductDetailDesciption(props) {
       </div>
       <div className="productDetailDesciption-icon">
         <div>
-          <i className="fas fa-building mr-2"></i> <span>SaptaSoch Warehouse</span>
+          <i className="fas fa-building mr-2"></i>{" "}
+          <span>SaptaSoch Warehouse</span>
         </div>
         <div>
           <i className="fas fa-truck mr-2 "></i>{" "}
@@ -55,11 +54,10 @@ function ProductDetailDesciption(props) {
       </div>
 
       <div className="productDetailDesciption-social">
-      <p>Share With Friends</p>
-      <i className="fa fa-facebook-official mt-3"></i>
-      <i className="fa fa-twitter mx-4"></i>
-      <i className="fa fa-instagram"></i>
-
+        <p>Share With Friends</p>
+        <i className="fa fa-facebook-official mt-3"></i>
+        <i className="fa fa-twitter mx-4"></i>
+        <i className="fa fa-instagram"></i>
       </div>
     </div>
   );
