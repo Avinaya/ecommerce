@@ -10,13 +10,14 @@ import ProductTagAll from "./pages/productTagAll/ProductTagAll"
 import Categories from './components/category/Categories'
 
 
+
 const App = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <React.Fragment>
+    <div className="App">
       <Navbar />
       <SideBarMob/>
       <Mobheader />
@@ -27,8 +28,8 @@ const App = () => {
           <Route exact path="/:title" component={ProductTagAll} />
         </Switch>
         <Footer/>
-    </React.Fragment>
-  );
+        </div>
+          );
 };
 
 export default App;

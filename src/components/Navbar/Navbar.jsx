@@ -19,9 +19,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navBar-tools-item navBar-tools-item-help">
-          <div class="dropdown">
+          <div className="dropdown">
             <button
-              class="btn btn-secondary dropdown-toggle navBar-tools-item-help-btn"
+              className="btn btn-secondary dropdown-toggle navBar-tools-item-help-btn"
               type="button"
               id="dropdownMenuButton"
               data-toggle="dropdown"
@@ -30,11 +30,11 @@ const Navbar = () => {
             >
               Help
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="/">
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a className="dropdown-item" href="/">
                 FAQs
               </a>
-              <a class="dropdown-item" href="/">
+              <a className="dropdown-item" href="/">
                 Contact Us
               </a>
             </div>
@@ -54,7 +54,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navBar-tools-item navBar-tools-item-cart">
-          <i class="fa fa-shopping-cart mr-1"></i>
+          <i className="fa fa-shopping-cart mr-1"></i>
           <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
           <span className="navBar-tools-item-item">0</span>
         </div>
@@ -62,12 +62,12 @@ const Navbar = () => {
         <div className="navBar-tools-item-sell_cart-mob">
           <div className="navBar-tools-item-sell_cart-mob-sell mr-3">
             <Link to="/" className="link">
-              <i class="fas fa-store-alt"></i>
+              <i className="fas fa-store-alt"></i>
             </Link>
           </div>
           <div className="navBar-tools-item-sell_cart-mob-cart">
             <Link to="/" className="link">
-              <i class="fa fa-shopping-cart mr-1"></i>
+              <i className="fa fa-shopping-cart mr-1"></i>
             </Link>
           </div>
         </div>

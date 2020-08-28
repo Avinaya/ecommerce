@@ -12,7 +12,7 @@ const SubCategories = (props) => {
               <ul className="list-group ">
                 {val.subCategoryTypeList.map((value, index) => {
                   return (
-                    <li className="list-group-item">
+                    <li className="list-group-item" key={index}>
                       <Link className="menu-link " to="#">
                         {value.subCategoryTypeName}
                       </Link>
