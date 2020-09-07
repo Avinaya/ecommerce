@@ -10,33 +10,31 @@ import DetailTopBar from "../../components/detailTopBar/DatailTopBar";
 
 const ProductDetail = (props) => {
   const [posts, setPosts] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const[category,setCategory]=useState()
+  const[subCategory,setSubCategory]=useState()
+  const[heading,setHeading]=useState()
+
 
   useEffect(() => {
     async function searchProduct() {
       const res = await axios.get(
         `https://saptasoch.herokuapp.com/product/${props.match.params.productId}`
       );
+      setCategory(res.data.category.categoryName)
+      setSubCategory(res.data.subCategory.subCategoryName)
+      setHeading(res.data.subCategoryType.subCategoryTypeName)
       setPosts(res.data);
     }
-
-    async function searchCategories() {
-      const res = await axios.get(
-        `https://saptasoch.herokuapp.com/product/categoriesName/${props.match.params.productId}`
-      );
-      setCategories(res.data);
-    }
     searchProduct();
-    searchCategories();
   }, [props.match.params.productId]);
 
   return (
     <div className="detailProduct">
       <DetailTopBar
-        category={categories.category}
-        subCategory={categories.subCategory}
-        heading={categories.subCategoryType}
-      />
+        category={category}
+        subCategory={subCategory}
+        heading={heading}
+      />  
 
       <div className="detailProduct-tools">
         <div className="detailProduct-tools-item">

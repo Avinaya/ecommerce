@@ -23,7 +23,7 @@ const ProductTagAll = (props) => {
       const result = await axios.get(
         `https://saptasoch.herokuapp.com/product/tag/${tagData()}`
       );
-      setData(result.data);
+      setData(result.data.content);
     };
     fetchData();
   }, [props.match.params.title]);

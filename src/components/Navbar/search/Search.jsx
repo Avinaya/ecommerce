@@ -26,10 +26,11 @@ function Search() {
     try {
       async function getData() {
         const res = await axios.get(
-          `https://saptasoch.herokuapp.com/product/search/${inputfield}`
+          `https://saptasoch.herokuapp.com/productSearch/mainSearch/${inputfield}`
         );
-        console.log(res.data);
-        setData(res.data);
+        // console.log("search ",res.data);
+        var limited = res.data.filter((val, i) => i < 10);
+        setData(limited);
       }
       getData();
     } catch (e) {
@@ -56,17 +57,22 @@ function Search() {
         >
           <ul>
             <span>Suggestions</span>
-            {data.map((val, key) => {
-              return (
-                <li key={key} onClick={handleClick(val)}>
-                  {val.productName}
-                </li>
-              );
-            })}
+            
+            {data.length >0 ?(
+              data.map((val, key) => {
+                return (
+                  <li key={key} onClick={handleClick(val)}>
+                    {val.productName}
+                  </li>
+                );
+              })
+
+            ):<li>No data</li>}
+           
           </ul>
         </div>
       ) : (
-        "no result found"
+        ""
       )}
     </div>
   );

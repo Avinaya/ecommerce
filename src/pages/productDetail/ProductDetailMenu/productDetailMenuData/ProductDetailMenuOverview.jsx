@@ -7,7 +7,6 @@ export default function ProductDetailMenuOverview(props) {
       <div className="productDetailMenuContent">
       <ul>
       {specificationList && specificationList.map((val, index) => {
-        console.log(val)
         return (
           <li key={index} className="productDetailMenuContent-list-item">
             {val.productSpecificationType}

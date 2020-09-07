@@ -6,6 +6,7 @@ const ProductDetailImage = (props) => {
 
   const [imgSrc, setImgSrc] = useState();
 
+
   useEffect(() => {
     setImgSrc(initialImage && initialImage[0].image);
   }, [initialImage]);
@@ -24,7 +25,7 @@ const ProductDetailImage = (props) => {
         {initialImage &&
           initialImage.map((val, index) => {
             return (
-              <div className="productDetailImage-sample-item" key={index}>
+              <div className={"productDetailImage-sample-item"} key={index}>
                 <img src={val.image} alt="" onClick={getImage(val.image)}></img>
               </div>
             );

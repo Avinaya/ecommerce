@@ -19,7 +19,7 @@ const ProductCard = (props) => {
     <div className="productCard">
       <div className="productCard-heading">
         <h5 className="d-inline productCard-heading-title ">{title+" Products"}</h5>
-        <Link to={`/${title}`} className=" productCard-heading-btn">
+        <Link to={`/product-tag/${title}`} className=" productCard-heading-btn">
           See All Items
         </Link>
       </div>

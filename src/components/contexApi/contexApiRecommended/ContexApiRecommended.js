@@ -12,9 +12,9 @@ class RecommendedProductProvider extends Component {
 
   componentDidMount() {
     axios
-    .get(`https://saptasoch.herokuapp.com/product/tag/recommended`)
+    .get(`https://saptasoch.herokuapp.com/product/tag/recommended?pageNo=0&pageSize=6`)
     .then((res) => {
-        const posts = res.data.map((obj) => obj);
+        const posts = res.data.content.map((obj) => obj);
         this.setState({ posts });
       })
       .catch(function (error) {

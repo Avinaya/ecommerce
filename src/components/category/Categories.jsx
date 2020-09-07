@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import './Categories.scss'
+import "./Categories.scss";
 import CategoriesContex from "../contexApi/contexApiCategory/ContexApiCategory";
-import SubCategories from './subCategories/SubCategories';
+import SubCategories from "./subCategories/SubCategories";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   const data = useContext(CategoriesContex);
@@ -14,9 +15,25 @@ const Categories = () => {
             return (
               <div key={index} className="menu-tools-item m1">
                 <div className="dropdown drop-menu">
-                  <button className="btn menu-dropdown text-white">
-                    {val.categoryName}
-                  </button>
+                  <Link
+                    className="link"
+                    to={{
+                      pathname: `/category/${val.categoryName.replace(
+                        / /g,
+                        "-"
+                      )}`,
+                      state: {urlData:val.categoryName.replace(/ /g,"-"), detail: { 
+                        cat: val.categoryName,
+                        subCat: '',
+                        subCatType: '',
+                       }
+                       },
+                    }}
+                  >
+                    <span className="btn menu-dropdown text-white">
+                      {val.categoryName}
+                    </span>
+                  </Link>
                   <div
                     className="dropdown-menu-tools dropdown-menu "
                     aria-labelledby="dropdownMenuButton"

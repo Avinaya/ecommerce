@@ -21,6 +21,7 @@
     border-radius: 0 !important;
     font-size: 0.87rem !important;
     color: white !important;
+    border: 0 !important;
   }
 }
 
@@ -51,6 +52,7 @@
     &-item {
       margin-left: 3vw;
       & h5 {
+        color: $color-black;
         font-size: 0.9rem;
         font-weight: 600;
         text-transform: capitalize;
@@ -65,6 +67,7 @@
   &-item {
     border: none !important;
     text-transform: capitalize;
+   
   }
 }
 
@@ -85,14 +88,13 @@
 }
   
 
-.drop-menu:hover button{ 
+.drop-menu:hover span{ 
   background-color: $color-white;
   color: #000000 !important;
  }
 
-
-
- .aaa{
-   z-index: 1234;
-   font-size: 120rem;
+ .subCategoryTypeName{
+   color: black !important;
  }
+
+

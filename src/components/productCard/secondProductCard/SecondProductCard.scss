@@ -10,6 +10,11 @@
 
 
     &-item1 {
+    
+      &-image{
+        width: 100%;
+        height: 12rem;
+      }
       &-discount {
         position: absolute;
         width: 4rem;
@@ -25,11 +30,10 @@
     }
 
     &-item {
-      text-align: center;
-
       & img {
-        width: 100%;
-        height: 12vw;
+        width:  100%;
+        height: 100%;
+        object-fit: contain;
       }
       &:not(:last-child) {
         margin-bottom: 0.5rem;
@@ -66,7 +70,7 @@
           background-color: $color-white;
           color: $color-button !important;
           border: 1px solid $color-button;
-          border-radius: 0 !important;
+          
 
           &:hover {
             background-color: $color-button;

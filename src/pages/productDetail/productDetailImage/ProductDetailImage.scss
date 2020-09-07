@@ -30,6 +30,12 @@
     }
   }
 }
+.image-border-true{
+  border: 1px solid red;
+}
+.image-border-false{
+  border: none;
+}
 
 @media screen and (max-width: 576px) {
   .productDetailImage {
