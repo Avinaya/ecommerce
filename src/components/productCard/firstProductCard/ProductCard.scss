@@ -26,19 +26,17 @@
   }
 
   &-tools {
-    padding: 2rem 0.5rem 0.5rem 0.5rem;
+    padding: 1rem 0.5rem 1rem .5rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 0.5rem;
 
     &-item {
-      padding: 1rem;
+      padding: .5rem 0rem;
       display: grid;
       height: 100%;
       cursor: pointer;
-      grid-template-columns: 1fr 2fr;
-      // background-color: orange;
-      // grid-gap: 1rem;
+      grid-template-columns: 1fr 1fr;
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
         0 1px 10px 0 rgba(0, 0, 0, 0.1);
 
@@ -80,9 +78,10 @@
         }
 
         & img {
-          transition: all 0.5s;
-          height: auto;
+          transition: all 0.1s;
+          height: 10rem;
           width: 100%;
+          object-fit: contain;
         }
       }
     }
