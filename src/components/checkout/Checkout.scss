@@ -71,11 +71,11 @@
                                             &-a:hover{
                                                 background: #eeeeee;
                                             }
-                                            &a:focus{
+                                            &-a:focus{
                                                 outline: none;
                                             }
 
-                                            & a{
+                                            &-c{
                                                 position: relative;
                                                 
                                               
@@ -91,10 +91,10 @@
                                                 cursor:pointer;
                                                 float:right;
                                             }
-                                            & a:hover{
+                                            & span:hover{
                                                 background: #eeeeee;
                                             }
-                                            & a:focus{
+                                            & span:focus{
                                                 outline: none;
                                             }
                                         }
@@ -198,7 +198,7 @@
                                         font-weight: 600;
                                         border-bottom: .0625rem solid #e8e8e8;
 
-                                        & a{
+                                        &-d{
                                             background-color: transparent;
                                             border: .0625rem solid #ed017f;
                                             color: #f84ca2;
@@ -210,10 +210,10 @@
                                             cursor:pointer;
                                             float:right;
                                         }
-                                        & a:hover{
+                                        & span:hover{
                                             background: #eeeeee;
                                         }
-                                        & a:focus{
+                                        & span:focus{
                                             outline: none;
                                         }
                                     }
@@ -365,21 +365,38 @@
                         padding:1rem 0.8rem;
                         background-color: white;
                         & span{
-                            font-weight: 600;
+                            font-weight: 400;
                             font-size: 2rem;
                         }
+                        & span:hover{
+                            background: none;
+                        }
+                        & span:focus{
+                            outline: none;
+                        }
+                        
                         margin-bottom: 2rem;
-                        & a{
+                   
+                        & button{
+                           cursor: pointer;
                             padding:.5rem 0.4rem;
-            
+                            float:right;        
                             border: .0625rem solid #ed017f;
                             border-radius: .1875rem;
                             color: #ed017f;
                             text-decoration: inherit;
                             font-size:0.7rem
                         }
-                       
+                        & buttom:hover{
+                            color: white;
+                        }
+                        
+                        & button:focus{
+                            outline: none;
+                        }
 }
+
+
 .del{
     text-align: left;
     border-bottom: .0625rem solid #e8e8e8;

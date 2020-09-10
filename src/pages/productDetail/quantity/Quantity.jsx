@@ -47,7 +47,7 @@ class Quantity extends React.Component {
         } else {
           return null;
         }
-        console.log(this.state.quantity);
+        
       });
       if(this.state.quantity>1){
       this.props.qnt(this.state.quantity -1);

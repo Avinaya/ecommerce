@@ -6,7 +6,7 @@ import { useState } from "react";
 import CheckOutSummary from "./../checkout/CheckoutSumarry";
 import SideBar from "react-sidebar";
 import DeliveryAddress from "./../deliveryAddress/DeliveryAddress";
-import { Link } from "react-router-dom";
+
 
 function Checkout() {
   const viewHeight = window.outerHeight;
@@ -71,12 +71,12 @@ function Checkout() {
                         <div className="sideBar">
                           <div className="sideTop">
                             <span>Address Form</span>
-                            <a
-                              className="float-right"
+                            <button
+                            className="ram"
                               onClick={() => onSetSidebarOpen(false)}
                             >
                               close
-                            </a>
+                            </button>
                           </div>
 
                           <div className="del">
@@ -88,9 +88,9 @@ function Checkout() {
                       onSetOpen={onSetSidebarOpen}
                       styles={sidebarStyles}
                     ></SideBar>
-                    <a onClick={() => onSetSidebarOpen(true)}>
+                    <span className="checkout-tools-main-order-details-set-location-info-me-c" onClick={() => onSetSidebarOpen(true)}>
                       Select Delivery Address
-                    </a>
+                    </span>
                   </div>
                   <div className="checkout-tools-main-order-details-set-location-info-hi">
                     <span>
@@ -120,12 +120,12 @@ function Checkout() {
                         <div className="sideBar">
                           <div className="sideTop">
                             <span>Address Form</span>
-                            <a
+                            <span
                               className="checkout-tools-main-order-details-set-location-user-me-a"
                               onClick={() => onSetSidebarOpen(false)}
                             >
                               close
-                            </a>
+                            </span>
                           </div>
 
                           <div className="del">
@@ -137,12 +137,12 @@ function Checkout() {
                       onSetOpen={onSetSidebarOpen}
                       styles={sidebarStyles}
                     ></SideBar>
-                    <a
+                    <span
                       className="checkout-tools-main-order-details-set-location-user-me-b"
                       onClick={() => onSetSidebarOpen(true)}
                     >
                       Change Address
-                    </a>
+                    </span>
                   </div>
                   <div className="checkout-tools-main-order-details-set-location-user-hi">
                     <span>{deliveryAddress.contactPerson}</span>
@@ -162,7 +162,7 @@ function Checkout() {
               <div className="checkout-tools-main-order-details-set-location checkout-tools-main-order-details-set-location-pickup">
                 <div className="checkout-tools-main-order-details-set-location-pickup-help">
                   <span>Pickup From a Store</span>
-                  <a>Select Pickup Location</a>
+                  <span className="checkout-tools-main-order-details-set-location-pickup-help-d">Select Pickup Location</span>
                 </div>
                 <div className="checkout-tools-main-order-details-set-location-pickup-select">
                   <span>

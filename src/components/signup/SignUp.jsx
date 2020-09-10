@@ -3,14 +3,14 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { Link } from "react-router-dom";
-import Cart from "./../cart/Cart";
+
 import { withRouter } from 'react-router-dom';
-import qs from "querystring";
+
 import { isEmail } from "validator";
 import "./SignUp.scss"
 
 import AuthService from "../../service/auth.service";
-const query=require('qs');
+
 const required = value => {
     if (!value) {
       return (

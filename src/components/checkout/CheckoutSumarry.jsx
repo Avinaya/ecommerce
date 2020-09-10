@@ -1,10 +1,10 @@
 import React ,{useState} from "react";
-import {useStateValue} from "./../contexApi/stateProvider/StateProvider";
+
 import axios from "axios";
 function CheckoutSummary(props){
     const API_URL="http://localhost:8080/order";
-   var [cart,setCart]=useState(JSON.parse(localStorage.getItem("cart")));
-   const [delivery,setDelivery]=useState(JSON.parse(localStorage.getItem("delivery")));
+   var [cart]=useState(JSON.parse(localStorage.getItem("cart")));
+   const [delivery]=useState(JSON.parse(localStorage.getItem("delivery")));
    let payload={orderDetailsDtos:[]};
     for(var i in cart){
 

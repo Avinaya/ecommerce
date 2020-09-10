@@ -4,7 +4,7 @@ import "./../login/Login.scss";
 
 
 function DeliveryAddress(){
-    const[dispatch]=useStateValue();
+    const [{deliveryAddress},dispatch]=useStateValue();
     const [city,setCity]=useState(0);
     const [contactNo,setContactNo]=useState(0);
     const[district,setDistrict]=useState(0);

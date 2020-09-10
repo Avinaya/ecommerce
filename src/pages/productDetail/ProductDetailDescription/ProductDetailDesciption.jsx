@@ -1,4 +1,4 @@
-import React,{Component,useEffect,useState} from "react";
+import React,{useEffect,useState} from "react";
 import "./ProductDetailDesciption.scss";
 import { Link } from "react-router-dom";
 import Quantity from "./../quantity/Quantity";
@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 import Rating from '../../../components/rating/rating';
 import { useStateValue } from "../../../components/contexApi/stateProvider/StateProvider";
-import { useCallback } from "react";
+
 
 function ProductDetailDesciption(props) {
   const [color,setColor]=useState(0);
@@ -58,10 +58,8 @@ function ProductDetailDesciption(props) {
   };
 
   const [{basket},dispatch]=useStateValue();
-  var cart=JSON.parse(localStorage.getItem("cart")) ;
+  
   const AddToBasket= () => {
-    console.log(basket?.length);
-    console.log(basket);
    
     //Add item to basket
     dispatch({

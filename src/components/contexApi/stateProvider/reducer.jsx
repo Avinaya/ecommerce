@@ -8,7 +8,7 @@ export const initialState={
 
 //Anything on data layer is state
 const reducer = (state,action) => {
-    console.log(action);
+   
 
     switch(action.type){
         case 'ADD_TO_ORDER':
@@ -41,7 +41,7 @@ const reducer = (state,action) => {
   taxType: "percentage",
   taxValue: 0
             });
-            break;
+        break;
         case 'ADD_TO_DELIVERY':
             console.log(action);
             console.log("item",action.item);
@@ -68,9 +68,7 @@ const reducer = (state,action) => {
                 addBasket.push(action.item);
                 localStorage.setItem("cart",JSON.stringify(addBasket));
             }
-        // var cart=[];
-        // cart.push(...state.basket,action.item);
-        // localStorage.setItem("cart",JSON.stringify(cart));
+       
       
         
             return{...state,

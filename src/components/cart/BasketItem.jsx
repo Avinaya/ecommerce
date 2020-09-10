@@ -1,10 +1,9 @@
 import React from "react";
-import { useState,useEffect } from "react";
-import {useStateValue} from "./../contexApi/stateProvider/StateProvider";
+import { useState } from "react";
 
 function BasketItem(props){
 
-    const [{basket},dispatch]=useStateValue();
+   
     const [totalItemPrice,setTotalItemPrice]=useState(props.quantity*props.salePrice);
     const [quantity,setQuantity]=useState(props.quantity);
    
@@ -50,8 +49,8 @@ return(
           </div>
     <div className="cart-tool-parent-item-itemdetails-main-product-prices">Rs.{totalItemPrice}</div>
           <div className="cart-tool-parent-item-itemdetails-main-product-actions">
-          <a className="cart-tool-parent-item-itemdetails-main-product-actions-attribute cart-tool-parent-item-itemdetails-main-product-actions-attribute-r" onClick={() => props.onDelete(props.id)}>Remove Item</a>
-          <a className="cart-tool-parent-item-itemdetails-main-product-actions-attribute cart-tool-parent-item-itemdetails-main-product-actions-attribute-s">Save For Later</a>
+          <button className="cart-tool-parent-item-itemdetails-main-product-actions-attribute cart-tool-parent-item-itemdetails-main-product-actions-attribute-r" onClick={() => props.onDelete(props.id)}>Remove Item</button>
+          <button className="cart-tool-parent-item-itemdetails-main-product-actions-attribute cart-tool-parent-item-itemdetails-main-product-actions-attribute-s">Save For Later</button>
           </div>
 
         </div>

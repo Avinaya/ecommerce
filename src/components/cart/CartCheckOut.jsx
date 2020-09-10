@@ -1,7 +1,7 @@
 import React from 'react';
 import BasketItem from './BasketItem';
 import {useStateValue} from "./../contexApi/stateProvider/StateProvider";
-import { useState } from 'react';
+
 import { useHistory } from 'react-router-dom';
 function CartCheckOut(props){
   const history = useHistory();
@@ -9,7 +9,7 @@ function CartCheckOut(props){
   const totalQuantity=basket.reduce((totalItem,basket) => totalItem + basket.productQuantity, 0);
   const totalSalePrice=basket.reduce((totalSale,basket) => totalSale + (basket.salePrice*basket.productQuantity) , 0);
 
-  const [totalPrice,setTotalPrice]=useState(0);
+
   const removeAnItem =(value) =>{
     console.log("productName",value);
     dispatch({
