@@ -1,0 +1,42 @@
+@import '../../style/variable';
+
+.popular{
+    margin: 1rem 2rem;
+    height: auto;
+    background-color: $color-white;
+    border-radius: 5px;
+
+
+    & h5{
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        text-transform: capitalize;
+        padding: .7rem 0rem 0.7rem 1rem;
+        background: #4a4a4a url(https://res.cloudinary.com/staging-konga-com/image/upload/f_auto,q_auto/assets/images/homepage/category_icons.png) no-repeat;
+        color: $color-white;
+        font-weight: 600;
+    
+    }
+
+    &-tools{
+        display: grid;
+        padding: .5rem;
+        grid-template-columns: repeat(auto-fit, minmax(13rem , 1fr));
+        grid-gap: 1rem;
+
+    
+    }
+}
+
+@media screen and (max-width:768px){
+
+    .popular{
+        margin: 1rem .5rem;
+
+
+        &-tools{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+}
+

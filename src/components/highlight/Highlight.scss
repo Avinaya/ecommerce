@@ -1,0 +1,80 @@
+@import "../../style/variable";
+
+.highlight {
+  margin: 1rem 2rem;
+
+  &-tools {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1rem;
+
+    &-item{
+      height: 75vh;
+    }
+
+  }
+  &-item1 {
+    height: auto;
+    & img {
+      border-radius: 5px;
+      width: 100%;
+      height: 27.1vw;
+    }
+  }
+  &-item2 {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    & img {
+        width: 100%;
+        height: auto;
+      border-radius: 5px;
+    }
+
+  }
+
+ 
+}
+
+@media screen and (max-width: 768px) {
+  .highlight {
+    margin: 1rem 0.5rem;
+
+    &-tools {
+      display: block;
+
+      &-item {
+        margin-bottom: 1rem;
+      }
+    }
+    &-item1 img{
+      height: auto;
+    }
+  }
+}
+
+@media screen and (min-width:1370px){
+
+  .highlight-item1{
+    & img{
+      height: 27.5vw;
+
+    }
+  }
+
+}
+@media screen and (min-width:1600px){
+
+  .highlight-item1{
+    & img{
+      height: 28.1vw;
+
+    }
+  }
+
+}
+
+
+

@@ -1,0 +1,96 @@
+@import "../../style/variable";
+
+.header {
+  width: 100%;
+  background-color: $color-primary;
+  box-shadow: 0 0.1rem .5rem rgba(0, 0, 0, 0.15) !important;
+  position: relative;
+
+
+  &-tools {
+    padding: 0rem 2rem 0rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1rem;
+    // background-color: orchid;
+
+    &-item {
+      // background-color: orchid;
+
+      // margin-top: .6rem;
+      & img {
+        height: 2.5rem;
+      }
+
+      text-align: center;
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $color-white;
+    &:hover{
+      color: $color-white;
+    }
+  }
+  
+
+ &-search-btn{
+   background-color: orange !important;
+ }
+}
+.i3 {
+  width: 40vw;
+  position: relative;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus{
+  outline:none !important;
+  box-shadow:none !important;
+}
+.btn{
+  color: $color-white !important;
+
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+
+}
+
+@media (max-width:768px){
+
+  .header{
+    
+    &-tools{
+    display: block;
+    padding: 1rem;
+    }
+
+   
+  }
+  .i3{
+    width: 100%;
+  }
+  .i2,.i4,.i5{
+    display: none;
+  }
+}
+
+.logo-heading{
+font-size: 2rem;
+font-weight: 600;
+
+&-1{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: orange;
+}
+}

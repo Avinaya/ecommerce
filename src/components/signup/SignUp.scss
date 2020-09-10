@@ -1,0 +1,206 @@
+@import "../../style/variable";
+
+
+
+.signup{
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    height: auto;
+    width: 100%;
+
+    &-items{
+     margin: 0 auto;
+    max-width: 25rem;
+    text-align: center;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+     
+    & div{
+        display: block ;
+    }
+
+    & body{
+    background-color: #f2f2f2;
+    font-size: .8125rem;
+    color: #1c1d1f;
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    }
+
+    &-account{
+        background-color: #fff;
+        border-radius: .3125rem;
+        -webkit-box-shadow: 0 0.125rem 0.25rem 0 rgba(0,0,0,.1);
+        box-shadow: 0 0.125rem 0.25rem 0 rgba(0,0,0,.1);
+        margin-top: 3.125rem;
+        width: 100%;
+        
+        
+        &-login{
+            background-color: #f8f8f8;
+            border-bottom-left-radius: .3125rem;
+            border-bottom-right-radius: .3125rem;
+            padding: 1.25rem 1.875rem;
+
+            & span{
+                color: #9b9b9b;
+                display: block;
+                font-size: .8125rem;
+                margin-bottom: .625rem;
+            }
+
+            &-click{
+                border: .0625rem solid #ed017f;
+                border-radius: .1875rem;
+                color: #ed017f;
+                display: inline-block;
+                font-size: .9375rem;
+                font-weight: 700;
+                height: 2.5rem;
+                line-height: 2.5rem;
+                -webkit-transition: all .3s ease-in-out;
+                -o-transition: all .3s ease-in-out;
+                transition: all .3s ease-in-out;
+                vertical-align: middle;
+                width: 100%;
+            }
+
+            & a{
+                color: inherit;
+                cursor: pointer;
+                text-decoration: inherit;
+            }
+        }
+
+        &-header{
+            border-bottom: .0625rem solid #e8e8e8;
+            padding: 0rem;
+            margin-top: 2rem;
+                       
+
+            
+            display: block;
+
+            &-element{
+                color: #000;
+                font-size: 1.875rem;
+                font-weight: 700;
+                line-height: 1;
+                margin: 0 auto;
+                text-align: center;
+                max-width: 18.75rem;
+            }
+            & h1{
+                padding-top:30px;
+                display: block;
+                margin-top: 1rem;
+                margin-bottom: 2rem;
+            
+               font-weight: bold;
+            }
+        }
+
+       
+
+        &-entity{
+            background-color: #fff;
+            min-height: 23.0625rem;
+            padding: 1.25rem 1.875rem;
+
+    &-form{
+        display: block;
+        margin-top: 0em;
+        text-align: left;
+        
+        
+
+        
+        
+        &-point{
+            padding-bottom: 1.25rem;
+            position: relative;
+           
+            
+        }
+
+        & label{
+            color: #000;
+            display: block;
+            font-size: .8125rem;
+        }
+
+        &-control{
+            border: .0625rem solid #9b9b9b;
+            border-radius: .1875rem;
+            height: 2.5rem;
+            margin-top: .625rem;
+            outline: 0;
+            padding: 0 .9375rem;
+            width: 100%;
+            
+        }
+
+        &-terms{
+            color: #ccc;
+            font-size: .8125rem;
+            margin-top: .9375rem;
+            text-align: center;
+
+            & a{
+                color: inherit;
+                cursor: pointer;
+                text-decoration: underline;
+                text-decoration-line: underline;
+                text-decoration-style: initial;
+                text-decoration-color: initial;
+                
+            }
+
+            & a:hover{
+                color:inherit;
+            }
+
+            &-para{
+                display: inline-block;
+                padding-right: .3125rem;
+            }
+
+            & p{
+                display: block;
+                margin-block-start: 1em;
+                margin-block-end: 1em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+            }
+        }
+    }
+        }
+
+        
+
+     
+    }
+    }
+
+    &-link {
+        text-decoration: none;
+        color: $color-white;
+      
+        }
+}
+
+.logo{
+    font-size: 2rem;
+    font-weight: 600;
+    color: blue;
+    
+    &-1{
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: orange;
+    }
+    }

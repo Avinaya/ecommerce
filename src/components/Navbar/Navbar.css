@@ -1,0 +1,92 @@
+.header {
+  width: 100%;
+  background-color: #016fed;
+  -webkit-box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15) !important;
+          box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15) !important;
+  position: relative;
+}
+
+.header-tools {
+  padding: 0rem 2rem 0rem 2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 1rem;
+}
+
+.header-tools-item {
+  text-align: center;
+}
+
+.header-tools-item img {
+  height: 2.5rem;
+}
+
+.header-link {
+  text-decoration: none;
+  color: #ffff;
+}
+
+.header-link:hover {
+  color: #ffff;
+}
+
+.header-search-btn {
+  background-color: orange !important;
+}
+
+.i3 {
+  width: 40vw;
+  position: relative;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.btn {
+  color: #ffff !important;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown > .dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .header-tools {
+    display: block;
+    padding: 1rem;
+  }
+  .i3 {
+    width: 100%;
+  }
+  .i2, .i4, .i5 {
+    display: none;
+  }
+}
+
+.logo-heading {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.logo-heading-1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: orange;
+}
+/*# sourceMappingURL=Navbar.css.map */

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,gBAAgB,CAAA;EACZ,UAAU,EAAE,KAAK;EACjB,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,CAAC;EACV,KAAK,EAAE,IAAI;EACX,IAAI,EAAE,IAAI;CAEb",
+    "sources": [
+        "Search.scss",
+        "../../../style/_variable.scss"
+    ],
+    "names": [],
+    "file": "Search.css"
+}

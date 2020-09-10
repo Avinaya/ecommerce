@@ -1,0 +1,40 @@
+.about {
+  margin: 1rem 2rem;
+  background-color: #ffff;
+  border-radius: 5px;
+  padding: 2rem 1.5rem 1rem 1.5rem;
+}
+
+.about-heading {
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5e5757;
+}
+
+.about-paragraph {
+  color: #5e5757;
+  line-height: 1.9;
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    margin: .5rem;
+    padding: 1rem .5rem;
+  }
+  .about-heading {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .about-paragraph {
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .about {
+    display: none;
+  }
+}
+/*# sourceMappingURL=About.css.map */

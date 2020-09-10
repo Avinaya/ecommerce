@@ -1,0 +1,30 @@
+@import '../../style/variable';
+
+
+.mobheader{
+    width: 100%;
+    margin-top: .5rem;
+
+    &-tools{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+
+        &-item{
+            text-align: center;
+            padding: 0 2px 0 2px;
+
+            & span{
+                font-size: .75rem;
+            }
+
+
+        }
+    }
+}
+
+@media screen and (min-width:769px){
+    .mobheader{
+        display: none ;
+
+    }
+}
