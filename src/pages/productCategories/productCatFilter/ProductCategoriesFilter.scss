@@ -1,1 +1,38 @@
 @import '../../../style/variable';
+
+.filterAccordion{
+    background-color: $color-white;
+    cursor: pointer;
+
+    &-icon{
+        font-weight: 0 !important;
+        float: right;
+        margin-top: .3rem;
+        // transform: rotate(45deg);
+    }
+
+    &-heading{
+        font-weight: 600;
+    }
+    &-body{
+    padding-top: .4rem;
+    }
+}
+
+
+.panel-heading {
+    cursor: pointer;
+}
+/* CSS Method for adding Font Awesome Chevron Icons */
+ .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family:'FontAwesome';
+    content:"\002B";
+
+    float: right;
+    color: inherit;
+}
+.panel-heading.collapsed .accordion-toggle:after {
+    /* symbol for "collapsed" panels */
+    content:"\2212";
+}

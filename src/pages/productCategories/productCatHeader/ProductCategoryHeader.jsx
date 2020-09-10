@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductCategoryHeader.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function ProductCategoryHeader(props) {
+  const history = useHistory();
   const array = [];
-  array.push(props.data.cat);
-  array.push(props.data.subCat);
-  array.push(props.data.subCatType);
+  array.push(props.category);
+  array.push(props.subCategory);
+  array.push(props.subCategoryType);
 
   let arr = array.filter(Boolean);
 
-  console.log("filterdjkkhfdkjah", arr);
+  const [appState, changeState] = useState({
+    activeObject: null,
+    objects: [{ id: 1 }, { id: 2 }, { id: 3 }],
+  });
+  const [initial, setInitial] = useState(" initialSort");
+
+  const toggleActive = (index, url) => (e) => {
+    e.preventDefault();
+    setInitial("");
+    changeState({ ...appState, activeObject: appState.objects[index] });
+    history.push(`${props.url}` + url);
+  };
+
+  function toggleActiveStyle(index) {
+    if (appState.objects[index] === appState.activeObject) {
+      return " sortActive";
+    } else {
+      return " sortInactive";
+    }
+  }
+
   return (
     <div className="productCategoryHeader">
       <div className="productCategoryHeader-top">
@@ -40,7 +61,8 @@ function ProductCategoryHeader(props) {
           </Link>
         </div>
         <div className="productCategoryHeader-top-item productCategoryHeader-top-item2 color-text">
-          {props.filter.number}-{props.filter.numberOfElements} of {props.filter.totalElements} results
+          {props.filter.number}-{props.filter.numberOfElements} of{" "}
+          {props.filter.totalElements} results
         </div>
       </div>
       <div className="productCategoryHeader-bottom">
@@ -48,28 +70,35 @@ function ProductCategoryHeader(props) {
           <h4 className="detailTopBar-menu-heading">{arr[arr.length - 1]}</h4>
         </div>
         <div className="productCategoryHeader-bottom-item">
-          <div className="productCategoryHeader-bottom-item-price">
+          <div className="productCategoryHeader-bottom-item-price sort">
             Sort By:
           </div>
-          <NavLink
-            className="link link-color"
-            to="/"
-            activeStyle={{ border: "1px solid red", color: "red" }}
+          <div
+            className={
+              toggleActiveStyle(1) +
+              " productCategoryHeader-bottom-item-price" +
+              initial
+            }
+            onClick={toggleActive(1, "?sort=")}
           >
-            <div className="productCategoryHeader-bottom-item-price">
-              Relevance
-            </div>
-          </NavLink>
-          <NavLink className="link link-color" to="/">
-            <div className="productCategoryHeader-bottom-item-price">
-              Price-High To Low
-            </div>
-          </NavLink>
-          <NavLink className="link link-color" to="/">
-            <div className="productCategoryHeader-bottom-item-price">
-              Price-Low To High
-            </div>
-          </NavLink>
+            Relevance
+          </div>
+          <div
+            className={
+              toggleActiveStyle(2) + " productCategoryHeader-bottom-item-price borderLast"
+            }
+            onClick={toggleActive(2, "?sort=priceDesc")}
+          >
+            Price-High To Low
+          </div>
+          <div
+            className={
+              toggleActiveStyle(3) + " productCategoryHeader-bottom-item-price "
+            }
+            onClick={toggleActive(3, "?sort=priceAsc")}
+          >
+            Price-Low To High
+          </div>
         </div>
       </div>
     </div>

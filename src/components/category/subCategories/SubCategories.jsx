@@ -1,50 +1,52 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 const SubCategories = (props) => {
+  const history = useHistory();
+
+  const handleClickSubCat = (cat, subCat) => (e) => {
+    e.preventDefault();
+    localStorage.setItem("category", cat);
+    localStorage.setItem("subCategory", subCat);
+    localStorage.setItem("subCategoryType", "");
+    history.push(`/category/${subCat.replace(/ /g, "-")}`);
+  };
+
+  const handleClickSubCatType = (cat, subCat, subCatType) => (e) => {
+    e.preventDefault();
+    localStorage.setItem("category", cat);
+    localStorage.setItem("subCategory", subCat);
+    localStorage.setItem("subCategoryType", subCatType);
+    history.push(`/category/${subCatType.replace(/ /g, "-")}`);
+  };
+
   return (
     <div className="menu-item">
       <div className="menu-item-tools">
         {props.data.subCategoryList.map((val, ind) => {
           return (
             <div key={ind} className="menu-item-tools-item">
-              <Link
-                className="link"
-                to={{
-                  pathname: `/category/${val.subCategoryName.replace(
-                    / /g,
-                    "-"
-                  )}`,
-                  state: {
-                    detail: {
-                      cat: props.data.categoryName,
-                      subCat: val.subCategoryName,
-                      subCatType: '',
-                    }
-                  },
-                }}
+              <h5
+                onClick={handleClickSubCat(
+                  props.data.categoryName,
+                  val.subCategoryName
+                )}
               >
-                <h5>{val.subCategoryName}</h5>
-              </Link>
+                {val.subCategoryName}
+              </h5>
 
               <ul className="list-group ">
                 {val.subCategoryTypeList.map((value, index) => {
                   return (
-                    <li className="list-group-item" key={index}>
-                      <Link
-                        className="menu-link"
-                        to={{
-                          pathname: `/category/${value.subCategoryTypeName.replace(/ /g,"-")}`,
-                          state: {
-                            detail: {
-                              cat: props.data.categoryName,
-                              subCat: val.subCategoryName,
-                              subCatType: value.subCategoryTypeName,
-                            },
-                          }
-                        }}
-                      >
-                        {value.subCategoryTypeName}
-                      </Link>
+                    <li
+                      className="list-group-item"
+                      key={index}
+                      onClick={handleClickSubCatType(
+                        props.data.categoryName,
+                        val.subCategoryName,
+                        value.subCategoryTypeName
+                      )}
+                    >
+                      {value.subCategoryTypeName}
                     </li>
                   );
                 })}

@@ -6,7 +6,7 @@ import SecondProductCard from '../../../components/productCard/secondProductCard
 function ProductCategoriesProducts(props) {
     const data = props.data
 
-  console.log("adnlanfdklajd value",props.data)
+//   console.log("adnlanfdklajd value",props.data)
     return (
         <div className="productCategoriesProducts">
 

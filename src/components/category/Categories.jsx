@@ -2,11 +2,19 @@ import React, { useContext } from "react";
 import "./Categories.scss";
 import CategoriesContex from "../contexApi/contexApiCategory/ContexApiCategory";
 import SubCategories from "./subCategories/SubCategories";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Categories = () => {
   const data = useContext(CategoriesContex);
+  const history = useHistory();
 
+  const handleClick = (param) => (e) => {
+    e.preventDefault();
+    localStorage.setItem("category", param);
+    localStorage.setItem("subCategory", "");
+    localStorage.setItem("subCategoryType", "");
+    history.push(`/category/${param.replace(/ /g, "-")}`);
+  };
   return (
     <React.Fragment>
       <div className="menu">
@@ -15,25 +23,12 @@ const Categories = () => {
             return (
               <div key={index} className="menu-tools-item m1">
                 <div className="dropdown drop-menu">
-                  <Link
-                    className="link"
-                    to={{
-                      pathname: `/category/${val.categoryName.replace(
-                        / /g,
-                        "-"
-                      )}`,
-                      state: {urlData:val.categoryName.replace(/ /g,"-"), detail: { 
-                        cat: val.categoryName,
-                        subCat: '',
-                        subCatType: '',
-                       }
-                       },
-                    }}
+                  <span
+                    className="btn menu-dropdown text-white"
+                    onClick={handleClick(val.categoryName)}
                   >
-                    <span className="btn menu-dropdown text-white">
-                      {val.categoryName}
-                    </span>
-                  </Link>
+                    {val.categoryName}
+                  </span>
                   <div
                     className="dropdown-menu-tools dropdown-menu "
                     aria-labelledby="dropdownMenuButton"

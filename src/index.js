@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import { RecommendedProductProvider } from "./components/contexApi/contexApiRecommended/ContexApiRecommended";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 import { ContexApiCategoryProdiver } from "./components/contexApi/contexApiCategory/ContexApiCategory";
+import { ContexMenuDataProvider } from "./components/contexApi/contexMenuData/ContexMenuData";
 
 const App = lazy(() => import('./App'));
 
@@ -16,6 +17,7 @@ ReactDOM.render(
   <React.StrictMode>
   <Suspense fallback={<div>Loading.....</div>}>
 
+  <ContexMenuDataProvider>
     <RecommendedProductProvider>
     <ContexApiCategoryProdiver>
       <BrowserRouter>
@@ -25,6 +27,7 @@ ReactDOM.render(
       </BrowserRouter>
       </ContexApiCategoryProdiver>
     </RecommendedProductProvider>
+    </ContexMenuDataProvider>
     </Suspense>
 
   </React.StrictMode>,
