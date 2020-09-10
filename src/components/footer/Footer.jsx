@@ -223,6 +223,7 @@ const Footer = () => {
                     <div className="footer-tools-bottom-item-side2-one-part-text">
                       <p>Download on</p>
                       <span>APP STORE</span>
+
                     </div>
                   </a>
                   <a className="op1" href="/">
@@ -236,6 +237,7 @@ const Footer = () => {
                     <div className="footer-tools-bottom-item-side2-one-part-text">
                       <p>Download on</p>
                       <span>APP STORE</span>
+
                     </div>
                   </a>
                 </div>

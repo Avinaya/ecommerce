@@ -1,36 +1,53 @@
-import React, { useEffect } from "react";
+import React,{useEffect} from "react";
+import Home from "./pages/home/Home";
 import { Switch, Route } from "react-router-dom";
+import ProductDetail from "./pages/productDetail/ProductDetail";
 import Navbar from "./components/Navbar/Navbar";
-import SideBarMob from './components/sideBar/sideBarMob/SideBarMob';
-import Home from "./pages/home/Home"
-import Footer from "./components/footer/Footer"
-import ProductDetail from "./pages/productDetail/ProductDetail"
-import ProductTagAll from "./pages/productTagAll/ProductTagAll"
-import Categories from './components/category/Categories'
+import Mobheader from "./components/mob-header/Mobheader";
+import Cart from "./components/cart/Cart";
+import Checkout from "./components/checkout/Checkout";
+import DeliveryAddress from "./components/deliveryAddress/DeliveryAddress";
+import Login from "./components/login/Login";
+import Signup from "./components/signup/SignUp";
+import OtpVerify from "./components/signup/OtpVerify";
+import ProductTagAll from './pages/productTagAll/ProductTagAll';
 import ProductCategory from './pages/productCategories/ProductCategory';
+import Categories from './components/category/Categories';
+function App() {
 
-
-
-const App = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+});
 
+const AuthenticatedRoute= () => {
   return (
-    <div className="App">
+    <React.Fragment>
       <Navbar />
-      <SideBarMob/>
+      <Mobheader />
       <Categories/>
-        <Switch>
-          <Route exact path="/product/:productId" component={ProductDetail} />
-          <Route exact path="/product-tag/:title" component={ProductTagAll} />
-          <Route exact path="/category/:categoriesName" component={ProductCategory}/>
-          <Route exact path="/" component={Home} />
-          <Route path="*" component={Home}/>
-        </Switch>
-        <Footer/>
-        </div>
-          );
-};
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Product/:productId" component={ProductDetail} />
+        <Route exact path="/product-tag/:title" component={ProductTagAll} />
+        <Route exact path="/category/:categoriesName" component={ProductCategory}/>
+        <Route exact path="/cart" component={Cart}/>
+        <Route exact path="/checkout" component={Checkout}/>
+        <Route exact path="/delivery" component={DeliveryAddress}/>
+        <Route exact path="*" component={Home}/>
+      </Switch>
+    </React.Fragment>
+  );
+}
+
+return (
+  <Switch>
+  
+  <Route exact path="/signup" component={Signup} />
+  <Route exact path="/login" component={Login} />
+  <Route exact path="/verify" component={OtpVerify} />
+  <Route component={AuthenticatedRoute}/>
+</Switch>
+);
+}
 
 export default App;

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,UAAU,CAAA;EACN,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,KAAK;CAiBpB;;AAfI,AAAD,gBAAO,CAAA;EACH,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAa;CAYvC;;AAVI,AAAD,qBAAM,CAAA;EACF,UAAU,EAAE,MAAM;EAClB,OAAO,EAAE,WAAW;CAOvB;;AATA,AAIG,qBAJE,CAIA,IAAI,CAAA;EACF,SAAS,EAAE,MAAM;CACpB;;AAOb,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAC/B,AAAA,UAAU,CAAA;IACN,OAAO,EAAE,IAAK;GAEjB",
+    "sources": [
+        "Mobheader.scss",
+        "../../style/_variable.scss"
+    ],
+    "names": [],
+    "file": "Mobheader.css"
+}

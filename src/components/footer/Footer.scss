@@ -1,11 +1,11 @@
 @import "../../style/variable";
 
+
 .footer {
   font-family: Helvetica;
   background-color: #1c1d1f;
   color: $color-white;
 
-  
   &-tools-top {
     display: flex;
     flex-wrap: wrap;
@@ -148,7 +148,6 @@
 .about-konga {
   list-style: none;
   padding: 1rem 0rem 0rem 0rem;
-
   color: #fff;
 }
 .op {
@@ -304,7 +303,6 @@
   }
 }
 
-// =========================
 
 @media screen and (max-width: 992px) {
   .footer {
@@ -321,7 +319,6 @@
   }
 }
 
-// =================
 
 @media screen and (max-width: 992px) {
   .footer {
