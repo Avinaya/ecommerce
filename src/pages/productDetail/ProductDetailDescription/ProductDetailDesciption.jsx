@@ -22,32 +22,7 @@ function ProductDetailDesciption(props) {
   
  useEffect(() => {
    setImgSrc(initialImage && initialImage[0].image);
-   axios
-   .get(
-     `http://localhost:8080/productColor/color/${props.data.productId}`
-   )
-   .then((res) => {
-     const posts = res.data;
-     setColor( posts.colorId);
-     console.log("color",posts);
-   })
-   .catch(function (error) {
-     console.log(error);
-   });
-  
-
-   axios
-   .get(
-     `http://localhost:8080/productSize/size/${props.data.productId}`
-   )
-   .then((res) => {
-     const posts = res.data;
-     setSize( posts.sizeId);
-
-   })
-   .catch(function (error) {
-     console.log(error);
-   });
+   
    
  }, [initialImage,props.data.productId]);
 
@@ -65,8 +40,7 @@ function ProductDetailDesciption(props) {
     dispatch({
       type:"ADD_TO_BASKET",
       item: {
-        colorId:color,
-        sizeId:size,
+
         id:props.data.productId,
         productImage:imgSrc,
         productName:props.data.productName,

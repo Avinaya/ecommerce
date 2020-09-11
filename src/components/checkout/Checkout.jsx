@@ -6,19 +6,27 @@ import { useState } from "react";
 import CheckOutSummary from "./../checkout/CheckoutSumarry";
 import SideBar from "react-sidebar";
 import DeliveryAddress from "./../deliveryAddress/DeliveryAddress";
-
+import { Link } from "react-router-dom";
 
 function Checkout() {
   const viewHeight = window.outerHeight;
   const [{ deliveryAddress }] = useStateValue();
   const [{ basket }, dispatch] = useStateValue();
 
+  
+  const [sideBarOpen,setSideBarOpen]=useState(false);
+
   const totalSalePrice = basket.reduce(
     (totalSale, basket) =>
       totalSale + basket.salePrice * basket.productQuantity,
     0
   );
-  const [sideBarOpen, setSideBarOpen] = useState(false);
+
+  // const mediaQueryChanged= (value) =>{
+  //   setSideBarDocked(mql.matches);
+  //   setSideBarOpen(false);
+  // }
+  
   const removeAnItem = (value) => {
     console.log("productName", value);
     dispatch({
@@ -43,15 +51,27 @@ function Checkout() {
 
   const sidebarStyles = {
     sidebar: {
-      width: 350,
+      width: 295,
       height: viewHeight,
       background: "white",
       float: "right",
       position: "fixed",
       zIndex: 999,
+      
     },
+   
   };
   return (
+    <div>
+    <div className="title">
+      <Link className="link" to="/">
+                <span className="title-log">Sapta</span><span className="title-log-1">Bazar</span>
+                </Link>
+                <div>
+                <span className="title-check" >Checkout</span>
+                </div>
+    </div>
+
     <div className="checkout">
       <div className="checkout-tools">
         <div className="checkout-tools-main checkout-tools-main-order">
@@ -67,6 +87,7 @@ function Checkout() {
                     <span>Deliver to me</span>
 
                     <SideBar
+                    className="hey"
                       sidebar={
                         <div className="sideBar">
                           <div className="sideTop">
@@ -80,11 +101,13 @@ function Checkout() {
                           </div>
 
                           <div className="del">
-                            <DeliveryAddress />
+                            <DeliveryAddress data={onSetSidebarOpen}/>
                           </div>
                         </div>
                       }
                       open={sideBarOpen}
+                      // docked={sideBarDocked}
+                      // matchMedia={mediaQueryChanged}
                       onSetOpen={onSetSidebarOpen}
                       styles={sidebarStyles}
                     ></SideBar>
@@ -120,20 +143,21 @@ function Checkout() {
                         <div className="sideBar">
                           <div className="sideTop">
                             <span>Address Form</span>
-                            <span
-                              className="checkout-tools-main-order-details-set-location-user-me-a"
+                            <button
+                              className="ram"
                               onClick={() => onSetSidebarOpen(false)}
                             >
                               close
-                            </span>
+                            </button>
                           </div>
 
                           <div className="del">
-                            <DeliveryAddress />
+                            <DeliveryAddress data={onSetSidebarOpen} />
                           </div>
                         </div>
                       }
                       open={sideBarOpen}
+                      // docked={sideBarDocked}
                       onSetOpen={onSetSidebarOpen}
                       styles={sidebarStyles}
                     ></SideBar>
@@ -219,6 +243,7 @@ function Checkout() {
           <CheckOutSummary total={totalSalePrice} />
         </div>
       </div>
+    </div>
     </div>
   );
 }

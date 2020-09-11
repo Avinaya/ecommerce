@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL="http://localhost:8080/order";
+const API_URL="https://saptasoch.herokuapp.com/order";
 
 export const initialState={
     
@@ -43,9 +43,7 @@ const reducer = (state,action) => {
             });
         break;
         case 'ADD_TO_DELIVERY':
-            console.log(action);
-            console.log("item",action.item);
-            console.log("all",state.order);
+        
         localStorage.setItem("delivery",JSON.stringify(action.item));
         return{
             ...state, deliveryAddress:action.item

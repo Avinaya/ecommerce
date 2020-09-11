@@ -1,6 +1,7 @@
 @import "../../style/variable";
 
 .checkout{
+    position:relative;
     box-sizing: border-box;
     margin:1.5rem 2rem;
     &-tools{
@@ -345,6 +346,7 @@
 
 @media (max-width: 992px) { 
     .checkout{
+        
         &-tools{
             display:flex;
             flex-direction: column;
@@ -352,11 +354,45 @@
     }
 }
 @media (max-width: 768px){
+    .checkout{
+        padding:1rem 0;
+        margin:0;
+    }
+    .checkout-tools-main-order-details-set-location-info-me{
+        font-size:0.7rem;
+    }
+    .checkout-tools-main-order-details-set-location-info-me-c{
+        font-size:0.5rem;
+    }
+    .checkout-tools-main-order-details-set-location-user-me{
+        font-size:0.7rem;
+    }
+    .checkout-tools-main-order-details-set-location-user-me-b{
+        font-size:0.5rem;
+    }
+    .checkout-tools-main-order-details-set-location-pickup-help{
+        font-size:0.7rem;
+    }
+    .checkout-tools-main-order-details-set-location-pickup-help-d{
+        font-size:0.5rem;
+    }
     .checkout-tools-main-order-details-set{
         display:flex;
         flex-direction: column;
     }
+    .title{
+        
+        & span{
+            font-size:1rem;
+        }
+       
+    }
+    .hey{
+        width:20%;
+    }
+    
 }
+
 .sdeBar{
     background-color: #f3f3f3d2;
 }
@@ -367,6 +403,7 @@
                         & span{
                             font-weight: 400;
                             font-size: 2rem;
+                            
                         }
                         & span:hover{
                             background: none;
@@ -397,6 +434,7 @@
 }
 
 
+
 .del{
     text-align: left;
     border-bottom: .0625rem solid #e8e8e8;
@@ -405,3 +443,36 @@
 .checkout-tools-main checkout-tools-main-payment{
     position: relative;
 }
+.link{
+    position:relative;
+}
+
+    .title{
+        padding:0.3rem 1rem;
+        position:relative;
+      text-align:center;
+        &-log{
+           
+            position:relative;
+            cursor:pointer;
+            font-size: 2rem;
+            font-weight: 600;
+            color: blue;
+            
+            &-1{
+                position:relative;
+                cursor:pointer;
+              font-size: 1.5rem;
+              font-weight: 600;
+              color: orange;
+            }
+            }
+        &-check{
+            
+         
+            text-align:center;
+            font-weight:600;
+            font-size:1.5rem;
+           
+        }
+    }

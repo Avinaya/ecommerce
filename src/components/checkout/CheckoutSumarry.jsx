@@ -2,7 +2,7 @@ import React ,{useState} from "react";
 
 import axios from "axios";
 function CheckoutSummary(props){
-    const API_URL="http://localhost:8080/order";
+    const API_URL="https://saptasoch.herokuapp.com/order";
    var [cart]=useState(JSON.parse(localStorage.getItem("cart")));
    const [delivery]=useState(JSON.parse(localStorage.getItem("delivery")));
    let payload={orderDetailsDtos:[]};

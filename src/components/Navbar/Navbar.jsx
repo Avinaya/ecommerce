@@ -2,8 +2,10 @@ import React from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import Search from "./search/Search";
+import { useStateValue } from "./../contexApi/stateProvider/StateProvider";
 
 const Navbar = () => {
+  const [{basket}]=useStateValue();
   return (
     <nav className="navBar">
       <div className="navBar-tools">
@@ -55,8 +57,10 @@ const Navbar = () => {
         </div>
         <div className="navBar-tools-item navBar-tools-item-cart">
           <i className="fa fa-shopping-cart mr-1"></i>
+          <Link to="/cart" className="link">
           <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
-          <span className="navBar-tools-item-item">0</span>
+          <span className="navBar-tools-item-item">{basket.length}</span>
+          </Link>
         </div>
 
         <div className="navBar-tools-item-sell_cart-mob">

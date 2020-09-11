@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const API_URL = "http://localhost:8080/customer/";
+const API_URL = "https://saptasoch.herokuapp.com/customer/";
 
 class AuthService {
  
@@ -23,7 +23,7 @@ class AuthService {
   }
   sendOtpCode(phoneNumber) {
     return axios
-      .post("http://localhost:8080/twilio", {
+      .post("https://saptasoch.herokuapp.com/twilio", {
         phoneNumber
         
       })
@@ -49,7 +49,7 @@ class AuthService {
 
   // }
   verifyOtpCode(phoneNumber,otpCode){
-    return axios.post("http://localhost:8080/twilio/verify",{
+    return axios.post("https://saptasoch.herokuapp.com/twilio/verify",{
       phoneNumber,otpCode
     }).then(response => {
       return response.data;

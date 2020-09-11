@@ -3,7 +3,7 @@ import {useStateValue} from "./../contexApi/stateProvider/StateProvider";
 import "./../login/Login.scss";
 
 
-function DeliveryAddress(){
+function DeliveryAddress(props){
     const [{deliveryAddress},dispatch]=useStateValue();
     const [city,setCity]=useState(0);
     const [contactNo,setContactNo]=useState(0);
@@ -34,6 +34,7 @@ function DeliveryAddress(){
     }
 
     const addToDelivery= () =>{
+     
         dispatch({
             type:"ADD_TO_DELIVERY",
             item:{
@@ -51,7 +52,9 @@ function DeliveryAddress(){
          
           
           );
-    }
+          props.data(false);
+          
+            }
 
     const required = value => {
         if(!value){

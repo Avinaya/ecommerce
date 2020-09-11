@@ -1,11 +1,14 @@
 @import "../../style/variable";
 
 .cart{
+    padding:1em 0;
+    
     position: relative;
     box-sizing: border-box;
     margin: 1.5rem 2rem;
-
+    
     &-tot{
+        padding:0.8rem 0.8rem;
         display:none;
         background-color: #fff;
         margin-bottom:2rem;
@@ -27,16 +30,20 @@
         }
     }
     &-tool{
+        position:relative;
         margin: 2rem 2rem 5rem 2rem;
-        height: 50vh;
+        height: auto;
         &-parent{
+            
             display: grid;
              grid-template-columns: 3fr 1fr ;
             grid-gap:1rem;
             &-item{
+                
                 background-color: #ffff;
                 &-itemdetails{
                     &-main{
+                        
                         &-name{
                             display: flex;
                             flex-wrap:wrap;
@@ -236,7 +243,10 @@
 
 @media (max-width: 768px) {  
     .cart{
-        margin: 0;
+        
+        &-tool{
+            margin:2.5rem 0.2rem;
+        }
     }
  .cart-tool-parent-item-itemdetails-main-name{
      display:none;
@@ -250,7 +260,7 @@
          display: flex;
                             
          & img{
-             width:50%;
+             width:40%;
              height:20vh;
              
          }
@@ -287,7 +297,7 @@
             margin: 0;
             text-align: center;
             width: 48%;
-            & button{
+            & span{
                 position: relative;
             }
             &-r{
