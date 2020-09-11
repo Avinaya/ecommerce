@@ -52,6 +52,7 @@
     &-item {
       margin-left: 3vw;
       & h5 {
+        cursor: pointer;
         color: $color-black;
         font-size: 0.9rem;
         font-weight: 600;
@@ -65,8 +66,12 @@
   margin-left: -1rem;
 
   &-item {
+    cursor: pointer;
     border: none !important;
     text-transform: capitalize;
+    &:hover{
+      color: $color-primary;
+    }
    
   }
 }

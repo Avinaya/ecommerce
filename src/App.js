@@ -13,6 +13,7 @@ import OtpVerify from "./components/signup/OtpVerify";
 import ProductTagAll from './pages/productTagAll/ProductTagAll';
 import ProductCategory from './pages/productCategories/ProductCategory';
 import Categories from './components/category/Categories';
+import SideBarMob from './components/sideBar/sideBarMob/SideBarMob';
 function App() {
 
   useEffect(() => {
@@ -22,8 +23,9 @@ function App() {
 const AuthenticatedRoute= () => {
   return (
     <React.Fragment>
+    <SideBarMob/>
       <Navbar />
-      <Mobheader />
+      <Mobheader /> 
       <Categories/>
       <Switch>
         <Route exact path="/" component={Home} />
