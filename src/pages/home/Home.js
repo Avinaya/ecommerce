@@ -11,7 +11,6 @@ import Banner3 from '../../components/banner/banner3/Banner3';
 import About from '../../components/about/About';
 import Banner4 from '../../components/banner/banner4/Banner4';
 
-
  function Home() {
     return (
        <React.Fragment>
