@@ -1,8 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import { useHistory } from "react-router-dom";
 
 export default function Price() {
   const history = useHistory();
+
+
+  const [price,setPrice] = useState({min:'',max:''})
 
   function handleChange(event) {
     let price = event.target.value;
@@ -21,6 +24,37 @@ export default function Price() {
         price: price,
       },
     });
+  }
+
+  function onPriceChange(event){
+    event.preventDefault();
+    setPrice({...price, [event.target.name]: event.target.value})
+   
+  }
+
+  function handleClick(){
+
+    
+    let searParam = `&max=${price.max}&min=${price.min}`
+    console.log("hawa Magie",price)
+    history.push({
+      pathname: history.location.pathname,
+      search: `${
+        history.location.query.header === null
+          ? ""
+          : history.location.query.header
+      }${searParam}`,
+      query: {
+        header:
+          history.location.query.header === null
+            ? null
+            : history.location.query.header,
+        price: searParam,
+      },
+    });
+    
+    
+
   }
 
   return (
@@ -98,9 +132,9 @@ export default function Price() {
           <div className="cumtom-price">
             <p>Custom Price Range</p>
             <div className="cumtom-price-input">
-              <input type="text" placeholder="Rs.Min" />
-              <input type="text" placeholder="Rs.Max" />
-              <button>Go</button>
+              <input type="text" name = "min" value={price.min} placeholder="Rs.Min" onChange={onPriceChange}/>
+              <input type="text" name = "max" value={price.max} placeholder="Rs.Max" onChange={onPriceChange}/>
+              <button onClick={handleClick}>Go</button>
             </div>
           </div>
         </div>
