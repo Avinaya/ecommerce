@@ -22,9 +22,9 @@
            
             padding:.5rem 0.4rem;
             
-            border: .0625rem solid #ed017f;
+            border: .0625rem solid $color-primary;
             border-radius: .1875rem;
-            color: #ed017f;
+            color:$color-primary;
             text-decoration: inherit;
 
         }
@@ -81,21 +81,29 @@
                             &-image{
                                 width: 40%;
                                 display: flex;
+                                // background-color: red;
                             
                                 & img{
-                                    width:50%;
-                                    height:20vh;
-                                    
+                                    padding: .2rem 0;
+                                    width:40%;
+                                    height:4rem;
+                                    object-fit: contain;
+ 
                                 }
                                 & span{
+                                    padding: .2rem 0rem;
                                     color: #404553;
                                     font-size: .8125rem;
                                     font-weight: 600;
                                     margin-bottom: .25rem;
+                                    line-height: 1.5em;
+                                    height: 3em; /* height is 2x line-height, so two lines will display */
+                                    overflow: hidden;
                                 }
                             }
                             &-quantities{
                                 width: 20%;
+                                padding: 0 .5rem;
                             }
                             &-prices{
                                 width: 20%;
@@ -105,7 +113,7 @@
                                 width:20%;
                                 &-attribute{
                                     position: relative;
-                                    color: #9a0052;
+                                    color:$color-primary;
                                     cursor: pointer;
                                     font-weight: 300;
                                     float: right;
@@ -157,7 +165,7 @@
                         padding: 1rem;
                         font-weight:400;
                         font-weight: 400;
-                        color: #b87300;
+                        color: $color-orange;
                         font-size: .6875rem;
                     }
                     &-checkout{
@@ -262,6 +270,7 @@
          & img{
              width:40%;
              height:20vh;
+
              
          }
      }
@@ -316,4 +325,15 @@
         }
  }
 }
+
+// .avinaya{
+//     width: 60%;
+//     height: 50%;
+
+//     & img{
+//         height: 100%;
+//         width: 100%;
+//         object-fit: contain;
+//     }
+// }
 

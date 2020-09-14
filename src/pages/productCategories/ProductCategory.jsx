@@ -4,17 +4,17 @@ import ProductCategoryHeader from "./productCatHeader/ProductCategoryHeader";
 import ProductCategoriesFilter from "./productCatFilter/ProductCategoriesFilter";
 import ProductCategoriesProducts from "./productCatProducts/ProductCategoriesProducts";
 import axios from "axios";
-import queryString from 'query-string'
+import queryString from "query-string";
 
 function ProductCategory(props) {
   const [data, setData] = useState([]);
   let category = localStorage.getItem("category");
   let subCategory = localStorage.getItem("subCategory");
   let subCategoryType = localStorage.getItem("subCategoryType");
-
-  const searchQuery= queryString.parse(props.location.search).sort
-  
-  console.log("history",searchQuery)
+ 
+  let productSort = queryString.parse(props.location.search).sort
+  let minPrice = queryString.parse(props.location.search).min
+  let maxPrice = queryString.parse(props.location.search).max
 
   useEffect(() => {
     async function fetchData() {
@@ -23,23 +23,31 @@ function ProductCategory(props) {
       formData.append("subCategory", subCategory);
       formData.append("subCategoryType", subCategoryType);
       formData.append("pageNo", 0);
-      formData.append("pageSize", 10);
-      if(searchQuery){
-        formData.append("productSort",searchQuery)
-      }else{
-        formData.append("productSort","productId")
+      formData.append("pageSize", 20);
+
+      if (productSort) {
+        formData.append("productSort", productSort);
+      } else {
+        formData.append("productSort", "productId");
       }
-      
-     
+      if (minPrice) {
+        formData.append("minPrice",minPrice)
+        
+      }
+      if (maxPrice) {
+        formData.append("maxPrice",maxPrice)
+        
+      }
+
       const response = await axios.post(
         "https://saptasoch.herokuapp.com/productSearch/filter",
         formData
       );
       setData(response.data);
-      console.log("filter", response.data);
+      // console.log("filter", response.data);
     }
     fetchData();
-  }, [category, subCategory, subCategoryType,searchQuery]);
+  }, [category, subCategory, subCategoryType,productSort,minPrice,maxPrice]);
 
   return (
     <div className="productCategory">
@@ -47,7 +55,6 @@ function ProductCategory(props) {
         category={category}
         subCategory={subCategory}
         subCategoryType={subCategoryType}
-        url={props.match.params.categoriesName}
         filter={data}
       />
       <div className="productCategory-mob">
@@ -57,7 +64,7 @@ function ProductCategory(props) {
       </div>
       <div className="productCategory-tools">
         <div className="productCategory-tools-item">
-          <ProductCategoriesFilter data={data} />
+          <ProductCategoriesFilter />
         </div>
         <div className="productCategory-tools-item">
           <ProductCategoriesProducts data={data.content} />

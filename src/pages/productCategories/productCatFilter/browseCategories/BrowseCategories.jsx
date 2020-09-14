@@ -1,8 +1,50 @@
-import React from "react";
+import React, { useContext } from "react";
+import CategoriesContex from "./../../../../components/contexApi/contexApiCategory/ContexApiCategory";
+import { useHistory } from "react-router-dom";
 
 function BrowseCategories(props) {
+  
+  const history = useHistory();
 
-  const data = props.data
+  const data = useContext(CategoriesContex);
+  let category = localStorage.getItem("category");
+
+  let [subCategories] = (data.filter(val=>val.categoryName === category)).map(val=>val.subCategoryList)
+
+  console.log("datas ",data)
+  console.log("category ",category)
+  console.log("subcat ",subCategories)
+
+
+
+  const handleClickSubCat = (subCat) => (e) => {
+    e.preventDefault();
+    localStorage.setItem("category", category);
+    localStorage.setItem("subCategory", subCat);
+    localStorage.setItem("subCategoryType", "");
+      history.push({
+      pathname: `/category/${subCat.replace(/ /g, "-")}`,
+      query:{
+        header:null,
+        price:null
+      }
+  })
+    
+  };
+
+  const handleClick = (param) => (e) => {
+    e.preventDefault();
+    localStorage.setItem("category", param);
+    localStorage.setItem("subCategory", "");
+    localStorage.setItem("subCategoryType", "");
+    history.push({
+      pathname: `/category/${param.replace(/ /g, "-")}`,
+      query:{
+        header:null,
+        price:null
+      }
+  })
+  };
 
   return (
     <div className="card">
@@ -18,14 +60,23 @@ function BrowseCategories(props) {
         </span>
       </div>
 
-      <div id="collapseOne" className="collapse show" aria-labelledby="headingOne">
+      <div
+        id="collapseOne"
+        className="collapse show"
+        aria-labelledby="headingOne"
+      >
         <div className="card-body filterAccordion-body">
+          <ul className="list-unstyled browseCategory-list">
+          
+            {subCategories &&
+              subCategories.map((val, index) => {
+                return <li key={index} onClick={handleClickSubCat(val.subCategoryName)}>{val.subCategoryName}</li>;
+              })}
 
-        {console.log("category",data)}
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
-          dolore minima aliquam optio perspiciatis sequi voluptatem possimus
-          sed, mollitia distinctio quas praesentium repudiandae culpa suscipit
-          exercitationem? Repellendus deleniti deserunt fugiat?
+            {data.map((val, index) => {
+              return <li key={index} onClick={handleClick(val.categoryName)}>{val.categoryName}</li>;
+            })}
+          </ul>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@
     &-item {
       padding: 1rem 0.5rem;
       &:not(:last-child) {
-        background-color: hotpink;
+        background-color: inherit;
         overflow: auto;
         height: 60rem;
       }

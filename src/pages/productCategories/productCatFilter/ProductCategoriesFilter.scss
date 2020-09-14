@@ -20,6 +20,16 @@
 }
 
 
+.browseCategory-list{
+
+    li{
+        color: $color-popular;
+        margin-bottom: .5rem;
+        cursor: pointer;
+    }
+}
+
+
 .panel-heading {
     cursor: pointer;
 }
@@ -27,12 +37,58 @@
  .accordion-toggle:after {
     /* symbol for "opening" panels */
     font-family:'FontAwesome';
-    content:"\002B";
+    content:"\2212";
 
     float: right;
     color: inherit;
 }
 .panel-heading.collapsed .accordion-toggle:after {
     /* symbol for "collapsed" panels */
-    content:"\2212";
+    content:"\002B";
+
 }
+
+
+.radio-button{
+
+    & input{
+        margin-right: .7rem;
+    }
+    & label{
+        cursor: pointer;
+        margin-bottom: 1rem;
+    }
+}
+
+.cumtom-price{
+
+    & p{
+        font-weight: 600;
+        margin-bottom: .5rem;
+    }
+
+    & input{
+        width: 40%;
+        margin-right: .5rem;
+        padding: .2rem .5rem;
+        outline: none;
+        border: .1px solid $color-black;
+    }
+   &-input{
+       display: flex;
+
+       & button{
+           outline: none;
+           border: 1px solid $color-primary;
+           color: $color-primary;
+           padding: .2rem .5rem;
+           background-color: $color-white;
+
+           &:hover{
+               color: white;
+               background-color: $color-primary;
+           }
+       }
+   }
+}
+  

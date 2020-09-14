@@ -8,8 +8,8 @@ import Colour from "./colour/Colour";
 function ProductCategoriesFilter(props) {
   return (
     <div id="accordion">
-      <BrowseCategories data={props.data}/>
-      <Price />
+      <BrowseCategories/>
+      <Price/>
       <Brand />
       <Colour />
     </div>

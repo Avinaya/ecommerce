@@ -11,10 +11,29 @@ const ProductDetailImage = (props) => {
     setImgSrc(initialImage && initialImage[0].image);
   }, [initialImage]);
 
-  const getImage = (param) => (e) => {
-    e.preventDefault();
-    setImgSrc(param);
-  };
+ 
+
+  const[appState,changeState]=useState({
+    activeObject:null,
+    initialState:" initial"
+})
+
+const getImage = (param,index) => (e) => {
+  e.preventDefault();
+  setImgSrc(param);
+  console.log("index",index)
+  changeState({...appState,activeObject: index})
+
+
+};
+
+function toggleActiveStyle(index){
+    if(index ===  appState.activeObject){
+        return " activeBorder"
+    }else{
+        return " inactiveBorder"
+    }
+}
 
   return (
     <div className="productDetailImage">
@@ -25,8 +44,9 @@ const ProductDetailImage = (props) => {
         {initialImage &&
           initialImage.map((val, index) => {
             return (
-              <div className={"productDetailImage-sample-item"} key={index}>
-                <img src={val.image} alt="" onClick={getImage(val.image)}></img>
+              <div className={"productDetailImage-sample-item"+toggleActiveStyle(index)} key={index}
+              >
+                <img src={val.image} alt="" onClick={getImage(val.image,index)}></img>
               </div>
             );
           })}

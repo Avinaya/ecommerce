@@ -2,7 +2,6 @@ import React,{useEffect,useState} from "react";
 import "./ProductDetailDesciption.scss";
 import { Link } from "react-router-dom";
 import Quantity from "./../quantity/Quantity";
-import axios from "axios";
 import { useHistory } from 'react-router-dom';
 
 import Rating from '../../../components/rating/rating';
@@ -10,8 +9,6 @@ import { useStateValue } from "../../../components/contexApi/stateProvider/State
 
 
 function ProductDetailDesciption(props) {
-  const [color,setColor]=useState(0);
-  const [size,setSize]=useState(0);
 
   const history = useHistory();
   const brand = props.data.brand;

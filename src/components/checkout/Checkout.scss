@@ -59,8 +59,8 @@
                                               
                                                 // z-index: 1;
                                                 background-color: transparent;
-                                                border: .0625rem solid #ed017f;
-                                                color: #f84ca2;
+                                                border: .0625rem solid $color-primary;
+                                                color: $color-primary;
                                                 font-weight: 600;
                                                     
                                                  padding: 0.05rem 0.3rem;
@@ -68,22 +68,22 @@
                                                     
                                                 cursor:pointer;
                                                 float:right;
+                                           
+
                                             }
-                                            &-a:hover{
-                                                background: #eeeeee;
-                                            }
+                                            // &-a:hover{
+                                            //     background: red;
+                                            // }
                                             &-a:focus{
                                                 outline: none;
                                             }
 
                                             &-c{
                                                 position: relative;
-                                                
-                                              
                                                 // z-index: 1;
                                                 background-color: transparent;
-                                                border: .0625rem solid #ed017f;
-                                                color: #f84ca2;
+                                                border: .0625rem solid $color-primary;
+                                                color: $color-primary;
                                                 font-weight: 600;
                                                     
                                                  padding: 0.05rem 0.3rem;
@@ -91,10 +91,15 @@
                                                     
                                                 cursor:pointer;
                                                 float:right;
+
+                                                &:hover{
+                                                    background-color: $color-primary;
+                                                    color: $color-white;
+
+                                                }
+
                                             }
-                                            & span:hover{
-                                                background: #eeeeee;
-                                            }
+                                          
                                             & span:focus{
                                                 outline: none;
                                             }
@@ -120,11 +125,11 @@
                                     }
                                     &-user{
                                         background-color: #f2f2f2;
-                                        border: .0625rem solid orange;
+                                        border: .0625rem solid $color-button;
                                         &-me{
                                             padding:0.5rem 0.4rem;
                                             font-weight: 600;
-                                            border-bottom: .0625rem solid orange;
+                                            border-bottom: .0625rem solid $color-button;
                                             &-a{
                                                 float:right;
                                                 text-decoration: none;
@@ -132,8 +137,8 @@
                                               
                                                 // z-index: 1;
                                                 background-color: white;
-                                                border: .0625rem solid #ed017f;
-                                                color: #f84ca2;
+                                                border: .0625rem solid $color-primary;
+                                                color: $color-primary;
                                                 font-weight: 600;
                                                     
                                                  padding: 0.05rem 0.3rem;
@@ -153,9 +158,9 @@
                                                 text-decoration: none;
                                               
                                                 // z-index: 1;
-                                                background-color: #fbcd00;
-                                                border: .0625rem solid #ed017f;
-                                                color: white;
+                                                background-color: $color-white;
+                                                border: .0625rem solid $color-button;
+                                                color: $color-button;
                                                 font-weight: 400;
                                                     
                                                  padding: 0.05rem 0.3rem;
@@ -163,10 +168,13 @@
                                                     
                                                 cursor:pointer;
                                                 float:right;
+
+                                                &:hover{
+                                                    color: $color-white;
+                                                    background-color: $color-button;
+                                                }
                                             }
-                                            &-b:hover{
-                                                color: white;
-                                            }
+                                            
                                             
                                             &-b:focus{
                                                 outline: none;
@@ -201,8 +209,8 @@
 
                                         &-d{
                                             background-color: transparent;
-                                            border: .0625rem solid #ed017f;
-                                            color: #f84ca2;
+                                            border: .0625rem solid $color-primary;
+                                            color: $color-primary;
                                             font-weight: 600;
                                             position: relative;
                                              padding: 0.05rem 0.3rem;
@@ -210,10 +218,15 @@
                                                 
                                             cursor:pointer;
                                             float:right;
+                                        
+
+                                            &:hover{
+                                                color: $color-white;
+                                                background-color: $color-primary;
+                                            }
+
                                         }
-                                        & span:hover{
-                                            background: #eeeeee;
-                                        }
+                                       
                                         & span:focus{
                                             outline: none;
                                         }

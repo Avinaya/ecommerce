@@ -13,7 +13,13 @@ const Categories = () => {
     localStorage.setItem("category", param);
     localStorage.setItem("subCategory", "");
     localStorage.setItem("subCategoryType", "");
-    history.push(`/category/${param.replace(/ /g, "-")}`);
+    history.push({
+      pathname: `/category/${param.replace(/ /g, "-")}`,
+      query:{
+        header:null,
+        price:null
+      }
+  })
   };
   return (
     <React.Fragment>

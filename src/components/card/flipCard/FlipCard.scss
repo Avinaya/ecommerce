@@ -27,6 +27,10 @@
     backface-visibility: hidden;
     border-radius: 5px;
 
+    & li{
+      color:black;
+    }
+
   }
 
   &-front {

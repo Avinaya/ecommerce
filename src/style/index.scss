@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap');
 @import './variable';
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Muli', sans-serif;
+    font-family: 'Alegreya Sans', sans-serif;
 }
 
 html{
@@ -27,6 +27,16 @@ p{
 }
 .color-text{
     color: $color-text;
+}
+
+.list-unstyled{
+    list-style: none;
+	margin-left: 0;
+    padding-left: 0;
+    
+    & li{
+        text-transform: capitalize;
+    }
 }
 
 

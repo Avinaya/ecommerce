@@ -16,21 +16,15 @@ const FlipCard = (props) => {
             <img src={props.data.imageBack} alt="computer" />
           </div>
           <ul>
-            <li className="mb-2">
-              <Link className="link" to="/">
-                {props.data.categories1}
-              </Link>
-            </li>
-            <li className="mb-2">
-              <Link className="link" to="/">
-                {props.data.categories2}
-              </Link>
-            </li>
-            <li>
-              <Link className="link" to="/">
-                {props.data.categories3}
-              </Link>
-            </li>
+            <Link className="link" to="/">
+              <li className="mb-2">{props.data.categories1}</li>
+            </Link>
+            <Link className="link" to="/">
+              <li className="mb-2">{props.data.categories2}</li>
+            </Link>
+            <Link className="link" to="/">
+              <li>{props.data.categories3}</li>
+            </Link>
           </ul>
         </div>
       </div>

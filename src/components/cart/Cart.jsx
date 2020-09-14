@@ -2,7 +2,6 @@ import React from "react";
 import "./Cart.scss";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
-import DetailTopBar from "./../detailTopBar/DatailTopBar";
 
 import {useStateValue} from "./../contexApi/stateProvider/StateProvider";
 
@@ -10,9 +9,6 @@ function Cart(){
   const [{basket}]=useStateValue();
   const totalQuantity=basket.reduce((totalItem,basket) => totalItem + basket.productQuantity, 0);
   const totalSalePrice=basket.reduce((totalSale,basket) => totalSale + (basket.salePrice*basket.productQuantity) , 0);
-  const category="Home";
-  const subCategory="Cart";
-  const heading="Shopping Cart";
   return(
     <div>
       {/* <div>

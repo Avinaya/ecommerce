@@ -66,7 +66,7 @@ const popular_data = [
   },
   {
     subHeading: "Wines & Other Categories",
-    categories1: "Beauty, Health & Personal Care",
+    categories1: "Beauty & Health",
     categories2: "Sports and Fitness",
     categories3: "Books & Media Library",
     imageFront:

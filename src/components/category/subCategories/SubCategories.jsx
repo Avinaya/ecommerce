@@ -8,7 +8,14 @@ const SubCategories = (props) => {
     localStorage.setItem("category", cat);
     localStorage.setItem("subCategory", subCat);
     localStorage.setItem("subCategoryType", "");
-    history.push(`/category/${subCat.replace(/ /g, "-")}`);
+
+    history.push({
+      pathname: `/category/${subCat.replace(/ /g, "-")}`,
+      query:{
+        header:null,
+        price:null
+      }
+  })
   };
 
   const handleClickSubCatType = (cat, subCat, subCatType) => (e) => {
@@ -16,7 +23,14 @@ const SubCategories = (props) => {
     localStorage.setItem("category", cat);
     localStorage.setItem("subCategory", subCat);
     localStorage.setItem("subCategoryType", subCatType);
-    history.push(`/category/${subCatType.replace(/ /g, "-")}`);
+    history.push({
+      pathname: `/category/${subCatType.replace(/ /g, "-")}`,
+      query:{
+        header:null,
+        price:null
+      }
+  })
+    
   };
 
   return (
