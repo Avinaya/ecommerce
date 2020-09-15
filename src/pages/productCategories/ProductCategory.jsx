@@ -5,6 +5,7 @@ import ProductCategoriesFilter from "./productCatFilter/ProductCategoriesFilter"
 import ProductCategoriesProducts from "./productCatProducts/ProductCategoriesProducts";
 import axios from "axios";
 import queryString from "query-string";
+import ProductCategoryMob from './productCategoryMobile/ProductCategoryMob';
 
 function ProductCategory(props) {
   const [data, setData] = useState([]);
@@ -57,13 +58,9 @@ function ProductCategory(props) {
         subCategoryType={subCategoryType}
         filter={data}
       />
-      <div className="productCategory-mob">
-        <div className="productCategory-mob-item">Filter</div>
-        <div className="productCategory-mob-item">|</div>
-        <div className="productCategory-mob-item">Sort</div>
-      </div>
+      <ProductCategoryMob/>
       <div className="productCategory-tools">
-        <div className="productCategory-tools-item">
+        <div className="productCategory-tools-item productCategory-tools-item-filter">
           <ProductCategoriesFilter />
         </div>
         <div className="productCategory-tools-item">

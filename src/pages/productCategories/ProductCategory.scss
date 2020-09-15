@@ -3,20 +3,18 @@
 .productCategory {
   margin-bottom: 2rem;
 
-  &-mob {
-    display: none;
-  }
-
   &-tools {
     display: grid;
     grid-template-columns: 1.1fr 4fr;
     // grid-gap: 1rem;
     &-item {
+
+
       padding: 1rem 0.5rem;
       &:not(:last-child) {
         background-color: inherit;
         overflow: auto;
-        height: 60rem;
+        height: auto;
       }
     }
   }
@@ -30,15 +28,6 @@
 
 @media screen and (max-width: 768px) {
   .productCategory{
-    &-mob {
-        margin-bottom: .5rem;
-        padding: .5rem 0;
-        background-color: rgb(96, 190, 244);
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-      }
-  
   &-tools {
     grid-template-columns: 1fr;
     &-item {

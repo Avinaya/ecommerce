@@ -11,12 +11,6 @@ function BrowseCategories(props) {
 
   let [subCategories] = (data.filter(val=>val.categoryName === category)).map(val=>val.subCategoryList)
 
-  console.log("datas ",data)
-  console.log("category ",category)
-  console.log("subcat ",subCategories)
-
-
-
   const handleClickSubCat = (subCat) => (e) => {
     e.preventDefault();
     localStorage.setItem("category", category);

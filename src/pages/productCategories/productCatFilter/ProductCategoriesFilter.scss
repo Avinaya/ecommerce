@@ -3,6 +3,7 @@
 .filterAccordion{
     background-color: $color-white;
     cursor: pointer;
+    padding-left: 1rem;
 
     &-icon{
         font-weight: 0 !important;
@@ -92,3 +93,11 @@
    }
 }
   
+.productCategoryBrand{
+    overflow: auto;
+    height: 20rem;  
+    
+}
+.filterAccordion-body{
+    padding-left: 1rem;
+}

@@ -3,9 +3,6 @@ import "./SideBarMob.scss";
 import { slide as Menu } from "react-burger-menu";
 
 function SideBarMob() {
-//   const showSettings = (event) => {
-//     event.preventDefault();
-//   };
 
   return (
       <div className="sideBarMob">

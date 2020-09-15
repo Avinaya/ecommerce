@@ -1,0 +1,38 @@
+@import '../../../style/variable';
+
+.productCategory-mob{
+
+    display: none;
+
+    &-header{
+        padding: .4rem .5rem;
+        margin-bottom: .5rem;
+        background-color: $color-white;
+
+        & i{
+            margin-right: .5rem;
+            font-size: 1.1rem;;
+        }
+
+        & span{
+            font-weight: 600;
+        }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .productCategory-mob{
+        margin-bottom: .5rem;
+        padding: .5rem 0;
+        background-color: $color-white;
+        color: $color-primary;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+
+}
+

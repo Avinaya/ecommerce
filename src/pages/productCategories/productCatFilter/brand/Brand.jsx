@@ -1,6 +1,24 @@
 import React from 'react'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios'
 
 function Brand() {
+
+    const[brand,setBrand] = useState([])
+
+    useEffect(()=>{
+      async  function fetchData() {
+        const response = await axios.get(`https://saptasoch.herokuapp.com/productBrand`)
+        console.log("brand",response.data)
+        setBrand(response.data)
+        
+      }
+      fetchData();
+    },[])
+
+
+
     return (
         
     <div className="card">
@@ -24,10 +42,15 @@ function Brand() {
       aria-labelledby="headingThree"
     >
       <div className="card-body filterAccordion-body">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias
-        dolore minima aliquam optio perspiciatis sequi voluptatem possimus
-        sed, mollitia distinctio quas praesentium repudiandae culpa suscipit
-        exercitationem? Repellendus deleniti deserunt fugiat?
+      <div className="productCategoryBrand">
+        <ul className="list-unstyled browseCategory-list">
+        {brand.map((val,index)=>{
+          return(
+            <li className="productCategoryBrand-list" key={index}>{val.brandName}</li>
+          )
+        })}
+        </ul>
+        </div>
       </div>
     </div>
   </div>
