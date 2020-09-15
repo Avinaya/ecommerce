@@ -15,7 +15,7 @@ function ProductCategoryMob() {
     sidebar: {
       width: "100%",
       height: viewHeight,
-      background: "white",
+      background: "#E8E8E8",
       float: "right",
       position: "fixed",
       zIndex: 9999,
@@ -29,14 +29,12 @@ function ProductCategoryMob() {
           sidebar={
             <div className="sideBar">
               <div className="filterSideBar-top">
+                <i className="fa fa-long-arrow-left" onClick={() => onSetSidebarOpen(false)}/>
                 <span>Filter</span>
-                <button className="ram" onClick={() => onSetSidebarOpen(false)}>
-                  close
-                </button>
               </div>
 
               <div className="filterSideBar-body">
-                <ProductCategoryMobFilter/>
+                <ProductCategoryMobFilter sidebarStatus={onSetSidebarOpen}/>
               </div>
             </div>
           }

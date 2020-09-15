@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { useHistory } from "react-router-dom";
 
-export default function Price() {
+export default function Price(props) {
   const history = useHistory();
 
 
@@ -24,6 +24,8 @@ export default function Price() {
         price: price,
       },
     });
+    props.sidebarStatus(false)
+
   }
 
   function onPriceChange(event){
@@ -53,7 +55,8 @@ export default function Price() {
       },
     });
     
-    
+    props.sidebarStatus(false)
+
 
   }
 

@@ -52,6 +52,8 @@ return (
   <Route component={AuthenticatedRoute}/>
 </Switch>
 );
+
+
 }
 
 export default App;

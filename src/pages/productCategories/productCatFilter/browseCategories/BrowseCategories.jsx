@@ -23,6 +23,7 @@ function BrowseCategories(props) {
         price:null
       }
   })
+  props.sidebarStatus(false)
     
   };
 
@@ -38,6 +39,8 @@ function BrowseCategories(props) {
         price:null
       }
   })
+  props.sidebarStatus(false)
+
   };
 
   return (

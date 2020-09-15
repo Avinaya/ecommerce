@@ -4,15 +4,15 @@
 .mobheader{
     width: 100%;
     margin-top: .5rem;
+    padding: 0 .5rem;
 
     &-tools{
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
+
+        display: flex;
+        justify-content: space-between;
 
         &-item{
             text-align: center;
-            padding: 0 2px 0 2px;
-
             & span{
                 font-size: .75rem;
             }

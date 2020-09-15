@@ -50,7 +50,7 @@ function Checkout() {
 
   const sidebarStyles = {
     sidebar: {
-      width: "100%",
+      width: 295,
       height: viewHeight,
       background: "white",
       float: "right",
