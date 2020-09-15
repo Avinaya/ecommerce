@@ -55,7 +55,7 @@ class AuthService {
       return response.data;
     })
   }
-  checkCredentials(customerName,contactNo,area,street,district,state,country,zipCode,email,userName,password,image,verificationCode,status){
+  checkCredentials(customerName,contactNo,email,password){
     return axios(API_URL + "check", {
       method: 'POST',
     headers: {
@@ -63,18 +63,9 @@ class AuthService {
     },
       data:{customerName,
       contactNo,
-      area,
-      street,
-      district,
-      state,
-      country,
-      zipCode,
-      email,
-      userName,
-      password,
-      image,
-      verificationCode,
-      status}
+           email,
+            password,
+      }
     });
   }
 
@@ -82,7 +73,7 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  register(customerName,contactNo,area,street,district,state,country,zipCode,email,userName,password,image,verificationCode,status) {
+  register(customerName,contactNo,email,password) {
     return axios(API_URL + "signup", {
       method: 'POST',
     headers: {
@@ -90,18 +81,9 @@ class AuthService {
     },
       data:{customerName,
       contactNo,
-      area,
-      street,
-      district,
-      state,
-      country,
-      zipCode,
       email,
-      userName,
-      password,
-      image,
-      verificationCode,
-      status}
+     password,
+      }
     });
   }
 

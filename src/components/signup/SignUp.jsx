@@ -59,32 +59,19 @@ const required = value => {
         this.handleRegister = this.handleRegister.bind(this);
         this.onChangeCustomername = this.onChangeCustomername.bind(this);
         this.onChangeContactno=this.onChangeContactno.bind(this);
-        this.onChangeArea=this.onChangeArea.bind(this);
-        this.onChangeStreet=this.onChangeStreet.bind(this);
-        this.onChangeDistrict=this.onChangeDistrict.bind(this);
-        this.onChangeState=this.onChangeState.bind(this);
-        this.onChangeCountry=this.onChangeCountry.bind(this);        
-        this.onChangeZipcode=this.onChangeZipcode.bind(this);
+       
         this.onChangeEmail=this.onChangeEmail.bind(this);
-        this.onChangeUsername=this.onChangeUsername.bind(this); 
+       
         this.onChangePassword=this.onChangePassword.bind(this);
         
 
         this.state={
           customername:"",
           contactno:"",
-          area:"",
-          street:"",
-          district:"",
-          state:"",
-          country:"",
-          zipcode:"",
           email:"",
-          username:"",
           password:"",
-          image:"abcd",
-          verificationcode:"123",
-          status:"inactive",
+          
+         
             successful: false,
             message: ""
         };
@@ -103,42 +90,7 @@ const required = value => {
         });
       }
 
-      onChangeArea(e) {
-        this.setState({
-          area: e.target.value
-        });
-      }
-
-      onChangeStreet(e) {
-        this.setState({
-          street: e.target.value
-        });
-      }
-
-      onChangeDistrict(e) {
-        this.setState({
-          district: e.target.value
-        });
-      }
-
-      onChangeState(e) {
-        this.setState({
-          state: e.target.value
-        });
-      }
-
-      onChangeCountry(e) {
-        this.setState({
-          country: e.target.value
-        });
-      }
-
-      onChangeZipcode(e) {
-        this.setState({
-          zipcode: e.target.value
-        });
-      }
-
+    
       
       
       onChangeEmail(e) {
@@ -147,12 +99,7 @@ const required = value => {
         });
       }
 
-      onChangeUsername(e) {
-        this.setState({
-          username: e.target.value
-        });
-      }
-
+     
       onChangePassword(e) {
         this.setState({
           password: e.target.value
@@ -177,19 +124,10 @@ const required = value => {
           AuthService.checkCredentials(
             this.state.customername,
             this.state.contactno,
-            this.state.area,
-            this.state.street,
-            this.state.district,
-            this.state.state,
-            this.state.country,
-            this.state.zipcode,
-            this.state.email,
-            this.state.username,
+           this.state.email,
+            
             this.state.password,
-            this.state.image,
-            this.state.verificationcode,
-            this.state.status
-
+            
             
           ).then(
             response => {
@@ -293,83 +231,13 @@ const required = value => {
                   />
                         </div>
 
-                        <div className="signup-items-account-entity-form-point">
-                            <label htmlFor="area">Area</label>
-                            <Input
-                    type="text"
-                    className="signup-items-account-entity-form-control"
-                    name="area"
-                    placeholder="Enter Area"
-                    value={this.state.area}
-                    onChange={this.onChangeArea}
-                   validations={[required]}
-                  />
-                        </div>
-
-                        <div className="signup-items-account-entity-form-point">
-                            <label htmlFor="street">Street</label>
-                            <Input
-                    type="text"
-                    className="signup-items-account-entity-form-control"
-                    name="street"
-                    placeholder="Enter Street"
-                    value={this.state.street}
-                    onChange={this.onChangeStreet}
-                   validations={[required]}
-                  />
-                        </div>
+                      
                     
-                        <div className="signup-items-account-entity-form-point">
-                            <label htmlFor="district">District</label>
-                            <Input
-                    type="text"
-                    className="signup-items-account-entity-form-control"
-                    name="district"
-                    placeholder="Enter District"
-                    value={this.state.district}
-                    onChange={this.onChangeDistrict}
-                   validations={[required]}
-                  />
-                        </div>
+                    
 
-                        <div className="signup-items-account-entity-form-point">
-                            <label htmlFor="state">State</label>
-                            <Input
-                    type="text"
-                    className="signup-items-account-entity-form-control"
-                    name="state"
-                    placeholder="Enter State"
-                    value={this.state.state}
-                    onChange={this.onChangeState}
-                   validations={[required]}
-                  />
-                        </div>
 
-                        <div className="signup-items-account-entity-form-point">
-                            <label htmlFor="country">Country</label>
-                            <Input
-                    type="text"
-                    className="signup-items-account-entity-form-control"
-                    name="country"
-                    placeholder="Enter Country"
-                    value={this.state.country}
-                    onChange={this.onChangeCountry}
-                   validations={[required]}
-                  />
-                        </div>
 
-                        <div className="signup-items-account-entity-form-point">
-                            <label htmlFor="zipcode">ZipCode</label>
-                            <Input
-                    type="text"
-                    className="signup-items-account-entity-form-control"
-                    name="zipcode"
-                    value={this.state.zipcode}
-                    placeholder="Enter Zipcode"
-                    onChange={this.onChangeZipcode}
-                   validations={[required]}
-                  />
-                        </div>
+                        
                         <div className="signup-items-account-entity-form-point">
                             <label htmlFor="email">Email</label>
                             <Input
@@ -382,18 +250,7 @@ const required = value => {
                    validations={[required,email]}
                   />
                         </div>
-                        <div className="signup-items-account-entity-form-point">
-                            <label htmlFor="username">Username</label>
-                            <Input
-                    type="text"
-                    className="signup-items-account-entity-form-control"
-                    name="username"
-                    placeholder="Enter Username"
-                    value={this.state.username}
-                    onChange={this.onChangeUsername}
-                   validations={[required]}
-                  />
-                        </div>
+                       
 
                         <div className="signup-items-account-entity-form-point">
                             <label htmlFor="password">Password</label>
