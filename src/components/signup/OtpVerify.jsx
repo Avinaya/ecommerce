@@ -33,18 +33,13 @@ const required = value => {
         this.state={
           customername:this.props.location.state.customername,
           contactno:this.props.location.state.contactno,
-          area:this.props.location.state.area,
-          street:this.props.location.state.street,
-          district:this.props.location.state.district,
-          state:this.props.location.state.state,
-          country:this.props.location.state.country,
-          zipcode:this.props.location.state.zipcode,
+         
           email:this.props.location.state.email,
-          username:this.props.location.state.username,
+          
           password:this.props.location.state.password,
-          image:this.props.location.state.image,
+          
           verificationcode:"",
-          status:this.props.location.state.status,
+         
             successful: false,
             message: ""
         };
@@ -86,18 +81,11 @@ const required = value => {
             AuthService.register(
               this.state.customername,
               this.state.contactno,
-              this.state.area,
-              this.state.street,
-              this.state.district,
-              this.state.state,
-              this.state.country,
-              this.state.zipcode,
+             
               this.state.email,
-              this.state.username,
+             
               this.state.password,
-              this.state.image,
-              this.state.verificationcode,
-              this.state.status
+              
   
               
             ).then(
