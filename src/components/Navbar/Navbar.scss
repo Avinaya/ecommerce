@@ -1,6 +1,7 @@
 @import "../../style/variable";
 
 .navBar {
+  position: relative;
   width: 100%;
   background-color: $color-primary;
   color: $color-white;

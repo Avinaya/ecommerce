@@ -29,7 +29,7 @@ const required = value => {
         this.handleRegister = this.handleRegister.bind(this);
         this.onChangeVerificationCode=this.onChangeVerificationCode.bind(this);
         
-      console.log(this.props.location.state.customername);
+      
         this.state={
           customername:this.props.location.state.customername,
           contactno:this.props.location.state.contactno,
@@ -73,53 +73,58 @@ const required = value => {
         this.form.validateAll();
     
         if (this.checkBtn.context._errors.length === 0) {
-          AuthService.register(
-            this.state.customername,
-            this.state.contactno,
-            this.state.area,
-            this.state.street,
-            this.state.district,
-            this.state.state,
-            this.state.country,
-            this.state.zipcode,
-            this.state.email,
-            this.state.username,
-            this.state.password,
-            this.state.image,
-            this.state.verificationcode,
-            this.state.status
-
-            
-          ).then(
-            response => {
-              this.setState({
-                message: response.data.message,
-                successful: true
-              });
-             
-             
-            }, 
-            error => {
-              const resMessage =
-                (error.response &&
-                  error.response.data &&
-                  error.response.data.message) ||
-                error.message ||
-                error.toString();
-    
-              this.setState({
-                successful: false,
-                message: resMessage
-              });
-            }
-          );
+          
           
 
           AuthService.verifyOtpCode(this.state.contactno,this.state.verificationcode).then(response =>{
             this.setState({
-              message: response.data.message,
+              message: response,
               successful: true
-            });
+            }
+            );
+            console.log("message", response); 
+            AuthService.register(
+              this.state.customername,
+              this.state.contactno,
+              this.state.area,
+              this.state.street,
+              this.state.district,
+              this.state.state,
+              this.state.country,
+              this.state.zipcode,
+              this.state.email,
+              this.state.username,
+              this.state.password,
+              this.state.image,
+              this.state.verificationcode,
+              this.state.status
+  
+              
+            ).then(
+              response => {
+                this.setState({
+                  message: response.data.message,
+                  successful: true
+                });
+                console.log("message", response.data.message);
+                // localStorage.setItem("user",JSON.stringify(this.state));
+                this.props.history.push('/login');
+               
+              }, 
+              error => {
+                const resMessage =
+                  (error.response &&
+                    error.response.data &&
+                    error.response.data.message) ||
+                  error.message ||
+                  error.toString();
+      
+                this.setState({
+                  successful: false,
+                  message: resMessage
+                });
+              }
+            );
              
           }, 
           error => {
@@ -137,8 +142,7 @@ const required = value => {
           }
           
           );
-          localStorage.setItem("user",JSON.stringify(this.state));
-          this.props.history.push('/');
+          
         }
         
       }

@@ -1,7 +1,7 @@
 @import '../../../style/variable';
 
 .productCategory-mob{
-
+    position:relative;
     display: none;
 
     &-header{
@@ -16,6 +16,14 @@
 
         & span{
             font-weight: 600;
+        }
+     
+    }
+    &-item{
+        position:relative;
+        & span{
+            position: relative;
+            cursor:pointer;
         }
     }
 
@@ -35,4 +43,42 @@
 
 
 }
-
+.sdeBar{
+    background-color: #f3f3f3d2;
+}
+.sideTop{
+    border-bottom: .0625rem solid #e8e8e8;
+                        padding:1rem 0.8rem;
+                        background-color: white;
+                        & span{
+                            font-weight: 400;
+                            font-size: 2rem;
+                            
+                        }
+                        & span:hover{
+                            background: none;
+                        }
+                        & span:focus{
+                            outline: none;
+                        }
+                        
+                        margin-bottom: 2rem;
+                   
+                        & button{
+                           cursor: pointer;
+                            padding:.5rem 0.4rem;
+                            float:right;        
+                            border: .0625rem solid #ed017f;
+                            border-radius: .1875rem;
+                            color: #ed017f;
+                            text-decoration: inherit;
+                            font-size:0.7rem
+                        }
+                        & buttom:hover{
+                            color: white;
+                        }
+                        
+                        & button:focus{
+                            outline: none;
+                        }
+}
