@@ -3,6 +3,8 @@ import "./SecondProductCard.scss";
 import Rating from "../../rating/ProductRating";
 import { useHistory } from "react-router-dom";
 import { useStateValue } from "../../../components/contexApi/stateProvider/StateProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SecondProductCard = (props) => {
@@ -10,6 +12,7 @@ const SecondProductCard = (props) => {
   const initialImage = props.data.productImageList;
   
   const [imgSrc, setImgSrc] = useState();
+  const [loading,setLoading]=useState(false);
   
  useEffect(() => {
    setImgSrc(initialImage && initialImage[0].image);
@@ -23,9 +26,10 @@ const SecondProductCard = (props) => {
   const [{basket},dispatch]=useStateValue();
   
   const AddToBasket= () => {
-   
+    setLoading(true);
     //Add item to basket
     dispatch({
+      
       type:"ADD_TO_BASKET",
       item: {
 
@@ -39,10 +43,14 @@ const SecondProductCard = (props) => {
       }
       
     }
+    
    
     
     );
-    history.push('/cart');
+    
+    toast.success("Successfully added to cart!");
+    setLoading(false);
+    
    
   };
   
@@ -66,10 +74,11 @@ const SecondProductCard = (props) => {
     } else return "discount";
   };
   return (
-    <div className="secondProductCard" onClick={getDetail(props.data)}>
+    <div className="secondProductCard" >
       <div className="secondProductCard-tools">
         <div>
-          <div className="secondProductCard-tools-item secondProductCard-tools-item1">
+        <ToastContainer position={toast.POSITION.BOTTOM_LEFT}/>
+          <div className="secondProductCard-tools-item secondProductCard-tools-item1" onClick={getDetail(props.data)}>
             <div className="secondProductCard-tools-item1-image">
               <img src={props.data.productImageList[0].image} alt="" />
             </div>
@@ -80,17 +89,17 @@ const SecondProductCard = (props) => {
         </div>
 
         <div>
-          <div className="secondProductCard-tools-item secondProductCard-tools-item-name">
+          <div className="secondProductCard-tools-item secondProductCard-tools-item-name" onClick={getDetail(props.data)}>
             <span>{props.data.productName}</span>
           </div>
-          <div className="secondProductCard-tools-item secondProductCard-tools-item-price">
+          <div className="secondProductCard-tools-item secondProductCard-tools-item-price" onClick={getDetail(props.data)}>
             <span>{"Rs." + props.data.salePrice}</span>
             <span className={fun()}>
               {"Rs." + (props.data.salePrice + props.data.discountValue)}
             </span>
           </div>
 
-        <div className="secondProductCard-tools-item secondProductCard-tools-item-seller">
+        <div className="secondProductCard-tools-item secondProductCard-tools-item-seller" onClick={getDetail(props.data)}>
           <span>Sell by Saptabazar</span>
         </div>
 
@@ -100,7 +109,11 @@ const SecondProductCard = (props) => {
         </div>
 
         <div className="secondProductCard-tools-item secondProductCard-tools-item-cart">
-          <button className="btn" onClick={AddToBasket}>
+          <button className="btn" onClick={AddToBasket}
+          disabled={loading}>
+                      {loading && (
+                  <span className="spinner-border spinner-border-sm"></span>
+                )}
             Add To Cart
           </button>
         </div>
