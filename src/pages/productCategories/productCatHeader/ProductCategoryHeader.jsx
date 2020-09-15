@@ -33,6 +33,36 @@ function ProductCategoryHeader(props) {
     });
   };
 
+  const handleClickCat = (param) => (e) => {
+    e.preventDefault();
+    localStorage.setItem("category", param);
+    localStorage.setItem("subCategory", "");
+    localStorage.setItem("subCategoryType", "");
+    history.push({
+      pathname: `/category/${param.replace(/ /g, "-")}`,
+      query:{
+        header:null,
+        price:null
+      }
+  })
+  };
+
+  const handleClickSubCat = (cat, subCat) => (e) => {
+    e.preventDefault();
+    localStorage.setItem("category", cat);
+    localStorage.setItem("subCategory", subCat);
+    localStorage.setItem("subCategoryType", "");
+
+    history.push({
+      pathname: `/category/${subCat.replace(/ /g, "-")}`,
+      query:{
+        header:null,
+        price:null
+      }
+  })
+  };
+  
+
   return (
     <div className="productCategoryHeader">
       <div className="productCategoryHeader-top">
@@ -43,24 +73,21 @@ function ProductCategoryHeader(props) {
             </Link>
             <i className="fa fa-angle-right mx-2"></i>
 
-            <Link to="/" className="link">
-              <span style={arr.length > 2 ? {} : { color: "#016fed" }}>
+              <span style={arr.length > 2 ? {} : { color: "#016fed" }} onClick={handleClickCat(arr[0])}>
                 {arr[0]}
               </span>
-            </Link>
 
             <i
               className="fa fa-angle-right mx-2 "
               style={arr.length > 2 ? {} : { display: "none" }}
             ></i>
-            <Link to="/" className="link">
               <span
                 className="subcategory"
                 style={arr.length > 2 ? {} : { display: "none" }}
+                onClick={handleClickSubCat(arr[0],arr[1])}
               >
                 {arr[1]}
               </span>
-            </Link>
           </div>
         </div>
         <div className="productCategoryHeader-top-item productCategoryHeader-top-item2 color-text">

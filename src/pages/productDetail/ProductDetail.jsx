@@ -7,12 +7,14 @@ import ProductDetailDesciption from "./ProductDetailDescription/ProductDetailDes
 import ProductDetailMenu from "./ProductDetailMenu/ProductDetailMenu";
 import ProductDetailMenuMobile from "./ProductDetailMenu/ProductDetailMenuMobile/ProductDetailMenuMobile";
 import DetailTopBar from "../../components/detailTopBar/DatailTopBar";
+import SimilarProduct from "./similarProduct/SimilarProduct";
 
 const ProductDetail = (props) => {
   const [posts, setPosts] = useState([]);
   const[category,setCategory]=useState()
   const[subCategory,setSubCategory]=useState()
   const[heading,setHeading]=useState()
+
 
 
   useEffect(() => {
@@ -62,6 +64,9 @@ const ProductDetail = (props) => {
 
       <ProductDetailMenu data={posts} />
       <ProductDetailMenuMobile data={posts} />
+      <SimilarProduct 
+      data={subCategory}
+      productId={props.match.params.productId} />
     </div>
   );
 };
