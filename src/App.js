@@ -15,6 +15,7 @@ import ProductTagAll from './pages/productTagAll/ProductTagAll';
 import ProductCategory from './pages/productCategories/ProductCategory';
 import Categories from './components/category/Categories';
 import SideBarMob from './components/sideBar/sideBarMob/SideBarMob';
+
 function App() {
 
   useEffect(() => {
@@ -37,6 +38,7 @@ const AuthenticatedRoute= () => {
         
         <Route exact path="/delivery" component={DeliveryAddress}/>
         <Route exact path="*" component={Home}/>
+      
       </Switch>
       <Footer/>
     </React.Fragment>

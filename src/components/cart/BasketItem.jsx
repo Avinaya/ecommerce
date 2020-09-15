@@ -50,6 +50,7 @@ return(
     <div className="cart-tool-parent-item-itemdetails-main-product-prices">Rs.{totalItemPrice}</div>
           <div className="cart-tool-parent-item-itemdetails-main-product-actions">
           <span className="cart-tool-parent-item-itemdetails-main-product-actions-attribute cart-tool-parent-item-itemdetails-main-product-actions-attribute-r" onClick={() => props.onDelete(props.id)}>Remove Item</span>
+          <br/>
           <span className="cart-tool-parent-item-itemdetails-main-product-actions-attribute cart-tool-parent-item-itemdetails-main-product-actions-attribute-s">Save For Later</span>
           </div>
 
