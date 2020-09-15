@@ -1,12 +1,17 @@
 import React from "react";
+import './ProductCategoryMobFilter.scss'
+import BrowseCategories from './../productCatFilter/browseCategories/BrowseCategories';
+import Price from './../productCatFilter/price/Price';
+import Brand from './../productCatFilter/brand/Brand';
+import Colour from './../productCatFilter/colour/Colour';
 
-function ProductCategoryMobFilter() {
+function ProductCategoryMobFilter(props) {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-      cupiditate amet alias ea excepturi unde animi aliquid consequatur dolorum
-      eligendi minus odit et blanditiis nulla, asperiores atque similique ab
-      quibusdam!
+    <div className="productCategoryMobFilter" style={{height:window.outerHeight}}>
+    <BrowseCategories sidebarStatus={props.sidebarStatus}/>
+    <Price sidebarStatus={props.sidebarStatus}/>
+    <Brand sidebarStatus={props.sidebarStatus}/>
+    <Colour sidebarStatus={props.sidebarStatus}/>
     </div>
   );
 }
