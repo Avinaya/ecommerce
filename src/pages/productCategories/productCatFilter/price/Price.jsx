@@ -24,7 +24,9 @@ export default function Price(props) {
         price: price,
       },
     });
-    props.sidebarStatus(false)
+    if (props.sidebarStatus) {
+      props.sidebarStatus(false);
+    }
 
   }
 
@@ -55,7 +57,9 @@ export default function Price(props) {
       },
     });
     
-    props.sidebarStatus(false)
+    if (props.sidebarStatus) {
+      props.sidebarStatus(false);
+    }
 
 
   }

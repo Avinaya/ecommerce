@@ -1,29 +1,44 @@
-import React, { useContext } from "react";
-import CategoriesContex from "./../../../../components/contexApi/contexApiCategory/ContexApiCategory";
+import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import BaseDataContex from "../../../../components/contexApi/baseApiCall/BaseApiCall";
 
 function BrowseCategories(props) {
-  
-  const history = useHistory();
+  const value = useContext(BaseDataContex);
 
-  const data = useContext(CategoriesContex);
+  const history = useHistory();
+  const [cat, setCat] = useState([]);
+
+  useEffect(() => {
+    async function loadData() {
+      let data = (await value.category) && value.category.data;
+      if (data) {
+        setCat(data);
+      }
+    }
+    loadData();
+  }, [value]);
+
   let category = localStorage.getItem("category");
 
-  let [subCategories] = (data.filter(val=>val.categoryName === category)).map(val=>val.subCategoryList)
+  let [subCategories] = cat
+    .filter((val) => val.categoryName === category)
+    .map((val) => val.subCategoryList);
 
   const handleClickSubCat = (subCat) => (e) => {
     e.preventDefault();
     localStorage.setItem("category", category);
     localStorage.setItem("subCategory", subCat);
     localStorage.setItem("subCategoryType", "");
-      history.push({
+    history.push({
       pathname: `/category/${subCat.replace(/ /g, "-")}`,
-      query:{
-        header:null,
-        price:null
-      }
-  })
-  props.sidebarStatus(false)
+      query: {
+        header: null,
+        price: null,
+      },
+    });
+   if (props.sidebarStatus) {
+     props.sidebarStatus(false);
+   }
     
   };
 
@@ -34,14 +49,15 @@ function BrowseCategories(props) {
     localStorage.setItem("subCategoryType", "");
     history.push({
       pathname: `/category/${param.replace(/ /g, "-")}`,
-      query:{
-        header:null,
-        price:null
-      }
-  })
-  props.sidebarStatus(false)
-
-  };
+      query: {
+        header: null,
+        price: null,
+      },
+    });
+    if (props.sidebarStatus) {
+      props.sidebarStatus(false);
+    }
+    };
 
   return (
     <div className="card">
@@ -64,14 +80,24 @@ function BrowseCategories(props) {
       >
         <div className="card-body filterAccordion-body">
           <ul className="list-unstyled browseCategory-list">
-          
             {subCategories &&
               subCategories.map((val, index) => {
-                return <li key={index} onClick={handleClickSubCat(val.subCategoryName)}>{val.subCategoryName}</li>;
+                return (
+                  <li
+                    key={index}
+                    onClick={handleClickSubCat(val.subCategoryName)}
+                  >
+                    {val.subCategoryName}
+                  </li>
+                );
               })}
 
-            {data.map((val, index) => {
-              return <li key={index} onClick={handleClick(val.categoryName)}>{val.categoryName}</li>;
+            {cat.map((val, index) => {
+              return (
+                <li key={index} onClick={handleClick(val.categoryName)}>
+                  {val.categoryName}
+                </li>
+              );
             })}
           </ul>
         </div>

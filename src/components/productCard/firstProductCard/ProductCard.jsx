@@ -11,10 +11,8 @@ const ProductCard = (props) => {
     e.preventDefault();
     history.push(`/product/${param.productId}`);
   };
-
-  var limited = props.data.filter((val, i) => i < 6);
   const title = (props.title).toLowerCase();
-  
+  let limited = props.data
   return (
     <div className="productCard">
       <div className="productCard-heading">
@@ -24,7 +22,7 @@ const ProductCard = (props) => {
         </Link>
       </div>
       <div className="productCard-tools">
-        {limited.map((val, index) => {
+        {limited && limited.map((val, index) => {
           return (
             <div key={index} className="productCard-tools-item" onClick={getDetail(val)}>
               <div className="productCard-tools-item-product">

@@ -1,21 +1,18 @@
-import React, { Component } from "react";
-import ProductCard from './../../productCard/firstProductCard/ProductCard';
-import { RecommendedProductConsumer } from "../../contexApi/contexApiRecommended/ContexApiRecommended";
+import React, { useContext } from "react";
+import BaseDataContex from "../../contexApi/baseApiCall/BaseApiCall";
+import ProductCard from "./../../productCard/firstProductCard/ProductCard";
 
 const title = "Recommended";
 
-class Recommended extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <RecommendedProductConsumer>
-          {(value) => {
-            return <ProductCard data={value} title={title} />;
-          }}
-        </RecommendedProductConsumer>
-      </React.Fragment>
-    );
-  }
+function Recommended() {
+  const value = useContext(BaseDataContex);
+
+  return (
+    <ProductCard
+      data={value.recommended && value.recommended.data.content}
+      title={title}
+    />
+  );
 }
 
 export default Recommended;
