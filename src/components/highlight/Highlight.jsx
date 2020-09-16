@@ -1,40 +1,21 @@
-import React, { Component } from "react";
+import React,{useContext} from "react";
 import "./Highlight.scss";
-import axios from "axios";
 import {Carousel} from "react-bootstrap";
 import HighlightSecondary from "./HighlightSecondary";
 import {Link} from 'react-router-dom';
+import BaseDataContex from "../contexApi/baseApiCall/BaseApiCall";
 
-class Highlight extends Component {
-  componentDidMount() {
-    this.getHighlight();
-  }
+function Highlight(){
 
-  getHighlight() {
-    axios.get(`https://saptasoch.herokuapp.com/mainSlider`).then((res) => {
-      const posts = res.data.map((obj) => obj);
-      this.setState({ posts });
-    });
-  }
-  
+  const value = useContext(BaseDataContex)
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      posts: [],
-    };
-    this.getHighlight = this.getHighlight.bind(this);
-  }
-
-  render() {
-    var limited = this.state.posts.filter((val,i)=>i<5)
+    let limited = value.highlight && value.highlight.data.filter((val,i)=>i<5)
     return (
       <div className="highlight">
         <div className="highlight-tools">
           <div className="highlight-tools-item highlight-item1">
             <Carousel>
-              {limited.map((val,index)=>{
+              {limited && limited.map((val,index)=>{
                 return(
                   <Carousel.Item key={index}>
                   <Link className="link" to="/">
@@ -57,5 +38,5 @@ class Highlight extends Component {
       </div>
     );
   }
-}
+
 export default Highlight;

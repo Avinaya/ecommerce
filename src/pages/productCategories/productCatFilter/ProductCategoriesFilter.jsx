@@ -8,7 +8,7 @@ import Colour from "./colour/Colour";
 function ProductCategoriesFilter(props) {
   return (
     <div id="accordion">
-      <BrowseCategories/>
+      <BrowseCategories/> 
       <Price/>
       <Brand />
       <Colour />

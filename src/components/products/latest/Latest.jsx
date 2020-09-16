@@ -1,35 +1,18 @@
-import React, { Component } from "react";
-import axios from "axios";
-import ProductCard from './../../productCard/firstProductCard/ProductCard';
+import React, { useContext } from "react";
+import BaseDataContex from "../../contexApi/baseApiCall/BaseApiCall";
+import ProductCard from "./../../productCard/firstProductCard/ProductCard";
 
 const title = "Latest";
 
-class Latest extends Component {
-  constructor(props) {
-    super(props);
+function Latest() {
+  const value = useContext(BaseDataContex);
 
-    this.state = {
-      posts: [],
-    };
-    this.getLatest = this.getLatest.bind(this);
-  }
-
-  componentDidMount() {
-    this.getLatest();
-  }
-
-  getLatest() {
-    axios.get(`https://saptasoch.herokuapp.com/product/tag/latest?pageNo=0&pageSize=6`).then((res) => {
-    const posts = res.data.content.map((obj) => obj);
-      this.setState({ posts });
-    });
-  }
-
-
-
-  render() {
-    return <ProductCard data={this.state.posts} title={title} />;
-  }
+  return (
+    <ProductCard
+      data={value.latest && value.latest.data.content}
+      title={title}
+    />
+  );
 }
 
 export default Latest;
