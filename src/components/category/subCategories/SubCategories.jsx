@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 const SubCategories = (props) => {
   const history = useHistory();
@@ -36,7 +36,7 @@ const SubCategories = (props) => {
   return (
     <div className="menu-item">
       <div className="menu-item-tools">
-        {props.data.subCategoryList.map((val, ind) => {
+        {props.data.subCategoryList && props.data.subCategoryList.map((val, ind) => {
           return (
             <div key={ind} className="menu-item-tools-item">
               <h5

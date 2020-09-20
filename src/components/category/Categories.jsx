@@ -3,6 +3,7 @@ import "./Categories.scss";
 import SubCategories from "./subCategories/SubCategories";
 import { useHistory } from "react-router-dom";
 import BaseDataContex from "../contexApi/baseApiCall/BaseApiCall";
+import AllCategories from "./AllCategories";
 
 const Categories = () => {
 
@@ -27,6 +28,7 @@ const Categories = () => {
     <React.Fragment>
       <div className="menu">
         <div className="menu-tools">
+        <AllCategories/>
           {value.category && value.category.data.map((val, index) => {
             return (
               <div key={index} className="menu-tools-item m1">
