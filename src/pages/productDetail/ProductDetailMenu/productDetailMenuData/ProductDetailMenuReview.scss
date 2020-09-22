@@ -104,3 +104,27 @@
         }
     }
 }
+@media(max-width:400px){
+    .productDetailMenuContent{
+        &-content{
+            display:flex;
+            flex-direction: column;
+            &-rating{
+                width:100%;
+                border-right: none;
+                border-bottom:.0625rem solid #e8e8e8;
+                &-average{
+                    width:60%;
+                }
+                &-count{
+                    width:40%;
+                }
+            }
+        }
+    }
+    .productDetailMenuContent-content-add-ask{
+        & button{
+            width:50%
+        }
+    }
+}
