@@ -47,6 +47,7 @@ function AddReview(props){
 
     }
     const handleSave=() =>{
+        console.log("customer",customerId);
         
         axios( "https://saptasoch.herokuapp.com/rating", {
             method: 'POST',
