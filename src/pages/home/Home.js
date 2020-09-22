@@ -10,13 +10,21 @@ import BestSelling from '../../components/products/bestSelling/BestSelling';
 import Banner3 from '../../components/banner/banner3/Banner3';
 import About from '../../components/about/About';
 import Banner4 from '../../components/banner/banner4/Banner4';
+import Deals from '../../components/deals/Deals';
 
  function Home() {
+
+   const banner2 = {
+      image1:'https://res.cloudinary.com/ds5zgwshl/image/upload/v1600751181/end-of-summer-sale726x270_zwxxqc.jpg',
+      image2:'https://res.cloudinary.com/ds5zgwshl/image/upload/v1600751177/office-supplies-726x270_ppl7oq.jpg'
+   }
     return (
        <React.Fragment>
     
        <Highlight/>
        <Banner/>
+       <Deals/>
+       <Banner2 banner={banner2}/>
        <Recommended/>
        <Featured/>
        <Latest/>
