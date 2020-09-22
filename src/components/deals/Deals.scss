@@ -1,0 +1,64 @@
+@import "../../style/variable";
+
+.deals {
+  margin: 1rem 2rem;
+  background-color: white;
+  border-radius: 5px;
+  padding-bottom: 2rem;
+
+  &-heading {
+    display: flex;
+    align-items: center;
+    padding: .5rem 0rem 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.116);
+
+    & i{
+        font-size: 1.4rem;
+        margin-left: 2rem;
+        color: $color-primary;
+    }
+
+    &-title {
+      margin-top: .5rem;
+      font-weight: 600; 
+      text-transform: capitalize;
+    }
+
+    &-timer{
+        font-size: 1.2rem;
+        text-transform: lowercase;
+        color: $color-text;
+    }
+  }
+  &-item {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .deals {
+    margin: 0.5rem;
+
+    &-heading{
+      &-timer{
+        font-size: .9rem;
+      }
+    }
+  }
+}
+
+button:focus {
+  outline: 0 !important;
+}
+
+.react-multiple-carousel__arrow {
+  background-color: $color-white !important;
+}
+.react-multiple-carousel__arrow::before {
+  color: $color-black !important;
+}

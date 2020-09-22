@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import "./Categories.scss";
-import CategoriesContex from "../contexApi/contexApiCategory/ContexApiCategory";
 import SubCategories from "./subCategories/SubCategories";
 import { useHistory } from "react-router-dom";
+import BaseDataContex from "../contexApi/baseApiCall/BaseApiCall";
+import AllCategories from "./AllCategories";
 
 const Categories = () => {
-  const data = useContext(CategoriesContex);
+
+  const value = useContext(BaseDataContex)
+
   const history = useHistory();
 
   const handleClick = (param) => (e) => {
@@ -25,7 +28,8 @@ const Categories = () => {
     <React.Fragment>
       <div className="menu">
         <div className="menu-tools">
-          {data.map((val, index) => {
+        <AllCategories/>
+          {value.category && value.category.data.map((val, index) => {
             return (
               <div key={index} className="menu-tools-item m1">
                 <div className="dropdown drop-menu">

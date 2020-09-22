@@ -3,11 +3,13 @@ import "./ProuductTagAll.scss";
 import axios from "axios";
 import SecondProductCard from "../../components/productCard/secondProductCard/SecondProductCard";
 import DetailTopBar from "../../components/detailTopBar/DatailTopBar";
+import LoadingComponent from "../../components/loadingComponent/LoadingComponent";
 
 const ProductTagAll = (props) => {
   const tag = props.match.params.title;
 
   const [data, setData] = useState([]);
+  const [isLoading,setIsLoading] = useState(true)
 
   useEffect(() => {
     const tagData = () => {
@@ -21,8 +23,9 @@ const ProductTagAll = (props) => {
     };
     const fetchData = async () => {
       const result = await axios.get(
-        `https://saptasoch.herokuapp.com/product/tag/${tagData()}`
+        `https://saptasoch.herokuapp.com/product/tag/${tagData()}?pageNo=${0}&pageSize=${10}`
       );
+      setIsLoading(false)
       setData(result.data.content);
     };
     fetchData();
@@ -37,14 +40,17 @@ const ProductTagAll = (props) => {
       />
 
       <div className="productTagAll-tools">
-        {data &&
-          data.map((val, index) => {
-            return (
+          {isLoading === true?<LoadingComponent/>:data.map((val,index)=>{
+            return(
               <div key={index} className="productTagAll-tools-item">
-                <SecondProductCard data={val} />
-              </div>
-            );
+              <SecondProductCard data={val} />
+            </div>
+            )
           })}
+
+
+
+
       </div>
     </div>
   );

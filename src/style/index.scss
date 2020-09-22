@@ -1,44 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap');
-@import './variable';
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap");
+@import "./variable";
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Alegreya Sans', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Alegreya Sans", sans-serif;
 }
 
-html{
-    font-size: 100%;
+html {
+  font-size: 100%;
 }
-body{
-    background-color: #f1f1f1;
-
+body {
+  background-color: #f1f1f1;
 }
-.link{
-    text-decoration: none;
+.link {
+  text-decoration: none;
+  color: $color-white;
+  &:hover {
     color: $color-white;
-    &:hover{
-        color: $color-white;
-    }
+  }
 }
-p{
-    margin-bottom: 0;
+p {
+  margin-bottom: 0;
 }
-.color-text{
-    color: $color-text;
+.color-text {
+  color: $color-text;
 }
 
-.list-unstyled{
-    list-style: none;
-	margin-left: 0;
-    padding-left: 0;
-    
-    & li{
-        text-transform: capitalize;
-    }
-}
+.list-unstyled {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
 
+  & li {
+    text-transform: capitalize;
+  }
+}
 
 // .test{
 //     display: flex;
@@ -65,3 +63,38 @@ p{
 // .avi{
 //     background-color: peru;
 // }
+.lds-hourglass {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 32px solid $color-primary;
+  border-color: $color-primary transparent $color-primary transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
+}

@@ -15,9 +15,7 @@ import ProductTagAll from './pages/productTagAll/ProductTagAll';
 import ProductCategory from './pages/productCategories/ProductCategory';
 import Categories from './components/category/Categories';
 import SideBarMob from './components/sideBar/sideBarMob/SideBarMob';
-import 'react-notifications/lib/notifications.css';
 import AddReview from "./components/addReview/AddReview";
-
 
 function App() {
 
