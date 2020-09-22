@@ -2,6 +2,7 @@ import React,{useEffect,useState} from "react";
 import "./ProductDetailDesciption.scss";
 import { Link } from "react-router-dom";
 import Quantity from "./../quantity/Quantity";
+import axios from "axios";
 import { useHistory } from 'react-router-dom';
 
 import Rating from '../../../components/rating/rating';
@@ -9,17 +10,23 @@ import { useStateValue } from "../../../components/contexApi/stateProvider/State
 
 
 function ProductDetailDesciption(props) {
+ 
 
   const history = useHistory();
   const brand = props.data.brand;
   const [quantity,setQuantity]=useState(0);
   const initialImage = props.data.productImageList;
-  
+  const [rating,setRating]=useState();
   const [imgSrc, setImgSrc] = useState();
   
  useEffect(() => {
    setImgSrc(initialImage && initialImage[0].image);
-   
+   axios.get(
+    `https://saptasoch.herokuapp.com/rating/${props.data.productId}`
+  ).then(response=>{
+    setRating(response.data.averageRating);
+    
+  });
    
  }, [initialImage,props.data.productId]);
 
@@ -69,7 +76,7 @@ function ProductDetailDesciption(props) {
           Brand: {brand && brand.brandName}
           </Link>
         </span>
-        <Rating/>
+        <Rating data={rating}/>
         </div>
       <div className="productDetailDesciption-price">
         <h4 className="d-inline productDetailDesciption-price-actualPrice">

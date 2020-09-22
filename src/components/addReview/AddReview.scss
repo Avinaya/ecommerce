@@ -1,0 +1,93 @@
+@import "../../style/variable";
+.addReview{
+    margin:1.5rem 2rem;
+    background-color: $color-white;
+    padding:2rem 2rem;
+    &-title{
+        padding:0.3rem 0.8rem;
+        font-weight: 600;
+        font-size:1.5rem;
+        & span{
+            border-bottom: .0625rem solid $color-black;
+        }
+    }
+    &-sub{
+        padding:0.1rem 0.8rem;  
+    }
+    &-product{
+        padding-top:1.2rem;
+        padding-left:0.8rem;
+        color:$color-review-head;
+    }
+    &-name{
+        padding:0.1rem 0.8rem;
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+    &-star{
+        padding-top:1.2rem;
+        padding-left:0.8rem;
+        & span{
+           
+            
+            color:$color-review-head;
+        }
+        & select{
+            width: 70%;
+            height:40px;
+            
+
+        }
+        & select:focus{
+            outline: none;
+        }
+    }
+    &-reviewTitle{
+        padding-top: 1.2rem;
+        padding-left: 0.8rem;
+        & span{
+            color:$color-review-head;
+        }
+        & input{
+            width: 70%;
+            height:40px;
+        }
+        & input:focus{
+            outline:none;
+        }
+    }
+    &-review{
+        padding-top: 1.2rem;
+        padding-left: 0.8rem;
+        & span{
+            color:$color-review-head;
+        }
+        & input{
+            width: 70%;
+            height:70px;
+        }
+        & input:focus{
+            outline:none;
+        }
+    }
+    &-button{
+        padding:1.5rem 0.8rem;
+        & button{
+            background-color: $color-orange;
+            padding:0.2rem 0.8rem;
+            border: none;
+            width: 10%;
+            padding: .5rem;
+            color: $color-white;
+            border-radius: 5px;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+    }
+}
+@media (max-width: 766px){
+    .addReview{
+        margin: 1.2rem 0;
+    }
+}

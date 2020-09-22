@@ -43,7 +43,7 @@ export default function ProductDetailMenu(props) {
           <ProductDetailMenuReturnPolicy />
         </TabPanel>
         <TabPanel>
-          <ProductDetailMenuReview />
+          <ProductDetailMenuReview data={props.data.productId} name={props.data.productName}/>
         </TabPanel>
       </Tabs>
     </div>

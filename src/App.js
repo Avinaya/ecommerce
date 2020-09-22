@@ -16,6 +16,8 @@ import ProductCategory from './pages/productCategories/ProductCategory';
 import Categories from './components/category/Categories';
 import SideBarMob from './components/sideBar/sideBarMob/SideBarMob';
 import 'react-notifications/lib/notifications.css';
+import AddReview from "./components/addReview/AddReview";
+
 
 function App() {
 
@@ -33,10 +35,11 @@ const AuthenticatedRoute= () => {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/Product/:productId" component={ProductDetail} />
+        
         <Route exact path="/product-tag/:title" component={ProductTagAll} />
         <Route exact path="/category/:categoriesName" component={ProductCategory}/>
         <Route exact path="/cart" component={Cart}/>
-        
+        <Route exact path="/add-review" component={AddReview}/>
         <Route exact path="/delivery" component={DeliveryAddress}/>
         <Route exact path="*" component={Home}/>
       
@@ -52,6 +55,7 @@ return (
   <Route exact path="/signup" component={Signup} />
   <Route exact path="/login" component={Login} />
   <Route exact path="/verify" component={OtpVerify} />
+  
   <Route component={AuthenticatedRoute}/>
 </Switch>
 );

@@ -5,14 +5,15 @@ import {useStateValue} from "./../contexApi/stateProvider/StateProvider";
 import { useHistory } from 'react-router-dom';
 function CartCheckOut(props){
   const history = useHistory();
-  const [{basket},dispatch]=useStateValue();
+  const [{savedForLater},dispatch]=useStateValue();
+  const [{basket},dispatch1]=useStateValue();
   const totalQuantity=basket.reduce((totalItem,basket) => totalItem + basket.productQuantity, 0);
   const totalSalePrice=basket.reduce((totalSale,basket) => totalSale + (basket.salePrice*basket.productQuantity) , 0);
 
 
   const removeAnItem =(value) =>{
     console.log("productName",value);
-    dispatch({
+    dispatch1({
         type:"REMOVE_FROM_BASKET",
         id:value,
         
@@ -22,13 +23,26 @@ function CartCheckOut(props){
       );
 }
 const updateAnItem=(i,q)=>{
-  console.log("id id",i);
-  console.log("quantity is",q);
-  dispatch({
+ 
+  dispatch1({
     type:"UPDATE_FROM_BASKET",
     item:{
       id:i,
       productQuantity:q
+    }
+    
+  }
+  );
+}
+const AddToSavedForLater=(i,r,p,it)=>{
+ 
+  dispatch({
+    type:"ADD_TO_SAVE",
+    item:{
+      id:i,
+      productImage:r,
+      productName:p,
+      itemPrice:it
     }
     
   }
@@ -68,6 +82,7 @@ const updateAnItem=(i,q)=>{
             discountValue={item.discountValue}
             onDelete={removeAnItem}
             update={updateAnItem}
+            addToSave={AddToSavedForLater}
             />
            
 

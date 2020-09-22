@@ -1,0 +1,106 @@
+@import '../../../../style/variable';
+.productDetailMenuContent{
+    &-content{
+        display:grid;
+        grid-template-columns: 2fr 2fr;
+        border-bottom: .0625rem solid #e8e8e8;;
+        
+       
+        &-rating{
+            width: 100%;
+            display: flex;
+            border-right: .0625rem solid #e8e8e8;
+            
+            &-average{
+                width:75%;
+                padding:0 1.5rem;
+                
+                font-size:2rem;
+                
+                & span{
+                    font-weight: 400;
+                    
+                }
+                & p{
+                    padding:0 0.2rem;
+                    font-size:0.9rem;
+                }
+            }
+            &-count{
+                
+                width:25%;
+                padding:0.8rem 0;
+                & span{
+                    display: inline;
+                }
+                &-five{
+                    
+                    display:flex;
+                }
+                
+            }
+        }
+        &-add{
+            padding:0.3rem 1.2rem;
+            
+            float:left;
+            &-title{
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+            &-sub{
+                font-size:0.9rem;
+            }
+            &-ask{
+                padding:1.2rem 0;
+                & button{
+                    background-color: $color-button;
+                    padding:0.2rem 0.8rem;
+                    border: none;
+                    width: 30%;
+                    padding: .5rem;
+                    color: $color-white;
+                    border-radius: 5px;
+                    margin-right: 1rem;
+                    font-size: 1.2rem;
+
+                    
+                }
+                & button:hover{
+                    background-color: $color-button;
+                }
+                & button:focus{
+                    outline:none;
+                }
+                
+            }
+        }
+    }
+
+    &-reviews{
+        padding:0.8rem 1.5rem;
+        border-bottom: .0625rem solid #e8e8e8;
+        &-head{
+            color: $color-review-head;
+            font-weight: 600;
+            font-size:22px;
+            
+        }
+        &-user{
+            color:$color-review-user;
+            font-size:12px
+        }
+    }
+}
+@media (max-width: 992px){
+    .productDetailMenuContent{
+        &-content{
+            display:flex;
+            flex-direction: column;
+            &-rating{
+                border-right: none;
+                border-bottom:.0625rem solid #e8e8e8;
+            }
+        }
+    }
+}

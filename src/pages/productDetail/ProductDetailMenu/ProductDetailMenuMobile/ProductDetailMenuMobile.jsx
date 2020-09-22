@@ -54,7 +54,7 @@ export default function ProductDetailMenuMobile(props) {
             Reviews
           </label>
           <div className="tab-content">
-            <ProductDetailMenuReview view="view" />
+            <ProductDetailMenuReview data={props.data.productId} />
           </div>
         </div>
       </div>

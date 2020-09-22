@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductCard.scss";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import ProductRating from './../../rating/ProductRating';
+import ProductRating from './../../rating/rating';
 
 const ProductCard = (props) => {
   const history = useHistory();
@@ -49,7 +49,7 @@ const ProductCard = (props) => {
                   </p>
                 </div>
                 <span>
-                  <ProductRating/>
+                  <ProductRating data={2.5}/>
                 </span>
               </div>
             </div>

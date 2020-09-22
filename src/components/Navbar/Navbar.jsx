@@ -95,8 +95,9 @@ const Navbar = () => {
         )}
        
         <div className="navBar-tools-item navBar-tools-item-cart">
+        <Link to="/cart" className="link">
           <i className="fa fa-shopping-cart mr-1"></i>
-          <Link to="/cart" className="link">
+         
           <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
           <span className="navBar-tools-item-item">{basket.length}</span>
           </Link>

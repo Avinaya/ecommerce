@@ -3,7 +3,7 @@ const API_URL="https://saptasoch.herokuapp.com/order";
 
 export const initialState={
     
-    basket:JSON.parse(localStorage.getItem("cart")) || [],user:null,deliveryAddress:JSON.parse(localStorage.getItem("delivery")),order:[JSON.parse(localStorage.getItem("cart")),JSON.parse(localStorage.getItem("delivery"))]
+    basket:JSON.parse(localStorage.getItem("cart")) || [],user:null,deliveryAddress:JSON.parse(localStorage.getItem("delivery")),order:[JSON.parse(localStorage.getItem("cart")),JSON.parse(localStorage.getItem("delivery"))],savedForlater:JSON.parse(localStorage.getItem("savedForLater")) || []
 };
 
 //Anything on data layer is state
@@ -56,9 +56,8 @@ const reducer = (state,action) => {
             const val=state.basket.findIndex((basketItem) => basketItem.id === action.item.id);
             if(val>=0){
                 //item exists,update it 
-
-                console.log("new basket",addBasket[val].productQuantity);
-                console.log(action.item.productQuantity);
+                       
+               
                 addBasket[val].productQuantity=addBasket[val].productQuantity+action.item.productQuantity;
                 console.log("updated basket",addBasket[val].productQuantity);
                 localStorage.setItem("cart",JSON.stringify(addBasket));
@@ -74,6 +73,28 @@ const reducer = (state,action) => {
         };
         
             break;
+
+            case 'ADD_TO_SAVE':
+                let addSave=[...state.savedForlater];
+                const save=state.savedForlater.findIndex((savedForLaterItem) => savedForLaterItem.id === action.item.id);
+                if(save>=0){
+                    //item exists,update it 
+                           
+                   
+                    
+                    localStorage.setItem("savedForLater",JSON.stringify(addSave));
+                }else{
+                    addSave.push(action.item);
+                    localStorage.setItem("savedForLater",JSON.stringify(addSave));
+                }
+           
+          
+            
+                return{...state,
+                savedForLater: addSave
+            };
+            
+                break;
 
         case 'REMOVE_FROM_BASKET':
             let newBasket=[...state.basket];

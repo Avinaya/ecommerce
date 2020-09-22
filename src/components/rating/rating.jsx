@@ -1,32 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
+import axios from "axios";
+
+function Rating(props){
+  const [rating,setRating]=useState(props.data);
+  
  
-class Rating extends React.Component {
-  constructor() {
-    super();
- 
-    this.state = {
-      rating: 2
-    };
+  const onStarClick = (nextValue, prevValue, name) => {
+    setRating(nextValue);
   }
- 
-  onStarClick(nextValue, prevValue, name) {
-    this.setState({rating: nextValue});
-  }
- 
-  render() {
-    const { rating } = this.state;
-    
-    return (                
-      <div>
-        <StarRatingComponent 
-          name="rate1" 
-          starCount={5}
-          value={rating}
-          onStarClick={this.onStarClick.bind(this)}
-        />
-      </div>
-    );
-  }
+  return (                
+    <div>
+      <StarRatingComponent 
+        name="rate1" 
+        starCount={5}
+        value={props.data}
+        onStarClick={onStarClick}
+      />
+    </div>
+  );
 }
+
  export default Rating;

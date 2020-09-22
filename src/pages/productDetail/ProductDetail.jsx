@@ -6,6 +6,7 @@ import ProductDetailImage from "./productDetailImage/ProductDetailImage";
 import ProductDetailDesciption from "./ProductDetailDescription/ProductDetailDesciption";
 import ProductDetailMenu from "./ProductDetailMenu/ProductDetailMenu";
 import ProductDetailMenuMobile from "./ProductDetailMenu/ProductDetailMenuMobile/ProductDetailMenuMobile";
+
 import DetailTopBar from "../../components/detailTopBar/DatailTopBar";
 
 const ProductDetail = (props) => {
@@ -60,7 +61,7 @@ const ProductDetail = (props) => {
         </span>
       </div>
 
-      <ProductDetailMenu data={posts} />
+      <ProductDetailMenu data={posts}  />
       <ProductDetailMenuMobile data={posts} />
     </div>
   );
