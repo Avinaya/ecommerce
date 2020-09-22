@@ -14,7 +14,7 @@ function AddReview(props){
     const [ratingError,setRatingError]=useState(null);
     const [reviewError,setReviewError]=useState(null);
     const [reviewTitleError,setReviewTitleError]=useState(null);
-    const [rating,setRating]=useState();
+    const [rating,setRating]=useState(5);
     const [reviewTitle,setReviewTitle]=useState();
     const [review,setReview]=useState();
     useEffect(() => {
@@ -83,7 +83,7 @@ return(
            <div className="addReview-star">
                <span>Rating star()</span>
                <div>
-               <select className="addReview-star-select" type="text" onChange={e=>setRating(e.target.value)}>
+               <select className="addReview-star-select" type="text" value={rating} onChange={e=>setRating(e.target.value)}>
                 <option>5</option>
                 <option>4</option>
                 <option>3</option>
