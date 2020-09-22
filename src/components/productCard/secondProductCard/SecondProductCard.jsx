@@ -81,7 +81,7 @@ const SecondProductCard = (props) => {
           </div>
 
           <div
-            className="secondProductCard-tools-item"
+            className="secondProductCard-tools-item secondProductCard-tools-item-rating"
             style={props.style === false ? { display: "none" } : {}}
           >
             <Rating />
