@@ -5,7 +5,6 @@ import axios from "axios";
 
 function AddReview(props) {
   const history = useHistory();
-  const location = useLocation();
   const [user] = useState(JSON.parse(localStorage.getItem("user")));
   const [customerId] = useState(user.id);
   const [productId] = useState(props.location.state.id);
@@ -23,7 +22,7 @@ function AddReview(props) {
       return;
     }
     setDisabled(formValidation());
-  }, [rating, review, reviewTitle]);
+  }, [rating, review, reviewTitle,formValidation()]);
   const formValidation = () => {
     if (rating === "") {
       setRatingError("Rating cant be blank!");

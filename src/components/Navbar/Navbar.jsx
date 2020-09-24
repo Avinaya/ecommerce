@@ -1,19 +1,17 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import Search from "./search/Search";
 import { useStateValue } from "./../contexApi/stateProvider/StateProvider";
 import AuthService from ".././../service/auth.service";
-import { useHistory } from 'react-router-dom';
 const Navbar = () => {
-  const history = useHistory();
-  const [{basket}]=useStateValue();
-  const [user]=useState(JSON.parse(localStorage.getItem("user")));
-  const logOut= () => {
+  const [{ basket }] = useStateValue();
+  const [user] = useState(JSON.parse(localStorage.getItem("user")));
+
+  const logOut = () => {
     AuthService.logout();
-    history.push('/');
-    
-  }
+    window.location.reload();
+  };
   return (
     <nav className="navBar">
       <div className="navBar-tools">
@@ -57,48 +55,46 @@ const Navbar = () => {
           <Link to="/" className="link">
             Sells On <br></br>SaptaBazar
           </Link>
-        </div>{user==null ?(
+        </div>
+        {user == null ? (
           <div>
-           <div className="navBar-tools-item navBar-tools-item-login">
-           <Link to="/login" className="link">
-             Login/ <br></br>Signup
-           </Link>
-         </div>
-         
-         </div>
-         
-        ) :(
-          <div className="navBar-tools-item navBar-tools-item-login">
-           {/* <Link to="/" className="link">
-             Hey,{user.username}
-           </Link> */}
-           <div className="dropdown">
-            <button
-              className="btn btn-secondary dropdown-toggle navBar-tools-item-help-btn"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Hey,{user.username}
-            </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a className="dropdown-item" onClick={logOut}>
-                LogOut
-              </a>
-              
+            <div className="navBar-tools-item navBar-tools-item-login">
+              <Link to="/login" className="link">
+                Login/ <br></br>Signup
+              </Link>
             </div>
           </div>
-         </div>
+        ) : (
+          <div className="navBar-tools-item navBar-tools-item-login">
+            <div className="dropdown">
+              <button
+                className="btn btn-secondary dropdown-toggle navBar-tools-item-help-btn"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Hey,{user.username}
+              </button>
+              <div
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <span className="dropdown-item" onClick={logOut}>
+                  LogOut
+                </span>
+              </div>
+            </div>
+          </div>
         )}
-       
+
         <div className="navBar-tools-item navBar-tools-item-cart">
-        <Link to="/cart" className="link">
-          <i className="fa fa-shopping-cart mr-1"></i>
-         
-          <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
-          <span className="navBar-tools-item-item">{basket.length}</span>
+          <Link to="/cart" className="link">
+            <i className="fa fa-shopping-cart mr-1"></i>
+
+            <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
+            <span className="navBar-tools-item-item">{basket.length}</span>
           </Link>
         </div>
 
