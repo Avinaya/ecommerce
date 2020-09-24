@@ -22,7 +22,7 @@ function AddReview(props) {
       return;
     }
     setDisabled(formValidation());
-  }, [rating, review, reviewTitle,formValidation()]);
+  }, [rating, review, reviewTitle]);
   const formValidation = () => {
     if (rating === "") {
       setRatingError("Rating cant be blank!");
