@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./AddReview.scss";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 
 function AddReview(props) {
   const history = useHistory();
+  const location = useLocation();
   const [user] = useState(JSON.parse(localStorage.getItem("user")));
   const [customerId] = useState(user.id);
   const [productId] = useState(props.location.state.id);
@@ -43,6 +44,8 @@ function AddReview(props) {
     }
   };
   const handleSave = () => {
+    console.log("customer", customerId);
+
     axios("https://saptasoch.herokuapp.com/rating", {
       method: "POST",
       headers: {
