@@ -4,27 +4,42 @@ import BaseDataContex from "../../../../components/contexApi/baseApiCall/BaseApi
 
 function BrowseCategories(props) {
   const value = useContext(BaseDataContex);
-
+  const [categories, setCategories] = useState({
+    category: [],
+    subCategory: [],
+    subCategoryType: [],
+  });
   const history = useHistory();
-  const [cat, setCat] = useState([]);
-
-  useEffect(() => {
-    async function loadData() {
-      let data = (await value.category) && value.category.data;
-      if (data) {
-        setCat(data);
-      }
-    }
-    loadData();
-  }, [value]);
 
   let category = localStorage.getItem("category");
+  let subCategory = localStorage.getItem("subCategory");
 
-  let [subCategories] = cat
-    .filter((val) => val.categoryName === category)
-    .map((val) => val.subCategoryList);
+  useEffect(() => {
+    if (value.category) {
+      let data = value.category.data;
+      let [subcat] = data.filter((val) => val.categoryName === category);
+      setCategories({
+        ...categories,
+        category: data,
+        subCategory: subcat.subCategoryList,
+        subCategoryType: [],
+      });
 
-  const handleClickSubCat = (subCat) => (e) => {
+      if (subCategory) {
+        let [subCatType] = subcat.subCategoryList.filter(
+          (val) => val.subCategoryName === subCategory
+        );
+        setCategories({
+          ...categories,
+          category: [],
+          subCategory: subcat.subCategoryList,
+          subCategoryType: subCatType.subCategoryTypeList,
+        });
+      }
+    }
+  }, [value]);
+
+  const handleSubCatClick = (subCat) => (e) => {
     e.preventDefault();
     localStorage.setItem("category", category);
     localStorage.setItem("subCategory", subCat);
@@ -36,13 +51,12 @@ function BrowseCategories(props) {
         price: null,
       },
     });
-   if (props.sidebarStatus) {
-     props.sidebarStatus(false);
-   }
-    
+    if (props.sidebarStatus) {
+      props.sidebarStatus(false);
+    }
   };
 
-  const handleClick = (param) => (e) => {
+  const handleCatClick = (param) => (e) => {
     e.preventDefault();
     localStorage.setItem("category", param);
     localStorage.setItem("subCategory", "");
@@ -57,7 +71,24 @@ function BrowseCategories(props) {
     if (props.sidebarStatus) {
       props.sidebarStatus(false);
     }
-    };
+  };
+
+  const handleClickSubCatType = (subCatType) => (e) => {
+    e.preventDefault();
+    localStorage.setItem("category", category);
+    localStorage.setItem("subCategory", subCategory);
+    localStorage.setItem("subCategoryType", subCatType);
+    history.push({
+      pathname: `/category/${subCatType.replace(/ /g, "-")}`,
+      query: {
+        header: null,
+        price: null,
+      },
+    });
+    if (props.sidebarStatus) {
+      props.sidebarStatus(false);
+    }
+  };
 
   return (
     <div className="card">
@@ -80,21 +111,31 @@ function BrowseCategories(props) {
       >
         <div className="card-body filterAccordion-body">
           <ul className="list-unstyled browseCategory-list">
-            {subCategories &&
-              subCategories.map((val, index) => {
-                return (
-                  <li
-                    key={index}
-                    onClick={handleClickSubCat(val.subCategoryName)}
-                  >
-                    {val.subCategoryName}
-                  </li>
-                );
-              })}
-
-            {cat.map((val, index) => {
+            {categories.subCategoryType.map((val, index) => {
               return (
-                <li key={index} onClick={handleClick(val.categoryName)}>
+                <li
+                  key={index}
+                  onClick={handleClickSubCatType(val.subCategoryTypeName)}
+                >
+                  {val.subCategoryTypeName}
+                </li>
+              );
+            })}
+
+            {categories.subCategory.map((val, index) => {
+              return (
+                <li
+                  key={index}
+                  onClick={handleSubCatClick(val.subCategoryName)}
+                >
+                  {val.subCategoryName}
+                </li>
+              );
+            })}
+
+            {categories.category.map((val, index) => {
+              return (
+                <li key={index} onClick={handleCatClick(val.categoryName)}>
                   {val.categoryName}
                 </li>
               );

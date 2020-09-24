@@ -19,6 +19,10 @@ function ProductCategory(props) {
   let minPrice = queryString.parse(props.location.search).min;
   let maxPrice = queryString.parse(props.location.search).max;
 
+
+
+
+
   useEffect(() => {
     async function fetchData() {
       let formData = new FormData();
@@ -50,6 +54,14 @@ function ProductCategory(props) {
     }
     fetchData();
   }, [category, subCategory, subCategoryType, productSort, minPrice, maxPrice]);
+
+
+
+
+
+
+
+  
 
   return (
     <div className="productCategory">

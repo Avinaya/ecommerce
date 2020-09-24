@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 function AllCategories() {
   const value = useContext(BaseDataContex);
 
-  console.log("category", value.category && value.category.data);
   const [allCategoryBody, setAllCategoryBody] = useState([]);
 
   useEffect(() => {
@@ -15,7 +14,6 @@ function AllCategories() {
     if (data) {
       const [avinaya] = data;
       setAllCategoryBody(avinaya);
-      console.log("avinaya", avinaya);
     }
   }, [value]);
 
