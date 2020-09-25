@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Timer from "react-compound-timer";
 
 function ReverseTimer() {
   const calculateTimeLeft = () => {
@@ -39,7 +38,7 @@ function ReverseTimer() {
     }
 
     timerComponents.push(
-      <span>
+      <span key={interval}>
         {timeLeft[interval]} {interval}{" "}
       </span>
     );

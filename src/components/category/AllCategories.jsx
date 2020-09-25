@@ -37,7 +37,7 @@ function AllCategories() {
     <div className="menu-tools-item m1">
       <div className="dropdown drop-menu">
         <span className="btn menu-dropdown text-white">
-          All Categories <i class="fa fa-bars ml-1" />
+          All Categories <i className="fa fa-bars ml-1" />
         </span>
         <div
           className="dropdown-menu-tools dropdown-menu "

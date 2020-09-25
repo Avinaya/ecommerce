@@ -50,7 +50,7 @@ function Deals(props) {
     <div className="deals">
       <div className="deals-heading">
         <h5 className="d-inline deals-heading-title productCard-heading-title ">Deals Of The Days</h5>
-        <i class="fa fa-clock-o mr-2 productCard-heading-title"></i>
+        <i className="fa fa-clock-o mr-2 productCard-heading-title"></i>
         <ReverseTimer/>
       </div>
       <Carousel

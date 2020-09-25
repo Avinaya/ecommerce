@@ -7,11 +7,15 @@ import AuthService from ".././../service/auth.service";
 const Navbar = () => {
   const [{ basket }] = useStateValue();
   const [user] = useState(JSON.parse(localStorage.getItem("user")));
+  let facebookUser = JSON.parse(localStorage.getItem('facebookData'));
+
 
   const logOut = () => {
+    localStorage.removeItem("facebookData")
     AuthService.logout();
     window.location.reload();
   };
+
   return (
     <nav className="navBar">
       <div className="navBar-tools">
@@ -56,7 +60,7 @@ const Navbar = () => {
             Sells On <br></br>SaptaBazar
           </Link>
         </div>
-        {user == null ? (
+        {facebookUser == null ? (
           <div>
             <div className="navBar-tools-item navBar-tools-item-login">
               <Link to="/login" className="link">
@@ -75,13 +79,13 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Hey,{user.username}
+                Hey,{((facebookUser.name).split(/(\s+)/))[0]}
               </button>
               <div
                 className="dropdown-menu"
                 aria-labelledby="dropdownMenuButton"
               >
-                <span className="dropdown-item" onClick={logOut}>
+                <span className="dropdown-item" onClick={logOut} style={{cursor:"pointer"}}>
                   LogOut
                 </span>
               </div>
