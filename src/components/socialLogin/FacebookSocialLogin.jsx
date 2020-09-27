@@ -35,7 +35,7 @@ function FacebookSocialLogin() {
     <div className="socialLogin">
       <div className="socialLogin-facebook">
         <button onClick={() => setLogin(true)}>
-          Login With <span>Facebook</span>
+          Login With <span>Facebook</span>  
         </button>
       </div>
       {islogin ? handleButtonOnClick() : null}
