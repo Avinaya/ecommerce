@@ -1,20 +1,31 @@
-import React,{ useState } from "react";
+import React,{ useState ,useEffect} from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import Search from "./search/Search";
 import SideBar from "react-sidebar";
 import { useStateValue } from "./../contexApi/stateProvider/StateProvider";
 import AuthService from ".././../service/auth.service";
+import {getCartByUserId} from "../../service/cartService/CartService";
 import { useHistory } from 'react-router-dom';
 const Navbar = () => {
   const history = useHistory();
   const [{basket}]=useStateValue();
   const [user]=useState(JSON.parse(localStorage.getItem("user")));
+  const [cart,setCart]=useState([]);
   const logOut= () => {
     AuthService.logout();
     history.push('/');
     
   }
+  useEffect(() => {
+    if(user!=null){
+      getCartByUserId(user.id).then(response => {
+        setCart(response.data);
+      });
+    }else{
+      setCart(null);
+    }
+  });
   return (
     <nav className="navBar">
       <div className="navBar-tools">
@@ -99,7 +110,13 @@ const Navbar = () => {
           <i className="fa fa-shopping-cart mr-1"></i>
          
           <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
-          <span className="navBar-tools-item-item">{basket.length}</span>
+          <span className="navBar-tools-item-item">{
+            user!=null ? (
+              <span>{cart.length}</span>
+            ) : (
+              <span>{basket.length}</span>
+            )
+          }</span>
           </Link>
         </div>
 

@@ -135,31 +135,9 @@ const required = value => {
                 message: response.data.message,
                 successful: true
               });
-              AuthService.sendOtpCode(this.state.contactno).then(response =>{
-                this.setState({
-                  message: response.data.message,
-                  successful: true
-                });
-               
-              }, 
-              error => {
-                const resMessage =
-                  (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                  error.message ||
-                  error.toString();
-      
-                this.setState({
-                  successful: false,
-                  message: resMessage
-                });
-              }
               
-              );
-               this.props.history.push({ pathname: '/verify',
-              search: '?query=abc',
-              state: this.state
+               this.props.history.push({ pathname: '/verify'
+          
             });
              
               

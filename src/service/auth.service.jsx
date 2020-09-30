@@ -2,6 +2,10 @@ import axios from "axios";
 
 
 const API_URL = "https://saptasoch.herokuapp.com/customer/";
+const config = {
+  headers: { "Content-Type": "multipart/form-data" }
+};
+
 
 class AuthService {
  
@@ -30,24 +34,7 @@ class AuthService {
       
   }
 
-  // sendOtpCode(phoneNumber){
-  //   console.log("phone number", phoneNumber);
-  //   return axios.post("http://localhost:8080/twilio",{
-  //     method: 'POST',
-   
-  //     data:{phoneNumber},
-  //     headers: {
-        
-  //       'Content-Type': 'application/json'
-  //     }
- 
-    
-  //   }
-   
-  //   );
-    
-
-  // }
+  
   verifyOtpCode(phoneNumber,otpCode){
     return axios.post("https://saptasoch.herokuapp.com/twilio/verify",{
       phoneNumber,otpCode
@@ -56,7 +43,7 @@ class AuthService {
     })
   }
   checkCredentials(customerName,contactNo,email,password){
-    return axios(API_URL + "check", {
+    return axios(API_URL + "signUp", {
       method: 'POST',
     headers: {
       'content-type': 'application/json',
@@ -68,27 +55,24 @@ class AuthService {
       }
     });
   }
+  
 
   logout() {
     localStorage.removeItem("user");
   }
+ 
 
-  register(customerName,contactNo,email,password) {
-    return axios(API_URL + "signup", {
-      method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
-      data:{customerName,
-      contactNo,
-      email,
-     password,
-      }
-    });
+  register(otp) {
+    let formData=new FormData();
+    formData.append("otp",otp);
+    return axios.post(
+      API_URL + "verifyOtp",
+      formData
+    );
   }
 
   getCurrentUser() {
-    return JSON.parse(localStorage.getItem('user'));;
+    return JSON.parse(localStorage.getItem('user'));
   }
 }
 

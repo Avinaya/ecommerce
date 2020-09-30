@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Quantity from "./../quantity/Quantity";
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
+import CartService from "../../../service/cartService/CartService";
 
 import Rating from '../../../components/rating/rating';
 import { useStateValue } from "../../../components/contexApi/stateProvider/StateProvider";
@@ -18,6 +19,7 @@ function ProductDetailDesciption(props) {
   const initialImage = props.data.productImageList;
   const [rating,setRating]=useState();
   const [imgSrc, setImgSrc] = useState();
+  const [loading,setLoading]=useState(false);
   
  useEffect(() => {
    setImgSrc(initialImage && initialImage[0].image);
@@ -38,9 +40,16 @@ function ProductDetailDesciption(props) {
 
   const [{basket},dispatch]=useStateValue();
   
-  const AddToBasket= () => {
-   
-    //Add item to basket
+  async function AddToBasket(){
+    const user=JSON.parse(localStorage.getItem("user"));
+    if(user!=null){
+      const productId=props.data.productId;
+      
+      const userId=user.id;
+     await CartService(productId,quantity,userId);
+    }
+   else{
+     //Add item to basket
     dispatch({
       type:"ADD_TO_BASKET",
       item: {
@@ -58,7 +67,10 @@ function ProductDetailDesciption(props) {
    
     
     );
+   }
+    
     history.push('/cart');
+    
    
   };
   
@@ -97,7 +109,7 @@ function ProductDetailDesciption(props) {
       </div>
       <div className="productDetailDesciption-button">
  
-              <button onClick={AddToBasket}>Buy Now</button>
+      <button onClick={AddToBasket}>Buy now</button>
                
         
         <div>

@@ -121,7 +121,7 @@ export default function ProductDetailMenuReview(props) {
                  title={item.reviewTitle}
                  body={item.review}
                  rating={item.rating}
-                 user={item.user.email}/>
+                 user={null}/>
              ))
          }
         

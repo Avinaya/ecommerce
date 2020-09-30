@@ -2,24 +2,51 @@ import React from "react";
 import "./Checkout.scss";
 import BasketItem from "./../cart/BasketItem";
 import { useStateValue } from "./../contexApi/stateProvider/StateProvider";
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import CheckOutSummary from "./../checkout/CheckoutSumarry";
 import SideBar from "react-sidebar";
 import DeliveryAddress from "./../deliveryAddress/DeliveryAddress";
 import { Link } from "react-router-dom";
+import {getCartByUserId} from "../../service/cartService/CartService";
+import {deleteCartByCartId} from "../../service/cartService/CartService";
+
 
 function Checkout() {
   const viewHeight = window.outerHeight;
   const [{ deliveryAddress }] = useStateValue();
+  const c=localStorage.getItem("delivery");
   const [{ basket }, dispatch] = useStateValue();
-
+  const user=JSON.parse( localStorage.getItem("user"));
   const [sideBarOpen, setSideBarOpen] = useState(false);
+  const [cart,setCart]=useState([]);
+  const [userTotalQuantity,setUserTotalQuantity]=useState();
+  const [userTotalSalePrice,setUserTotalSalePrice]=useState();
 
   const totalSalePrice = basket.reduce(
     (totalSale, basket) =>
       totalSale + basket.salePrice * basket.productQuantity,
     0
   );
+
+  useEffect(() => {
+    console.log("delivery",c);
+    console.log("user",user);
+    if(user!=null){
+    getCartByUserId(user.id).then(response=>{
+      setCart(response.data);
+      const data1=response.data;
+      setUserTotalQuantity(data1.reduce((totalItem1,data1) => totalItem1 + data1.quantity, 0));
+      setUserTotalSalePrice(data1.reduce((totalSale1,data1) => totalSale1 + (data1.price) , 0));
+      console.log("sab data",response.data);
+      });
+    }
+    else{
+      setCart(null);
+    }
+    
+  }, []);
+
+  
 
   // const mediaQueryChanged= (value) =>{
   //   setSideBarDocked(mql.matches);
@@ -58,6 +85,32 @@ function Checkout() {
       zIndex: 999,
     },
   };
+  async function deleteCart(c){
+    return await deleteCartByCartId(c);
+  }
+  
+  const incrementQuantity = (i) => {
+    setUserTotalQuantity(userTotalQuantity+1);
+    setUserTotalSalePrice(userTotalSalePrice+i);
+  }
+  const decrementQuantity= (d) => {
+    setUserTotalQuantity(userTotalQuantity-1);
+    setUserTotalSalePrice(userTotalSalePrice-d);
+  }
+  const AddToSavedForLater=(i,r,p,it)=>{
+   
+    dispatch({
+      type:"ADD_TO_SAVE",
+      item:{
+        id:i,
+        productImage:r,
+        productName:p,
+        itemPrice:it
+      }
+      
+    }
+    );
+  }
   return (
     <div>
       <div className="title">
@@ -226,25 +279,70 @@ function Checkout() {
                   </div>
                 </div>
                 <div className="basket">
-                  {basket.map((item, index) => (
-                    <BasketItem
-                      key={index}
-                      id={item.id}
-                      image={item.productImage}
-                      productName={item.productName}
-                      quantity={item.productQuantity}
-                      salePrice={item.salePrice}
-                      discountValue={item.discountValue}
-                      onDelete={removeAnItem}
-                      update={updateAnItem}
-                    />
-                  ))}
+                {
+         user!= null ? (
+          cart.map((item,index) => (
+             
+            <BasketItem
+            
+              
+            
+            key={index}
+            id={item.productId}
+            cartId={item.cartId}
+            image={item.product.productImageList[0].thumbnail}
+            productName={item.product.productName}
+            quantity={item.quantity}
+            salePrice={item.price/item.quantity}
+            
+            onDelete={deleteCart}
+            increment={incrementQuantity}
+            // price={updatePrice}
+            decrement={decrementQuantity}
+            addToSave={AddToSavedForLater}
+            />
+           
+
+          ))
+         )  : (
+          basket.map((item,index) => (
+             
+            <BasketItem
+            
+              
+            
+            key={index}
+            id={item.id}
+            image={item.productImage}
+            productName={item.productName}
+            quantity={item.productQuantity}
+            salePrice={item.salePrice}
+            discountValue={item.discountValue}
+            onDelete={removeAnItem}
+            update={updateAnItem}
+            addToSave={AddToSavedForLater}
+            />
+           
+
+          ))
+         )
+            
+          
+        }
+                  
                 </div>
               </div>
             </div>
           </div>
           <div className="checkout-tools-main checkout-tools-main-payment">
-            <CheckOutSummary total={totalSalePrice} />
+            {
+              cart!=null ? (
+                <CheckOutSummary total={userTotalSalePrice} />
+              ) : (
+                <CheckOutSummary total={totalSalePrice} />
+              )
+            }
+           
           </div>
         </div>
       </div>

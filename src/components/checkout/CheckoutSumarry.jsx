@@ -1,62 +1,93 @@
-import React ,{useState} from "react";
+import React ,{useState,useEffect} from "react";
+import { useHistory } from 'react-router-dom';
+import {getCartByUserId} from "../../service/cartService/CartService";
 
 import axios from "axios";
 function CheckoutSummary(props){
-    const API_URL="https://saptasoch.herokuapp.com/order";
-   var [cart]=useState(JSON.parse(localStorage.getItem("cart")));
+    const API_URL="http://localhost:8080/order";
+   var [cart,setCart]=useState([]);
    const [delivery]=useState(JSON.parse(localStorage.getItem("delivery")));
+   const history=new useHistory();
+   const user=JSON.parse(localStorage.getItem("user"));
    let payload={orderDetailsDtos:[]};
-    for(var i in cart){
+   useEffect(() => {
+   
+    if(user!=null){
+      
+    getCartByUserId(user.id).then(response=>{
+      setCart(response.data);
+      for(var i in response.data){
 
         var ram={
-                productId:cart[i].id,
-                colorId:cart[i].colorId,
-                sizeId:cart[i].sizeId,
-                totalQuantity:cart[i].productQuantity
+                productId:response.data[i].product.productId,
+              
+                totalQuantity:response.data[i].quantity
             }
             payload.orderDetailsDtos.push(ram);
         
         }
+      
+      });
+      console.log("payload",payload);
+    }
+    else{
+      setCart(null);
+    }
+    
+  }, []);
+   
+    
         
     
-    console.log(payload);
+   
     
 
 
    
     
-   const addToOrder =() => {
-       console.log(delivery.state);
-    axios.post(API_URL , {
-        couponAmount: 0,    
-        customerId: 1,
-        
-        
-        deliveryDate: "2020-08-31T16:50:58.959Z",
-        deliveryInstruction: "string",
-        extraCharge: 0,
-     
- orderDeliveryAddressDto: {
-    city: delivery.city,
-    contactNo: delivery.contactNo,
-    contactPerson: delivery.contactPerson,
-    district: delivery.district,
-    state: delivery.state,
-    street: delivery.street
-  },
-  
- orderDetailsDtos:payload.orderDetailsDtos,
+   async function addToOrder ()  {
+       if(user==null){
+        history.push("/login");
+       }
+       else{
 
-  orderHistoryDto: {
-    remark: "active"
-  },
-  orderStatusId: 1,
-  paymentTypeId: 1,
-  taxType: "percentage",
-  taxValue: 0
-            });
+       
+     
+        return await axios(API_URL , {
+            method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+            data:{      
+                userId: user.id,
+            orderDeliveryAddressDto: {
+            city: delivery.city,
+            contactNo: delivery.contactNo,
+            contactPerson: delivery.contactPerson,
+            district: delivery.district,
+            state: delivery.state,
+            street: delivery.street
+            },
+            
+            orderDetailsDtos:payload.orderDetailsDtos,
+            
+            orderHistoryDto: {
+            remark: "active"
+            },
+            orderStatusId: 1,
+            paymentTypeId: 2
+            
+                    }
+          }).then(response => {
+              console.log("response",response.data);
+          }).catch(error => {
+            console.log("error",error.response);
+        });
+        }
    }
 
+
+   
 
 
     
