@@ -7,21 +7,22 @@ import axios from "axios";
 import queryString from "query-string";
 import ProductCategoryMob from "./productCategoryMobile/ProductCategoryMob";
 import LoadingComponent from "./../../components/loadingComponent/LoadingComponent";
+import { useHistory } from "react-router-dom";
+
 
 function ProductCategory(props) {
   const [data, setData] = useState([]);
+  const history = useHistory();
   const [isLoading, setIsloading] = useState(true);
+  
   let category = localStorage.getItem("category");
   let subCategory = localStorage.getItem("subCategory");
   let subCategoryType = localStorage.getItem("subCategoryType");
 
-  let productSort = queryString.parse(props.location.search).sort;
-  let minPrice = queryString.parse(props.location.search).min;
-  let maxPrice = queryString.parse(props.location.search).max;
-
-
-
-
+  let productSort = queryString.parse(history.location.search).sort;
+  let minPrice = queryString.parse(history.location.search).min;
+  let maxPrice = queryString.parse(history.location.search).max;
+  let page = queryString.parse(history.location.search).page;
 
   useEffect(() => {
     async function fetchData() {
@@ -29,8 +30,13 @@ function ProductCategory(props) {
       formData.append("category", category);
       formData.append("subCategory", subCategory);
       formData.append("subCategoryType", subCategoryType);
-      formData.append("pageNo", 0);
       formData.append("pageSize", 20);
+      if(page){
+        formData.append("pageNo", page-1);
+      }else{
+        formData.append("pageNo", 0);
+
+      }
 
       if (productSort) {
         formData.append("productSort", productSort);
@@ -53,15 +59,7 @@ function ProductCategory(props) {
       // console.log("filter", response.data);
     }
     fetchData();
-  }, [category, subCategory, subCategoryType, productSort, minPrice, maxPrice]);
-
-
-
-
-
-
-
-  
+  }, [category, subCategory, subCategoryType, productSort, minPrice, maxPrice, page]);
 
   return (
     <div className="productCategory">
@@ -80,7 +78,7 @@ function ProductCategory(props) {
           {isLoading === true ? (
             <LoadingComponent />
           ) : (
-            <ProductCategoriesProducts data={data.content} />
+            <ProductCategoriesProducts data={data} />
           )}
         </div>
       </div>

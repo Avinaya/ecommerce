@@ -24,8 +24,10 @@ const DetailTopBar = (props) => {
     history.push({
       pathname: `/category/${param.replace(/ /g, "-")}`,
       query: {
-        header: null,
-        price: null,
+        header: "",
+        price: "",
+        page:""
+
       },
     });
   };
@@ -41,6 +43,8 @@ const DetailTopBar = (props) => {
       query: {
         header: null,
         price: null,
+        page:""
+
       },
     });
   };

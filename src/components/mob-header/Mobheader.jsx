@@ -14,8 +14,9 @@ const Mobheader = () => {
     history.push({
       pathname: `/category/${param.replace(/ /g, "-")}`,
       query: {
-        header: null,
-        price: null,
+        header: "",
+        price: "",
+        page:""
       },
     });
   };

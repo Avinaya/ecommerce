@@ -18,10 +18,6 @@ const Categories = () => {
     localStorage.setItem("subCategoryType", "");
     history.push({
       pathname: `/category/${param.replace(/ /g, "-")}`,
-      query:{
-        header:null,
-        price:null
-      }
   })
   };
   return (

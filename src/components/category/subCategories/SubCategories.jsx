@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 const SubCategories = (props) => {
   const history = useHistory();
@@ -11,10 +11,6 @@ const SubCategories = (props) => {
 
     history.push({
       pathname: `/category/${subCat.replace(/ /g, "-")}`,
-      query:{
-        header:null,
-        price:null
-      }
   })
   };
 
@@ -25,10 +21,6 @@ const SubCategories = (props) => {
     localStorage.setItem("subCategoryType", subCatType);
     history.push({
       pathname: `/category/${subCatType.replace(/ /g, "-")}`,
-      query:{
-        header:null,
-        price:null
-      }
   })
     
   };

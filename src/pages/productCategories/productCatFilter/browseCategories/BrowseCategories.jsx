@@ -47,8 +47,9 @@ function BrowseCategories(props) {
     history.push({
       pathname: `/category/${subCat.replace(/ /g, "-")}`,
       query: {
-        header: null,
-        price: null,
+        header: "",
+        price: "",
+        page: "",
       },
     });
     if (props.sidebarStatus) {
@@ -64,8 +65,9 @@ function BrowseCategories(props) {
     history.push({
       pathname: `/category/${param.replace(/ /g, "-")}`,
       query: {
-        header: null,
-        price: null,
+        header: "",
+        price: "",
+        page: "",
       },
     });
     if (props.sidebarStatus) {
@@ -81,8 +83,9 @@ function BrowseCategories(props) {
     history.push({
       pathname: `/category/${subCatType.replace(/ /g, "-")}`,
       query: {
-        header: null,
-        price: null,
+        header: "",
+        price: "",
+        page: "",
       },
     });
     if (props.sidebarStatus) {

@@ -1,16 +1,49 @@
-@import '../../../style/variable';
+@import "../../../style/variable";
 
-.productCategoriesProducts{
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(14rem,1fr));
-    justify-content: space-between;
-    grid-gap: 1rem;
+.productCategoriesProducts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  justify-content: space-between;
+  grid-gap: 1rem;
 
-    &-items{
-        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
-        0 1px 10px 0 rgba(0, 0, 0, 0.1);
-        background-color: $color-white;
+  &-items {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: $color-white;
+  }
+}
 
-        
+.productCatProductsPage {
+  margin-top: 2rem;
+
+  &-button{
+    background-color: #9282827e;
+    color: $color-black;
+
+    &:hover{
+      background-color: #928282;
+
+
     }
+  }
+  &-link {
+    cursor: pointer;
+
+    &:focus,
+    &:active {
+      outline: none !important;
+      box-shadow: none;
+    }
+  }
+}
+
+.page-link{
+  cursor: pointer !important;
+  color: $color-black;
+  &:hover{
+    color: $color-black;
+
+    
+
+  }
+  // border: 0 !important;
 }

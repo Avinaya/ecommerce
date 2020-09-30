@@ -16,21 +16,10 @@ function ProductCategoryHeader(props) {
 
   const toggleActive = (url) => (e) => {
     e.preventDefault();
-    history.push({
-      pathname: history.location.pathname,
-      search: `${url}${
-        history.location.query.price === null
-          ? ""
-          : history.location.query.price
-      }`,
-      query: {
-        header: url,
-        price:
-          history.location.query.price === null
-            ? ""
-            : history.location.query.price,
-      },
-    });
+    let currentUrlParams = new URLSearchParams(history.location.search);
+    currentUrlParams.set("sort",url)
+    history.push(history.location.pathname + "?" + currentUrlParams.toString());
+
   };
 
   const handleClickCat = (param) => (e) => {
@@ -40,11 +29,7 @@ function ProductCategoryHeader(props) {
     localStorage.setItem("subCategoryType", "");
     history.push({
       pathname: `/category/${param.replace(/ /g, "-")}`,
-      query:{
-        header:null,
-        price:null
-      }
-  })
+    });
   };
 
   const handleClickSubCat = (cat, subCat) => (e) => {
@@ -55,13 +40,8 @@ function ProductCategoryHeader(props) {
 
     history.push({
       pathname: `/category/${subCat.replace(/ /g, "-")}`,
-      query:{
-        header:null,
-        price:null
-      }
-  })
+    });
   };
-  
 
   return (
     <div className="productCategoryHeader">
@@ -73,21 +53,24 @@ function ProductCategoryHeader(props) {
             </Link>
             <i className="fa fa-angle-right mx-2"></i>
 
-              <span style={arr.length > 2 ? {} : { color: "#016fed" }} onClick={handleClickCat(arr[0])}>
-                {arr[0]}
-              </span>
+            <span
+              style={arr.length > 2 ? {} : { color: "#016fed" }}
+              onClick={handleClickCat(arr[0])}
+            >
+              {arr[0]}
+            </span>
 
             <i
               className="fa fa-angle-right mx-2 "
               style={arr.length > 2 ? {} : { display: "none" }}
             ></i>
-              <span
-                className="subcategory"
-                style={arr.length > 2 ? {} : { display: "none" }}
-                onClick={handleClickSubCat(arr[0],arr[1])}
-              >
-                {arr[1]}
-              </span>
+            <span
+              className="subcategory"
+              style={arr.length > 2 ? {} : { display: "none" }}
+              onClick={handleClickSubCat(arr[0], arr[1])}
+            >
+              {arr[1]}
+            </span>
           </div>
         </div>
         <div className="productCategoryHeader-top-item productCategoryHeader-top-item2 color-text">
@@ -105,9 +88,9 @@ function ProductCategoryHeader(props) {
           </div>
           <div
             className="productCategoryHeader-bottom-item-price"
-            onClick={toggleActive("?sort=")}
+            onClick={toggleActive("")}
             style={
-              productSort === "" || history.location.search === ""
+              productSort === "" || history.location.search === "" || productSort === undefined
                 ? { color: "#016fed", border: "1px solid #016fed" }
                 : { border: "1px solid rgba(124, 122, 122, 0.671)" }
             }
@@ -116,7 +99,7 @@ function ProductCategoryHeader(props) {
           </div>
           <div
             className="productCategoryHeader-bottom-item-price borderLast"
-            onClick={toggleActive("?sort=priceDesc")}
+            onClick={toggleActive("priceDesc")}
             style={
               productSort === "priceDesc"
                 ? { color: "#016fed", border: "1px solid #016fed" }
@@ -127,7 +110,7 @@ function ProductCategoryHeader(props) {
           </div>
           <div
             className="productCategoryHeader-bottom-item-price"
-            onClick={toggleActive("?sort=priceAsc")}
+            onClick={toggleActive("priceAsc")}
             style={
               productSort === "priceAsc"
                 ? { color: "#016fed", border: "1px solid #016fed" }
