@@ -47,10 +47,10 @@
 .searchButton {
   width: 40px;
   height: 2.18rem;
-  background: orange;
+  background: $color-detail-button;
   border: none;
   border-radius: 0 5px 5px 0;
-  color: White;
+  color: $color-white;
   cursor: pointer;
 }
 

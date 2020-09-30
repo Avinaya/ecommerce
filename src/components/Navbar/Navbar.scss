@@ -20,7 +20,7 @@
           font-weight: 600;
         }
         &-text2 {
-          color: orange;
+          color: $color-detail-button;
           font-size: 1.5rem;
           font-weight: 600;
         }
@@ -51,7 +51,8 @@
         margin-right: 2vw;
       }
       &-cart {
-        background-color: #33b27b;
+        border-radius: 5px;
+        background-color: $color-detail-button;
         padding: 0.5vw;
 
         & i {
