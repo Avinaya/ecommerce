@@ -1,21 +1,32 @@
-import React, { useState } from "react";
+import React,{ useState ,useEffect} from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import Search from "./search/Search";
 import { useStateValue } from "./../contexApi/stateProvider/StateProvider";
 import AuthService from ".././../service/auth.service";
+import {getCartByUserId} from "../../service/cartService/CartService";
+import { useHistory } from 'react-router-dom';
+
 const Navbar = () => {
-  const [{ basket }] = useStateValue();
-  const [user] = useState(JSON.parse(localStorage.getItem("user")));
+  const history = useHistory();
+  const [{basket}]=useStateValue();
+  const [user]=useState(JSON.parse(localStorage.getItem("user")));
+  const [cart,setCart]=useState([]);
   let facebookUser = JSON.parse(localStorage.getItem('facebookData'));
 
-
-  const logOut = () => {
-    localStorage.removeItem("facebookData")
+  const logOut= () => {
     AuthService.logout();
-    window.location.reload();
-  };
-
+    history.push('/');
+  }
+  useEffect(() => {
+    if(user!=null){
+      getCartByUserId(user.id).then(response => {
+        setCart(response.data);
+      });
+    }else{
+      setCart(null);
+    }
+  });
   return (
     <nav className="navBar">
       <div className="navBar-tools">
@@ -94,11 +105,17 @@ const Navbar = () => {
         )}
 
         <div className="navBar-tools-item navBar-tools-item-cart">
-          <Link to="/cart" className="link">
-            <i className="fa fa-shopping-cart mr-1"></i>
-
-            <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
-            <span className="navBar-tools-item-item">{basket.length}</span>
+        <Link to="/cart" className="link">
+          <i className="fa fa-shopping-cart mr-1"></i>
+         
+          <span className="mr-1 navBar-tools-item-cart-text">My Cart</span>
+          <span className="navBar-tools-item-item">{
+            user!=null ? (
+              <span>{cart.length}</span>
+            ) : (
+              <span>{basket.length}</span>
+            )
+          }</span>
           </Link>
         </div>
 
@@ -120,6 +137,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
 
-export default Navbar;
+export default Navbar

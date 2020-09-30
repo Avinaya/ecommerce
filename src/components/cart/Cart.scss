@@ -39,8 +39,91 @@
              grid-template-columns: 3fr 1fr ;
             grid-gap:1rem;
             &-item{
-                
                 background-color: #ffff;
+                &-saved{
+                   margin-top:3rem;
+                    &-main{
+                                                    
+                        &-name{
+                            display: flex;
+                            flex-wrap:wrap;
+                            background-color: #e6e6e6;
+                            width: 100%;
+                            padding: 0.5rem;
+                            font-weight: 600;
+                            text-transform: capitalize;
+
+                            &-details{
+                                width:60%;
+                            }
+                           
+                            &-price{
+                                width:20%;
+                            }
+                            &-action{
+                                width:20%;
+                            }
+
+                        }
+
+                        &-product{
+                            display: flex;
+                            flex-wrap:wrap;
+                            width: 100%;
+                            padding: 0.5rem;
+                            font-weight: 600;
+                            text-transform: capitalize;
+                            border-bottom: .0625rem solid #e8e8e8;
+                            
+                            &-image{
+                                width: 60%;
+                                display: flex;
+                                // background-color: red;
+                            
+                                & img{
+                                    padding: .2rem 0;
+                                    width:25%;
+                                    height:4rem;
+                                    object-fit: contain;
+ 
+                                }
+                                & span{
+                                    
+                                    padding: .2rem 0rem;
+                                    color: #404553;
+                                    font-size: 1.2rem;
+                                    font-weight: 600;
+                                    margin-bottom: .25rem;
+                                    line-height: 1.5em;
+                                    height: 3em; /* height is 2x line-height, so two lines will display */
+                                    overflow: hidden;
+                                }
+                            }
+                           
+                            &-prices{
+                                width: 20%;
+                                color: #4a4a4a;
+                            }
+                            &-actions{
+                                width:20%;
+                              
+                                &-attribute{
+                                    position: relative;
+                                    color:$color-primary;
+                                    
+                                    
+                                    cursor: pointer;
+                                    font-weight: 300;
+                                   
+                                    text-decoration: unset;
+                                    
+                                  }
+                            }
+                        }
+                    }
+                }
+                
+               
                 &-itemdetails{
                     &-main{
                         
@@ -111,14 +194,17 @@
                             }
                             &-actions{
                                 width:20%;
+                              
                                 &-attribute{
                                     position: relative;
                                     color:$color-primary;
                                     
+                                    
                                     cursor: pointer;
                                     font-weight: 300;
-                                    float: right;
+                                   
                                     text-decoration: unset;
+                                    
                                   }
                             }
                         }
@@ -224,7 +310,7 @@
     }
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 1100px) { 
     .cart{
         margin: 1.5rem 0.5rem;
     }
@@ -327,14 +413,11 @@
  }
 }
 
-// .avinaya{
-//     width: 60%;
-//     height: 50%;
-
-//     & img{
-//         height: 100%;
-//         width: 100%;
-//         object-fit: contain;
-//     }
-// }
+.savedTitle{
+    background-color: $color-back-ground;
+    font-size:1.3rem;
+    font-weight: 600;
+    
+    
+}
 

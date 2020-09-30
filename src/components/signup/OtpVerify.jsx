@@ -31,14 +31,9 @@ const required = value => {
         
       
         this.state={
-          customername:this.props.location.state.customername,
-          contactno:this.props.location.state.contactno,
-         
-          email:this.props.location.state.email,
           
-          password:this.props.location.state.password,
           
-          verificationcode:"",
+          verificationcode:0,
          
             successful: false,
             message: ""
@@ -71,48 +66,14 @@ const required = value => {
           
           
 
-          AuthService.verifyOtpCode(this.state.contactno,this.state.verificationcode).then(response =>{
+          AuthService.register(this.state.verificationcode).then(response =>{
             this.setState({
-              message: response,
+              
               successful: true
             }
             );
             console.log("message", response); 
-            AuthService.register(
-              this.state.customername,
-              this.state.contactno,
-             
-              this.state.email,
-             
-              this.state.password,
-              
-  
-              
-            ).then(
-              response => {
-                this.setState({
-                  message: response.data.message,
-                  successful: true
-                });
-                console.log("message", response.data.message);
-                // localStorage.setItem("user",JSON.stringify(this.state));
-                this.props.history.push('/login');
-               
-              }, 
-              error => {
-                const resMessage =
-                  (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                  error.message ||
-                  error.toString();
-      
-                this.setState({
-                  successful: false,
-                  message: resMessage
-                });
-              }
-            );
+            this.props.history.push('/login');
              
           }, 
           error => {
@@ -155,12 +116,12 @@ const required = value => {
                          }}
                         >
                         <div className="signup-items-account-entity-form-point">
-                            <label htmlFor="fullname">Type OTP Code send in your number</label>
+                            <label htmlFor="fullname">Type OTP Code send in your email</label>
                             <Input
-                    type="text"
+                    type="number"
                     className="signup-items-account-entity-form-control"
                     name="fullname"
-                    placeholder="Enter Full Name"
+                    placeholder="Enter Otp Code"
                     value={this.state.verificationcode}
                     onChange={this.onChangeVerificationCode}
                    validations={[required]}

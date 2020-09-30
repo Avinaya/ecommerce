@@ -1,35 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+
+import axios from "axios";
 
 
 function SavedForLater(props){
 
-   
-    const [totalItemPrice,setTotalItemPrice]=useState(props.quantity*props.salePrice);
+   const [salePrice]=useState(props.salePrice);
     
+   
+    const user=JSON.parse(localStorage.getItem("user"));
+    useEffect(() => {
+        console.log("product",props.productName);
+    }); 
+  
+    const deleteCart = () => {
+        if(user!=null){
+            props.onDelete(props.cartId);
+        }
+        else{
+            props.onDelete(props.id);
+        }
+        
+    }
  
 
 return(
     <div>
-        <div key={props.id} className="cart-tool-parent-item-itemdetails-main cart-tool-parent-item-itemdetails-main-product">
-          <div className="cart-tool-parent-item-itemdetails-main-product-image">
+      <div className="savedTitle"><span>Saved For Later</span></div>
+        <div key={props.id} className="cart-tool-parent-item-saved-main cart-tool-parent-item-saved-main-product">
+          <div className="cart-tool-parent-item-saved-main-product-image">
             <img src={props.image} alt=""></img>
             <span className="float-right">{props.productName}</span>
           </div>
-          <div className="cart-tool-parent-item-itemdetails-main-product-quantities">
-          <div className="d-inline">
-       <div className="count">
-        <button className="count-btn"  onClick={incerementItem}>+</button>
-         <input disabled className="count-input" value={quantity} />
-        <button className="count-btn" onClick={decerementItem}>- </button>
-        </div>
-        </div>
-          </div>
-    <div className="cart-tool-parent-item-itemdetails-main-product-prices">Rs.{totalItemPrice}</div>
-          <div className="cart-tool-parent-item-itemdetails-main-product-actions">
-          <span className="cart-tool-parent-item-itemdetails-main-product-actions-attribute cart-tool-parent-item-itemdetails-main-product-actions-attribute-r" onClick={() => props.onDelete(props.id)}>Remove Item</span>
-          <br/>
-          <span className="cart-tool-parent-item-itemdetails-main-product-actions-attribute cart-tool-parent-item-itemdetails-main-product-actions-attribute-s">Save For Later</span>
+          
+    <div className="cart-tool-parent-item-saved-main-product-prices">Rs.{salePrice}</div>
+          <div className="cart-tool-parent-item-saved-main-product-actions">
+          <span className="cart-tool-parent-item-saved-main-product-actions-attribute cart-tool-parent-item-saved-main-product-actions-attribute-r" onClick={deleteCart}>Remove Item</span>
+          
+          <span className="cart-tool-parent-item-saved-main-product-actions-attribute cart-tool-parent-item-saved-main-product-actions-attribute-s " onClick={() => props.addToSave(props.id,props.image,props.productName,salePrice)}>Save For Later</span>
           </div>
 
         </div>

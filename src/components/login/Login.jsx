@@ -3,10 +3,11 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 import "./Login.scss";
 import AuthService from "../../service/auth.service";
-import FacebookSocialLogin from "./../socialLogin/FacebookSocialLogin";
+import CartService from "../../service/cartService/CartService";
+import FacebookSocialLogin from './../socialLogin/FacebookSocialLogin';
 
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
@@ -68,8 +69,39 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.login(this.state.username, this.state.password).then(
         () => {
-          this.props.history.push("/");
-          window.location.reload();
+          if (localStorage.getItem("cart") != null) {
+            this.setState({
+              cart: JSON.parse(localStorage.getItem("cart")),
+            });
+          } else {
+            this.setState({
+              cart: null,
+            });
+          }
+
+          console.log("cart", this.state.cart);
+          if (this.state.cart != null) {
+            const user = JSON.parse(localStorage.getItem("user"));
+            for (var i in this.state.cart) {
+              var ram = {
+                productId: this.state.cart[i].id,
+                quantity: this.state.cart[i].productQuantity,
+                userId: user.id,
+              };
+              console.log("user", user.id);
+
+              var productId = ram.productId;
+              var quantity = ram.quantity;
+              var userId = ram.userId;
+              CartService(productId, quantity, userId).then((response) => {
+                localStorage.removeItem("cart");
+                this.props.history.push("/");
+              });
+            }
+          } else {
+            this.props.history.push("/");
+            window.location.reload();
+          }
         },
         (error) => {
           const resMessage =
@@ -164,9 +196,8 @@ export default class Login extends Component {
                   }}
                 />
               </Form>
-              <FacebookSocialLogin />
+            <FacebookSocialLogin/>
             </div>
-
             <div className="extra">
               <span>Don't have an account?</span>
               <a className="extra-click" href="/signup">

@@ -92,10 +92,10 @@ return(   <div className="login">
           </div>
 
           <div className="text">
-            <label htmlFor="login-items-account-entity-form-control">Contact Person</label>
+            <label htmlFor="contactPerson">Contact Person</label>
             <input
               type="text"
-              className="form-control"
+              className="login-items-account-entity-form-control"
               name="contactPerson"
               placeholder="Enter contact person name"
               onChange={onChangeContactPerson}
