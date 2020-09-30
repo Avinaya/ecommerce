@@ -116,6 +116,9 @@
                                     font-weight: 300;
                                    
                                     text-decoration: unset;
+                                    font-weight: 400;
+                                    font-size:0.8rem;
+                                    display:block;
                                     
                                   }
                             }
@@ -194,17 +197,22 @@
                             }
                             &-actions{
                                 width:20%;
+                                display: block;
                               
                                 &-attribute{
                                     position: relative;
                                     color:$color-primary;
-                                    
-                                    
+                                                                     
                                     cursor: pointer;
-                                    font-weight: 300;
+                                    font-weight: 400;
+                                    font-size:0.8rem;
+                                    
                                    
                                     text-decoration: unset;
+                                    display:block;
                                     
+                                    
+                                 
                                   }
                             }
                         }

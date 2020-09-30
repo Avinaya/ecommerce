@@ -9,7 +9,14 @@ const config = {
 
 class AuthService {
  
-  
+  socialLogin(email,image,socialLoginId,userName,customerName){
+    return axios
+    .post( "https://saptasoch.herokuapp.com/customer/socialLogin", {
+      email,image,socialLoginId,userName,customerName
+    }).then(response =>{
+      return response.data;
+    });
+  }
   
   login(userName, password) {
     return axios

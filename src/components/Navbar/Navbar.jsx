@@ -12,11 +12,12 @@ const Navbar = () => {
   const [{basket}]=useStateValue();
   const [user]=useState(JSON.parse(localStorage.getItem("user")));
   const [cart,setCart]=useState([]);
-  let facebookUser = JSON.parse(localStorage.getItem('facebookData'));
+  
 
   const logOut= () => {
     AuthService.logout();
-    history.push('/');
+    window.location.reload();
+   
   }
   useEffect(() => {
     if(user!=null){
@@ -71,7 +72,7 @@ const Navbar = () => {
             Sells On <br></br>SaptaBazar
           </Link>
         </div>
-        {facebookUser == null ? (
+        {user == null ? (
           <div>
             <div className="navBar-tools-item navBar-tools-item-login">
               <Link to="/login" className="link">
@@ -90,7 +91,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Hey,{((facebookUser.name).split(/(\s+)/))[0]}
+                Hey,{(user.username)}
               </button>
               <div
                 className="dropdown-menu"
