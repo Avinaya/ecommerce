@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React,{useEffect,useContext} from "react";
 import Home from "./pages/home/Home";
 import { Switch, Route } from "react-router-dom";
 import ProductDetail from "./pages/productDetail/ProductDetail";
@@ -16,6 +16,10 @@ import ProductCategory from './pages/productCategories/ProductCategory';
 import Categories from './components/category/Categories';
 import SideBarMob from './components/sideBar/sideBarMob/SideBarMob';
 import AddReview from "./components/addReview/AddReview";
+import BaseDataContex from "./components/contexApi/baseApiCall/BaseApiCall";
+import LoadingComponent from "./components/loadingComponent/LoadingComponent";
+
+
 
 function App() {
 
@@ -23,11 +27,15 @@ function App() {
     window.scrollTo(0, 0)
 });
 
+const value = useContext(BaseDataContex);
+
+
 const AuthenticatedRoute= () => {
   return (
     <React.Fragment>
     <SideBarMob/>
       <Navbar />
+      {value.category === null?<LoadingComponent/>:<>
       <Mobheader /> 
       <Categories/>
       <Switch>
@@ -43,6 +51,8 @@ const AuthenticatedRoute= () => {
       
       </Switch>
       <Footer/>
+      </>
+  }
     </React.Fragment>
   );
 }
