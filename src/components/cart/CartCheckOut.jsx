@@ -17,7 +17,20 @@ function CartCheckOut(props){
   const [cart,setCart]=useState([]);
   const [userTotalQuantity,setUserTotalQuantity]=useState();
   const [userTotalSalePrice,setUserTotalSalePrice]=useState();
-  
+  const removeAnItem =(value) =>{
+    console.log("productName",value);
+    dispatch1({
+        type:"REMOVE_FROM_BASKET",
+        id:value,
+        
+      }
+     
+      
+      );
+}
+async function deleteCart(c){
+  return await deleteCartByCartId(c);
+}
   useEffect(() => {
   
     if(user!=null){
@@ -35,19 +48,9 @@ function CartCheckOut(props){
       setCart(null);
     }
     
-  }, []);
+  }, [removeAnItem,deleteCart]);
 
-  const removeAnItem =(value) =>{
-    console.log("productName",value);
-    dispatch1({
-        type:"REMOVE_FROM_BASKET",
-        id:value,
-        
-      }
-     
-      
-      );
-}
+
 const updateAnItem=(i,q)=>{
  
   dispatch1({
@@ -60,9 +63,7 @@ const updateAnItem=(i,q)=>{
   }
   );
 }
-async function deleteCart(c){
-  return await deleteCartByCartId(c);
-}
+
 
 const incrementQuantity = (i) => {
   setUserTotalQuantity(userTotalQuantity+1);
@@ -181,7 +182,10 @@ const AddToSavedForLater=(i,r,p,it)=>{
           </div>
           <p className="float-right">Excluding delivery charges</p>
           <div className="cart-tool-parent-item-budget-checkout">
-          <button onClick={() => history.push('/checkout')}>Contitnue to Checkout</button>
+          <button onClick={() => history.push({
+  pathname: '/checkout',
+  state: { cart,basket}
+})}>Contitnue to Checkout</button>
           </div>
       </div>
       <div className="cart-tool-parent-item cart-tool-parent-item-saved">

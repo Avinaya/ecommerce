@@ -9,29 +9,52 @@ import {getCartByUserId} from "../../service/cartService/CartService";
   const [{basket}]=useStateValue();
   const user=JSON.parse(localStorage.getItem("user"));
   const [cart,setCart]=useState([]);
+  const [loading,setLoading]=useState(true);
+  const [quantity,setQuantity]=useState();
+  const [price,setPrice]=useState();
+
+  const updateQuantity=(value) =>{
+    setQuantity(value);
+  }
+  const updatePrice =(p) =>{
+    setPrice(p);
+  }
   
   useEffect(() => {
     if(user!=null){
 
   getCartByUserId(user.id).then(response=>{
       setCart(response.data);
+      setLoading(false);
       });
+    }
+    else{
+      setLoading(false);
     }
 
     
-  },[]);
+  },[loading]);
     return(
       <div>
-           {basket?.length === 0 && cart.length==0 ? (
-          <h2>Basket is empty</h2>
-        ) :(
-      <div>
+
+        {
+          loading===true ?(
+            <div>Loading...</div>
+          ) :(
+            
+              basket?.length === 0 && cart.length===0 ? (
+                
+                <h2>Basket is empty</h2>
+              ) :(
+                <div>
       
-            <CartCheckOut/>
+            <CartCheckOut qnt={updateQuantity} pri={updatePrice}/>
         
       </div>
-      
-      )}
+              )
+            
+          )
+        }
       </div>
     );
 }

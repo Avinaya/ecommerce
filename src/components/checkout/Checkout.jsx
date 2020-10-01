@@ -9,9 +9,10 @@ import DeliveryAddress from "./../deliveryAddress/DeliveryAddress";
 import { Link } from "react-router-dom";
 import {getCartByUserId} from "../../service/cartService/CartService";
 import {deleteCartByCartId} from "../../service/cartService/CartService";
+import { useLocation } from "react-router-dom";
 
 
-function Checkout() {
+function Checkout(props) {
   const viewHeight = window.outerHeight;
   const [{ deliveryAddress }] = useStateValue();
   const c=localStorage.getItem("delivery");
@@ -21,6 +22,7 @@ function Checkout() {
   const [cart,setCart]=useState([]);
   const [userTotalQuantity,setUserTotalQuantity]=useState();
   const [userTotalSalePrice,setUserTotalSalePrice]=useState();
+  const location =new useLocation();
 
   const totalSalePrice = basket.reduce(
     (totalSale, basket) =>
@@ -28,6 +30,13 @@ function Checkout() {
     0
   );
 
+  const removeAnItem = (value) => {
+    console.log("productName", value);
+    dispatch({
+      type: "REMOVE_FROM_BASKET",
+      id: value,
+    });
+  };
   useEffect(() => {
     console.log("delivery",c);
     console.log("user",user);
@@ -44,7 +53,7 @@ function Checkout() {
       setCart(null);
     }
     
-  }, []);
+  }, [removeAnItem]);
 
   
 
@@ -53,13 +62,6 @@ function Checkout() {
   //   setSideBarOpen(false);
   // }
 
-  const removeAnItem = (value) => {
-    console.log("productName", value);
-    dispatch({
-      type: "REMOVE_FROM_BASKET",
-      id: value,
-    });
-  };
   const updateAnItem = (i, q) => {
     console.log("id id", i);
     console.log("quantity is", q);

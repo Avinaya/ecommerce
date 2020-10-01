@@ -41,6 +41,7 @@ export default class Login extends Component {
       password: "",
       loading: false,
       message: "",
+      cart:JSON.parse(localStorage.getItem("cart"))
     };
   }
 
@@ -69,17 +70,7 @@ export default class Login extends Component {
     if (this.checkBtn.context._errors.length === 0) {
       AuthService.login(this.state.username, this.state.password).then(
         () => {
-          if (localStorage.getItem("cart") != null) {
-            this.setState({
-              cart: JSON.parse(localStorage.getItem("cart")),
-            });
-          } else {
-            this.setState({
-              cart: null,
-            });
-          }
-
-          console.log("cart", this.state.cart);
+      
           if (this.state.cart != null) {
             const user = JSON.parse(localStorage.getItem("user"));
             for (var i in this.state.cart) {
