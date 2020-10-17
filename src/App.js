@@ -17,7 +17,7 @@ import Categories from "./components/category/Categories";
 import SideBarMob from "./components/sideBar/sideBarMob/SideBarMob";
 import AddReview from "./components/addReview/AddReview";
 import BaseDataContex from "./components/contexApi/baseApiCall/BaseApiCall";
-import LoadingComponent from "./components/loadingComponent/LoadingComponent";
+import PreLoader from "./components/loadingComponent/PreLoader"
 
 function App() {
 
@@ -25,12 +25,7 @@ function App() {
     const value = useContext(BaseDataContex);
     if (value.category === null) {
       return (
-        <React.Fragment>
-          <SideBarMob />
-          <Navbar />
-          <Mobheader />
-          <LoadingComponent/>
-        </React.Fragment>
+       <PreLoader/>
       );
     } else {
       return (
