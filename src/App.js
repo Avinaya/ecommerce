@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect, useContext } from "react";
 import Home from "./pages/home/Home";
 import { Switch, Route } from "react-router-dom";
 import ProductDetail from "./pages/productDetail/ProductDetail";
@@ -11,54 +11,67 @@ import DeliveryAddress from "./components/deliveryAddress/DeliveryAddress";
 import Login from "./components/login/Login";
 import Signup from "./components/signup/SignUp";
 import OtpVerify from "./components/signup/OtpVerify";
-import ProductTagAll from './pages/productTagAll/ProductTagAll';
-import ProductCategory from './pages/productCategories/ProductCategory';
-import Categories from './components/category/Categories';
-import SideBarMob from './components/sideBar/sideBarMob/SideBarMob';
+import ProductTagAll from "./pages/productTagAll/ProductTagAll";
+import ProductCategory from "./pages/productCategories/ProductCategory";
+import Categories from "./components/category/Categories";
+import SideBarMob from "./components/sideBar/sideBarMob/SideBarMob";
 import AddReview from "./components/addReview/AddReview";
+import BaseDataContex from "./components/contexApi/baseApiCall/BaseApiCall";
+import LoadingComponent from "./components/loadingComponent/LoadingComponent";
 
 function App() {
 
+  const AuthenticatedRoute = () => {
+    const value = useContext(BaseDataContex);
+    if (value.category === null) {
+      return (
+        <React.Fragment>
+          <SideBarMob />
+          <Navbar />
+          <Mobheader />
+          <LoadingComponent/>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <SideBarMob />
+          <Navbar />
+          <Mobheader />
+          <Categories />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/Product/:productId" component={ProductDetail} />
+            <Route exact path="/product-tag/:title" component={ProductTagAll} />
+            <Route
+              exact
+              path="/category/:categoriesName"
+              component={ProductCategory}
+            />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/add-review" component={AddReview} />
+            <Route exact path="/delivery" component={DeliveryAddress} />
+            <Route exact path="*" component={Home} />
+          </Switch>
+          <Footer />
+        </React.Fragment>
+      );
+    }
+  };
+
   useEffect(() => {
-    window.scrollTo(0, 0)
-});
+    window.scrollTo(0, 0);
+  });
 
-const AuthenticatedRoute= () => {
   return (
-    <React.Fragment>
-    <SideBarMob/>
-      <Navbar />
-      <Mobheader /> 
-      <Categories/>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/Product/:productId" component={ProductDetail} />
-        
-        <Route exact path="/product-tag/:title" component={ProductTagAll} />
-        <Route exact path="/category/:categoriesName" component={ProductCategory}/>
-        <Route exact path="/cart" component={Cart}/>
-        <Route exact path="/add-review" component={AddReview}/>
-        <Route exact path="/delivery" component={DeliveryAddress}/>
-        <Route exact path="*" component={Home}/>
-      
-      </Switch>
-      <Footer/>
-    </React.Fragment>
+    <Switch>
+      <Route exact path="/checkout" component={Checkout} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/verify" component={OtpVerify} />
+      <Route component={AuthenticatedRoute} />
+    </Switch>
   );
-}
-
-return (
-  <Switch>
-  <Route exact path="/checkout" component={Checkout}/>
-  <Route exact path="/signup" component={Signup} />
-  <Route exact path="/login" component={Login} />
-  <Route exact path="/verify" component={OtpVerify} />
-  
-  <Route component={AuthenticatedRoute}/>
-</Switch>
-);
-
-
 }
 
 export default App;

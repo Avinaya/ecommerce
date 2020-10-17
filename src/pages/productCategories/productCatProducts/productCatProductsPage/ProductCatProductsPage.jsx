@@ -4,8 +4,9 @@ import queryString from "query-string";
 
 function ProductCatProductsPage(props) {
   const history = useHistory();
+  const number = queryString.parse(history.location.search).page;
 
-  let pageNo = queryString.parse(history.location.search).page;
+  let pageNo = number === undefined ? 1 : number;
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -22,13 +23,28 @@ function ProductCatProductsPage(props) {
     let currentUrlParams = new URLSearchParams(history.location.search);
     currentUrlParams.set("page", val);
     history.push(history.location.pathname + "?" + currentUrlParams.toString());
-
     setCurrentPage(val);
   };
 
+  const handleNext = (event) => {
+    event.preventDefault();
+    let currentUrlParams = new URLSearchParams(history.location.search);
+    currentUrlParams.set("page", currentPage + 1);
+    history.push(history.location.pathname + "?" + currentUrlParams.toString());
+    setCurrentPage(currentPage + 1);
+  };
+  const handlePrevious = (event) => {
+    event.preventDefault();
+    let currentUrlParams = new URLSearchParams(history.location.search);
+    currentUrlParams.set("page", currentPage - 1);
+    history.push(history.location.pathname + "?" + currentUrlParams.toString());
+    setCurrentPage(currentPage - 1);
+  };
+
   return (
-    <div className="productCatProductsPage"
-    style={props.data.totalPages===1?{display:"none"}:{}}
+    <div
+      className="productCatProductsPage"
+      style={props.data.totalPages === 1 ? { display: "none" } : {}}
     >
       {console.log("currentPage", currentPage)}
       <div aria-label="Page navigation example">
@@ -46,6 +62,7 @@ function ProductCatProductsPage(props) {
                     }
                   : {}
               }
+              onClick={handlePrevious}
             >
               Previous
             </span>
@@ -83,6 +100,7 @@ function ProductCatProductsPage(props) {
                     }
                   : {}
               }
+              onClick={handleNext}
             >
               Next
             </span>

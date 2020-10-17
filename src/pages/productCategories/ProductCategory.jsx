@@ -9,12 +9,11 @@ import ProductCategoryMob from "./productCategoryMobile/ProductCategoryMob";
 import LoadingComponent from "./../../components/loadingComponent/LoadingComponent";
 import { useHistory } from "react-router-dom";
 
-
 function ProductCategory(props) {
   const [data, setData] = useState([]);
   const history = useHistory();
   const [isLoading, setIsloading] = useState(true);
-  
+
   let category = localStorage.getItem("category");
   let subCategory = localStorage.getItem("subCategory");
   let subCategoryType = localStorage.getItem("subCategoryType");
@@ -31,11 +30,10 @@ function ProductCategory(props) {
       formData.append("subCategory", subCategory);
       formData.append("subCategoryType", subCategoryType);
       formData.append("pageSize", 20);
-      if(page){
-        formData.append("pageNo", page-1);
-      }else{
+      if (page) {
+        formData.append("pageNo", page - 1);
+      } else {
         formData.append("pageNo", 0);
-
       }
 
       if (productSort) {
@@ -56,10 +54,17 @@ function ProductCategory(props) {
       );
       setIsloading(false);
       setData(response.data);
-      // console.log("filter", response.data);
     }
     fetchData();
-  }, [category, subCategory, subCategoryType, productSort, minPrice, maxPrice, page]);
+  }, [
+    category,
+    subCategory,
+    subCategoryType,
+    productSort,
+    minPrice,
+    maxPrice,
+    page,
+  ]);
 
   return (
     <div className="productCategory">
