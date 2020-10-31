@@ -57,7 +57,7 @@ const BaseApiDataProvider = (props) => {
       });
     }
     fetchData();
-  },[baseUrl,data]);
+  }, [baseUrl, data]);
 
   return (
     <BaseDataContex.Provider value={data}>

@@ -17,15 +17,19 @@ import Categories from "./components/category/Categories";
 import SideBarMob from "./components/sideBar/sideBarMob/SideBarMob";
 import AddReview from "./components/addReview/AddReview";
 import BaseDataContex from "./components/contexApi/baseApiCall/BaseApiCall";
-import PreLoader from "./components/loadingComponent/PreLoader"
+import LoadingComponent from "./components/loadingComponent/LoadingComponent";
 
 function App() {
-
   const AuthenticatedRoute = () => {
     const value = useContext(BaseDataContex);
     if (value.category === null) {
       return (
-       <PreLoader/>
+        <React.Fragment>
+          <SideBarMob />
+          <Navbar />
+          <Mobheader />
+          <LoadingComponent />;
+        </React.Fragment>
       );
     } else {
       return (
