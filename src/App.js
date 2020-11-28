@@ -18,7 +18,6 @@ import SideBarMob from "./components/sideBar/sideBarMob/SideBarMob";
 import AddReview from "./components/addReview/AddReview";
 import BaseDataContex from "./components/contexApi/baseApiCall/BaseApiCall";
 import LoadingComponent from "./components/loadingComponent/LoadingComponent";
-import GeoLocation from "./components/geo/GeoLocation";
 import StoreDetail from './pages/store/StoreDetail';
 
 function App() {
@@ -56,7 +55,6 @@ function App() {
             <Route exact path="*" component={Home} />
           </Switch>
           <Footer />
-          <GeoLocation />
         </React.Fragment>
       );
     }
