@@ -6,6 +6,7 @@ import { useStateValue } from "./../contexApi/stateProvider/StateProvider";
 import AuthService from ".././../service/auth.service";
 import {getCartByUserId} from "../../service/cartService/CartService";
 import { useHistory } from 'react-router-dom';
+import LocationPopup from "../locationPopUp/LocationPopup";
 
 const Navbar = () => {
   const history = useHistory();
@@ -38,9 +39,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navBar-tools-item navBar-tools-item-store">
-          <Link to="/" className="link">
-            Store <br></br> Locator
-          </Link>
+          <LocationPopup/>
         </div>
         <div className="navBar-tools-item navBar-tools-item-help">
           <div className="dropdown">

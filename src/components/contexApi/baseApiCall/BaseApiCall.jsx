@@ -32,17 +32,17 @@ const BaseApiDataProvider = (props) => {
           console.log(error);
         });
       const recommendedData = await axios
-        .get(`${baseUrl}/product/tag/recommended?pageNo=0&pageSize=6`)
+        .get(`${baseUrl}/product/tag/recommended?pageNo=0&pageSize=8`)
         .catch(function (error) {
           console.log(error);
         });
       const latestData = await axios
-        .get(`${baseUrl}/product/tag/latest?pageNo=0&pageSize=6`)
+        .get(`${baseUrl}/product/tag/latest?pageNo=0&pageSize=8`)
         .catch(function (error) {
           console.log(error);
         });
       const bestSellingData = await axios
-        .get(`${baseUrl}/product/tag/bestSelling?pageNo=0&pageSize=6`)
+        .get(`${baseUrl}/product/tag/bestSelling?pageNo=0&pageSize=8`)
         .catch(function (error) {
           console.log(error);
         });

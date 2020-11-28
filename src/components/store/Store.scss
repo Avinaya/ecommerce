@@ -1,0 +1,93 @@
+@import "../../style/variable";
+
+.store {
+  margin: 1rem 2rem;
+  background-color: $color-white;
+  border-radius: 5px;
+
+  &-heading {
+    padding: 1rem 0rem 1rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.116);
+
+    &-title {
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    &-btn {
+      color: $color-button !important;
+      margin-left: 1rem;
+      text-decoration: none;
+
+      &:hover {
+        border-bottom: 1px solid $color-button;
+      }
+    }
+  }
+
+  &-tools {
+    padding: 2rem 0.5rem 0.5rem 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-gap: 1rem;
+
+    &-item {
+      border-radius: 20px;
+      padding: 1rem;
+      height: 100%;
+      cursor: pointer;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 1px 10px 0 rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      & img {
+        border-radius: 50%;
+        width: 10rem;
+        height: 10rem;
+        object-fit: cover;
+        margin-bottom: 1rem;
+      }
+
+      & span {
+        display: block;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .store-tools-item {
+    display: block;
+    text-align: center;
+    padding: 0.1rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .store-heading {
+    &-title {
+      font-size: 0.9rem;
+    }
+    font-size: 0.8rem;
+  }
+  .store-tools-item img {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .store {
+    margin: 1rem 0.5rem;
+
+    &-tools {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
