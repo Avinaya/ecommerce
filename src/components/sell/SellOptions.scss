@@ -20,6 +20,12 @@
      display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 1rem;
+    
+    &-one{
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 1px 10px 0 rgba(0, 0, 0, 0.1);
+        height: inherit;
+    }
  }
 
 }
@@ -42,7 +48,8 @@
             text-align: center;
             justify-content: space-around;
         &-one{
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            
         }
             
         }
