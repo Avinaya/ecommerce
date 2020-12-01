@@ -23,16 +23,6 @@ import StoreDetail from './pages/store/StoreDetail';
 function App() {
   const AuthenticatedRoute = () => {
     const value = useContext(BaseDataContex);
-    if (value.category === null) {
-      return (
-        <React.Fragment>
-          <SideBarMob />
-          <Navbar />
-          <Mobheader />
-          <LoadingComponent />;
-        </React.Fragment>
-      );
-    } else {
       return (
         <React.Fragment>
           <SideBarMob />
@@ -51,13 +41,12 @@ function App() {
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/add-review" component={AddReview} />
             <Route exact path="/delivery" component={DeliveryAddress} />
-            <Route exact path="/store/:storeName" component={StoreDetail}/>
+            <Route exact path="/store/:storeId" component={StoreDetail}/>
             <Route exact path="*" component={Home} />
           </Switch>
           <Footer />
         </React.Fragment>
       );
-    }
   };
 
   useEffect(() => {

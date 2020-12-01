@@ -1,0 +1,56 @@
+@import "../../../style/variable";
+
+.storeSearch {
+  display: flex;
+
+  &-search {
+    flex: 1;
+    padding: 0 1rem;
+    border: 1px solid #ced4da;
+    outline: none;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: $color-text;
+
+    &:focus {
+      border: 1px solid $color-primary;
+      border-right: none;
+    }
+  }
+
+  & i {
+    padding: 0.8rem;
+    border: 1px solid #ced4da;
+    color: $color-text;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+.store-tag {
+  background-color: $color-back-ground;
+  display: grid;
+  padding: 1rem 0;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ced4da;
+
+  &-item {
+    cursor: pointer;
+    text-align: center;
+    background-color: #7f7c7c;
+    padding: 0.5rem 0.5rem;
+    color: $color-white;
+    border-radius: 5px;
+    text-transform: capitalize;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &:hover{
+      background-color: $color-primary;
+    }
+  }
+}

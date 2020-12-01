@@ -1,8 +1,8 @@
 @import "../../../style/variable";
 
 .storeHeader {
-  margin-bottom: 10rem;
   position: relative;
+  margin-bottom: 2rem;
 
   &-image {
     & img {
@@ -25,6 +25,7 @@
       text-transform: capitalize;
     }
     & h5 {
+      text-transform: capitalize;
       margin-top: 1rem;
     }
   }
