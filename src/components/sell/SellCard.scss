@@ -1,0 +1,80 @@
+
+@import '../../style/variable';
+
+.sellcard{
+    background-color: $color-white;
+    text-align:center ;
+  
+   
+    &-title{
+        & h2{
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1.5rem 0;
+        }
+    }
+
+    &-item{
+        display: flex;
+        padding: 0.5rem 1.2rem;
+        text-align: left;
+        font-size: 0.8rem;
+        font-weight: 400;
+        & i{
+            color: green;
+            font-size: 0.8rem;
+        }
+        &-text{
+            padding-left: 1rem;;
+        }
+
+    }
+    &-description{
+        padding: 0.3rem 2rem;
+        text-align: left;
+        & span{
+            font-weight: 600;
+            font-size:0.8rem;
+            text-align: center;
+        }
+    }
+    &-mainimage{
+        & img{
+            width: 100%;
+            
+        }
+    
+    }
+    &-titleimage{
+        & img{
+            max-height: 30px;
+        }
+    }
+    &-button{
+        padding:1.5rem 0;
+        text-align: center;
+
+        & button{
+            background-color: $color-detail-button;
+          border: none;
+          & span{
+            font-weight: 400;
+            font-size: 0.8rem;
+          }
+         
+         
+          padding: .5rem;
+          color: $color-white;
+          border-radius: 5px;
+          margin-right: 1rem;
+          font-size: 1.2rem;
+                  
+              }
+              & button:hover{
+                  background-color: $color-detail-button;
+              }
+              & button:focus{
+                  outline:none;
+              }
+    }
+}

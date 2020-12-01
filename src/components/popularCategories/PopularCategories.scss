@@ -39,4 +39,8 @@
         }
     }
 }
-
+@media only screen and (min-width: 1300px) {
+    .popular-tools{
+      grid-template-columns: repeat(5,1fr);
+    }
+}

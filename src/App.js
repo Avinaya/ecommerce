@@ -19,6 +19,8 @@ import AddReview from "./components/addReview/AddReview";
 import BaseDataContex from "./components/contexApi/baseApiCall/BaseApiCall";
 import LoadingComponent from "./components/loadingComponent/LoadingComponent";
 import StoreDetail from './pages/store/StoreDetail';
+import SellOptions from './components/sell/SellOptions';
+import Sell from './components/sell/Sell';
 
 function App() {
   const AuthenticatedRoute = () => {
@@ -38,6 +40,7 @@ function App() {
               path="/category/:categoriesName"
               component={ProductCategory}
             />
+            <Route exact path="/sell" component={Sell}/>
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/add-review" component={AddReview} />
             <Route exact path="/delivery" component={DeliveryAddress} />
@@ -55,6 +58,7 @@ function App() {
 
   return (
     <Switch>
+      <Route exact path="/sell-options" component={SellOptions}/>
       <Route exact path="/checkout" component={Checkout} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />

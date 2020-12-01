@@ -1,0 +1,58 @@
+@import '../../style/variable';
+.selloptions{
+    
+    margin: 2em 5em;
+
+ text-align: center;
+ &-title{
+     & h1{
+         font-size: 2rem;
+         font-weight: 900;
+     }
+ }
+ &-sub{
+     padding:2rem 0;
+     font-weight: 400;
+     font-size: 1.2rem;
+ }
+ &-main{
+   box-sizing: border-box;
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 1rem;
+    
+    &-one{
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
+        0 1px 10px 0 rgba(0, 0, 0, 0.1);
+        height: inherit;
+    }
+ }
+
+}
+
+@media screen and (max-width: 850px) {
+    .selloptions-main{
+        
+        display:grid;
+        grid-template-columns:2fr 2fr ;
+       
+    }
+}
+@media screen and (max-width:500px){
+    .selloptions{
+        text-align: center;
+        margin:2em 0.5em;
+        &-main{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: space-around;
+        &-one{
+            margin-bottom: 2rem;
+            
+        }
+            
+        }
+        
+    }
+}

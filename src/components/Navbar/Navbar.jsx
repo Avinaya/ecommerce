@@ -67,7 +67,7 @@ const Navbar = () => {
           <Search />
         </div>
         <div className="navBar-tools-item navBar-tools-item-sell">
-          <Link to="/" className="link">
+          <Link to="/sell" className="link">
             Sells On <br></br>SaptaBazar
           </Link>
         </div>
