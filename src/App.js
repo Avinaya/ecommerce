@@ -18,13 +18,23 @@ import SideBarMob from "./components/sideBar/sideBarMob/SideBarMob";
 import AddReview from "./components/addReview/AddReview";
 import BaseDataContex from "./components/contexApi/baseApiCall/BaseApiCall";
 import LoadingComponent from "./components/loadingComponent/LoadingComponent";
-import StoreDetail from './pages/store/StoreDetail';
-import SellOptions from './components/sell/SellOptions';
-import Sell from './components/sell/Sell';
+import StoreDetail from "./pages/store/StoreDetail";
+import SellOptions from "./components/sell/SellOptions";
+import Sell from "./components/sell/Sell";
 
 function App() {
   const AuthenticatedRoute = () => {
     const value = useContext(BaseDataContex);
+    if (value.category === null) {
+      return (
+        <React.Fragment>
+          <SideBarMob />
+          <Navbar />
+          <Mobheader />
+          <LoadingComponent />;
+        </React.Fragment>
+      );
+    } else {
       return (
         <React.Fragment>
           <SideBarMob />
@@ -40,16 +50,17 @@ function App() {
               path="/category/:categoriesName"
               component={ProductCategory}
             />
-            <Route exact path="/sell" component={Sell}/>
+            <Route exact path="/sell" component={Sell} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/add-review" component={AddReview} />
             <Route exact path="/delivery" component={DeliveryAddress} />
-            <Route exact path="/store/:storeId" component={StoreDetail}/>
+            <Route exact path="/store/:storeId" component={StoreDetail} />
             <Route exact path="*" component={Home} />
           </Switch>
           <Footer />
         </React.Fragment>
       );
+    }
   };
 
   useEffect(() => {
@@ -58,7 +69,7 @@ function App() {
 
   return (
     <Switch>
-      <Route exact path="/sell-options" component={SellOptions}/>
+      <Route exact path="/sell-options" component={SellOptions} />
       <Route exact path="/checkout" component={Checkout} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
