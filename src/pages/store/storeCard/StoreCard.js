@@ -13,7 +13,7 @@ function StoreCard(props) {
               <div className="storeCard-title" id={val.subCatName}>
                 <h2>{val.subCatName}</h2>
               </div>
-              <div className="storeCard" style={val.products.length<2?{gridTemplateColumns:"20%"}:{}} >
+              <div className="storeCard" style={val.products.length<4?{gridTemplateColumns:"20%"}:{}} >
                   {val.products ? (
                     val.products.map((value, indexs) => {
                       return (

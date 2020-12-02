@@ -79,13 +79,18 @@ function ProductCategory(props) {
         <div className="productCategory-tools-item productCategory-tools-item-filter">
           <ProductCategoriesFilter />
         </div>
+
+        
         <div className="productCategory-tools-item">
-          {isLoading === true ? (
+          {isLoading? (
             <LoadingComponent />
           ) : (
             <ProductCategoriesProducts data={data} />
           )}
         </div>
+
+
+
       </div>
     </div>
   );

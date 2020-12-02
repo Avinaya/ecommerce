@@ -3,6 +3,7 @@ import StoreHeader from "./storeHeader/StoreHeader";
 import StoreSearch from "./storeSearch/StoreSearch";
 import StoreCard from "./storeCard/StoreCard";
 import axios from "axios";
+import LoadingComponent from "../../components/loadingComponent/LoadingComponent";
 
 function StoreDetail(props) {
   const [storeData, setStoreData] = React.useState("");
@@ -26,7 +27,7 @@ function StoreDetail(props) {
         .catch(function (error) {
           console.log(error);
         });
-        console.log("products",responseProduct.data.body)
+      console.log("products", responseProduct.data.body);
       setStoreProduct(responseProduct.data.body);
     }
 
@@ -35,11 +36,16 @@ function StoreDetail(props) {
   return (
     <>
       <StoreHeader data={storeData} />
-      <div className="store">
-        <StoreSearch data={storeProduct} />
-      </div>
-      <StoreCard data={storeProduct} />
-    
+      {storeProduct ? (
+        <>
+          <div className="store">
+            <StoreSearch data={storeProduct} />
+          </div>
+          <StoreCard data={storeProduct} />
+        </>
+      ) : (
+        <LoadingComponent />
+      )}
     </>
   );
 }

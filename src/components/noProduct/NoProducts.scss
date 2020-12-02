@@ -1,0 +1,12 @@
+@import '../../style/variable';
+
+.noProducts{   
+    background-color: $color-back-ground; 
+    text-align: center;
+    & i{
+        margin-top: 3rem;
+        font-size: 4rem;
+
+
+    }
+}
