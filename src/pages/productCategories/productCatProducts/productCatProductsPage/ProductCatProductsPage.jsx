@@ -46,7 +46,6 @@ function ProductCatProductsPage(props) {
       className="productCatProductsPage"
       style={props.data.totalPages === 1 ? { display: "none" } : {}}
     >
-      {console.log("currentPage", currentPage)}
       <div aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           <li class="page-item enable">
@@ -67,8 +66,6 @@ function ProductCatProductsPage(props) {
               Previous
             </span>
           </li>
-
-          {console.log("pageNo", pageNo)}
 
           {page().map((val, index) => {
             return (
