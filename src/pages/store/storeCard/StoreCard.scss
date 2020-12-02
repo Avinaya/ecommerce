@@ -30,6 +30,8 @@
 
 @media screen and (max-width: 768px) {
   .storeCard {
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    grid-gap: .4rem;
     margin: 1rem 0.5rem;
     &-title {
       margin: 1rem 0.5rem;

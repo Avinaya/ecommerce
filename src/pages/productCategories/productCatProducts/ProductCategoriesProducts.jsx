@@ -11,12 +11,7 @@ function ProductCategoriesProducts(props) {
     <>
       {Array.isArray(data) && data.length ? (
         <>
-          <div
-            className="productCategoriesProducts"
-            style={
-              Array.isArray(data) && data.length < 4 ? { gridTemplateColumns: "25%" } : {}
-            }
-          >
+          <div className="productCategoriesProducts">
             {data.map((val, index) => {
               return (
                 <div key={index} className="productCategoriesProducts-items">
