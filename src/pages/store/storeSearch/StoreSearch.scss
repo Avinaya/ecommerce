@@ -32,7 +32,7 @@
   background-color: $color-back-ground;
   display: grid;
   padding: 1rem 0;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   grid-gap: 2rem;
   justify-content: space-between;
   align-items: center;
@@ -49,8 +49,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    &:hover{
+    &:hover {
       background-color: $color-primary;
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .store-tag {
+    grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+    grid-gap: .5rem;
   }
 }
