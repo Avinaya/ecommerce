@@ -14,6 +14,11 @@
     &-item {
       &-logo {
         margin-right: 2vw;
+        & img{
+          width: 10rem;
+          height:3rem;
+          // object-fit: cover;
+        }
         &-text1 {
           color: $color-white !important;
           font-size: 2rem;
@@ -121,6 +126,7 @@
   }
   .navBar-tools-item-logo {
     margin-right: 1vw;
+
   }
   .navBar-tools-item-store {
     display: none;

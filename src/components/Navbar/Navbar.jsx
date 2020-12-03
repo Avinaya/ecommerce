@@ -34,8 +34,7 @@ const Navbar = () => {
       <div className="navBar-tools">
         <div className="navBar-tools-item navBar-tools-item-logo">
           <Link to="/" className="link">
-            <span className="navBar-tools-item-logo-text1">Sapta</span>
-            <span className="navBar-tools-item-logo-text2">Bazar</span>
+            <img src={require("../../image/Saptabazzarlogo.png")} alt="saptabazar"></img>
           </Link>
         </div>
         <div className="navBar-tools-item navBar-tools-item-store">

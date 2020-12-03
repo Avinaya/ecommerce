@@ -1,278 +1,134 @@
 import React from "react";
 import "./Footer.scss";
 import { Link } from "react-router-dom";
+import FooterMobile from "./FooterMobile";
 
-const Footer = () => {
+const footerList = [
+  {
+    title: "Let us help you",
+    name: [
+      "Help Center",
+      "How to shop on Saptabazar",
+      "Delivery option and timelines",
+      "How to return a product on Saptabazar?",
+      "Corporate and bulk purchases",
+      "Report a Product",
+    ],
+  },
+  {
+    title: "ABOUT Saptabazar",
+    name: [
+      "About us",
+      "SaptaBazar Careers",
+      "Terms and Conditions",
+      "Privacy policy",
+      "Stay Safe",
+    ],
+  },
+  {
+    title: "Make Money with saptaBazar",
+    name: [
+      "Sell on saptabazar",
+      "Become an Affiliate Partner",
+      "Become a Sales Consultant",
+      "Become a saptabazar Vendor Service Provider",
+      "Become a Logistics Service Partner",
+    ],
+  },
+  {
+    title: "Payment",
+    name: ["Saptabazar Pay", "Mastercard", "Visa", "Esewa", "Khalti"],
+  },
+];
+
+function Footer() {
   return (
-    <div className="footer">
-      <div className="footer-tools-top">
-        <div className="footer-tools-top-item footer-tools-top-mail-phone">
-          <i className="fa fa-envelope footer-tools-top-item-icon"></i>
-          <div>
-            <span className="d-block footer-tools-top-item-heading ">
-              Email Support
-            </span>
-            <span className="d-block">info@saptasoch.com</span>
+    <footer>
+      <div className="footer">
+        <div className="footer-section-top">
+          <div className="footer-section-top-item footer-section-top-item-logo">
+            <Link className="link" to="/">
+              <img
+                style={{ height: "3rem", objectFit: "cover" }}
+                src={require("../../image/Saptabazzarlogo.png")}
+                alt="saptabazar"
+              />
+            </Link>
           </div>
-        </div>
-
-        <div className="footer-tools-top-item footer-tools-top-mail-phone">
-          <i className="fa fa-phone footer-tools-top-item-icon "></i>
-          <div>
-            <span className="d-block footer-tools-top-item-heading">
-              Phone Support
-            </span>
-            <span className="d-block">+977 986026218x</span>
+          <div className="footer-section-top-item footer-section-top-item-newsLetter">
+            <span>New To SaptaBazar ?</span>
+            <p>
+              Subscribe to our newsletter to get updates on our latest offers!
+            </p>
+            <div className="footer-section-top-item-newsLetter-contact">
+              <input type="email" placeholder="Enter Email-Address" />
+              <button className="mx-3">Male</button>
+              <button>Female</button>
+            </div>
           </div>
-        </div>
-
-        <div className="footer-tools-top-item footer-tools-top-mail-phone ">
-          <div>
-            <span className="d-block footer-tools-top-item-heading  ">
-              GET LATEST DEALS
-            </span>
-            <span className="d-block">
-              Our best promotions sent to your inbox.
-            </span>
-          </div>
-        </div>
-
-        <div className="footer-tools-top-item">
-          <form className="d-flex footer-form">
-            <input
-              className="footer-form-input"
-              type="text"
-              name="email"
-              placeholder="Email"
-            />
-            <button className="btn footer-form-btn">Subscribe</button>
-          </form>
-        </div>
-      </div>
-
-      <div>
-        <div className="footer-tools-bottom">
-          <div className="footer-tools-bottom-item">
-            <div className="footer-tools-bottom-item-side1">
-              <div className="footer-tools-bottom-item-side1-AK">
-                <Link className="footer-tools-bottom-link" to="/">
-                  ABOUT SAPTABAZAR
-                </Link>
-
-                <ul className="about-konga">
-                  <li>
-                    <a className="op" href="/">
-                      Contact Us
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Careers
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Our Blog
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Forum
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Terms & Conditions
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="footer-tools-bottom-item-side1-AK">
-                <Link className="footer-tools-bottom-link" to="/">
-                  PAYMENT
-                </Link>
-
-                <ul className="about-konga">
-                  <li>
-                    <a className="op" href="/">
-                      Saptabazar Pay
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Wallet
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Verve
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Mastercard
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Visa
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="footer-tools-bottom-item-side1-AK">
-                <Link className="footer-tools-bottom-link" to="/">
-                  BUYING ON SAPTABAZAR
-                </Link>
-
-                <ul className="about-konga">
-                  <li>
-                    <a className="op" target="_self" href="/">
-                      Buyer Safety Centre
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      FAQs
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Delivery
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                    SaptaBazar Return Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Digital Services
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Bulk Purchase
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="footer-tools-bottom-item-side1-AK">
-                <Link className="footer-tools-bottom-link" to="/">
-                  MORE INFO
-                </Link>
-
-                <ul className="about-konga">
-                  <li>
-                    <a className="op" href="/">
-                      Site Map
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Track My Order
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Privacy Policy
-                    </a>
-                  </li>
-                  <li>
-                    <a className="op" href="/">
-                      Authentic Items Policy
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="footer-tools-bottom-item-side1-AK">
-                <Link className="footer-tools-bottom-link" to="/">
-                  MAKE MONEY ON KONGO
-                </Link>
-
-                <ul className="about-konga">
-                  <li>
-                    <a className="op" href="/">
-                      Become a SaptaBazar Affiliate
-                    </a>
-                  </li>
-                </ul>
+          <div className="footer-section-top-item footer-section-top-item-app">
+            <div className="footer-section-top-item-app-top">
+              <i className="fa fa-shopping-cart" />
+              <div>
+                <span>Download SaptaBazar FREE APP</span>
+                <p>Get access to exclusive offers!</p>
               </div>
             </div>
-
-            <div className="footer-tools-bottom-item-side2">
-              <div className="unique">DOWNLOAD & CONNECT WITH US</div>
-              <div className="footer-tools-bottom-item-side2-one">
-                <div className="footer-tools-bottom-item-side2-one-part">
-                  <a className="op1" href="/">
-                    <div className="footer-tools-bottom-item-side2-one-part-Imag">
-                      <img
-                        src={require("../../image/app store1.png")}
-                        height="28"
-                        width="24"
-                        alt=""
-                      ></img>
-                    </div>
-                    <div className="footer-tools-bottom-item-side2-one-part-text">
-                      <p>Download on</p>
-                      <span>APP STORE</span>
-
-                    </div>
-                  </a>
-                  <a className="op1" href="/">
-                    <div className="footer-tools-bottom-item-side2-one-part-Imag">
-                      <img
-                        src={require("../../image/app store1.png" ) } alt=""
-                        height="28"
-                        width="24"
-                      ></img>
-                    </div>
-                    <div className="footer-tools-bottom-item-side2-one-part-text">
-                      <p>Download on</p>
-                      <span>APP STORE</span>
-
-                    </div>
-                  </a>
+            <div className="footer-section-top-item-app-bottom">
+              <div className="footer-section-top-item-app-bottom-app mr-3">
+                <i class="fa fa-apple mr-2" aria-hidden="true" />
+                <div>
+                  <p>download on the</p>
+                  <span>App Store</span>
                 </div>
               </div>
-
-              <div className="footer-tools-bottom-item-side2-part2">
-                <div className="unique">CONNECT WITH US</div>
-                <div className="footer-tools-bottom-item-side2-part2-links">
-                  <a className="op2" href="/">
-                    <img src={require("../../image/fb.png")} alt=""></img>
-                  </a>
-                  <a className="op2" href="/">
-                    <img src={require("../../image/tw.png")} alt=""></img>
-                  </a>
-                  <a className="op2" href="/">
-                    <img src={require("../../image/fb.png")} alt=""></img>
-                  </a>
-                  <a className="op2" href="/">
-                    <img src={require("../../image/you.png")} alt=""></img>
-                  </a>
+              <div className="footer-section-top-item-app-bottom-app">
+                <i class="fa fa-play mr-2" aria-hidden="true"></i>
+                <div>
+                  <p>get it on</p>
+                  <span>Google Play</span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="footer-tools-bottom-borderrakhum">
-            <div className="footer-tools-bottom-borderrakhum-text">
-              Copyright &copy;{new Date().getFullYear()} OfferBazzar.com. All
-              rights reserved
-            </div>
-          </div>
+        <div className="footer-section-middle">
+          {footerList.map((val, index) => {
+            return (
+              <div key={index} className="footer-section-middle-item">
+                <span className="avinaya">{val.title}</span>
+                <ul className="footer-section-middle-item-list">
+                  {val.name.map((value, ind) => {
+                    return (
+                      <li key={ind}>
+                        <Link
+                          to="/"
+                          className="link footer-section-middle-item-list-link"
+                        >
+                          {value}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+        <div className="footer-section-bottom">
+          <span>
+            Copyright ©2020{" "}
+            <Link to="/" className="link">
+              SaptaBazar.com
+            </Link>{" "}
+            All rights reserved
+          </span>
         </div>
       </div>
-    </div>
+      <FooterMobile />
+    </footer>
   );
-};
+}
 
 export default Footer;
