@@ -50,7 +50,7 @@ function AllCategories() {
                       }
                       onClick={handleClick(val.categoryName)}
                       style={
-                        JSON.stringify(data) ===
+                        JSON.stringify(data.subCatagories) ===
                         JSON.stringify(val.subCategoryList)
                           ? { backgroundColor: "#fff", color: "#016fed" }
                           : {}
