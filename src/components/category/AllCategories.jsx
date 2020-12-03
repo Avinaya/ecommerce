@@ -2,20 +2,15 @@ import React, { useContext, useState, useEffect } from "react";
 import BaseDataContex from "../contexApi/baseApiCall/BaseApiCall";
 import SubCategories from "./subCategories/SubCategories";
 import { useHistory } from "react-router-dom";
+import "./Categories.scss";
 
 function AllCategories() {
   const value = useContext(BaseDataContex);
 
-  const [allCategoryBody, setAllCategoryBody] = useState([]);
-
-  useEffect(() => {
-    const data = value.category && value.category.data;
-
-    if (data) {
-      const [avinaya] = data;
-      setAllCategoryBody(avinaya);
-    }
-  }, [value]);
+  const [data, setData] = useState({
+    subCatagories: value.category.data[0].subCategoryList,
+    categoryName: "",
+  });
 
   const history = useHistory();
 
@@ -46,10 +41,17 @@ function AllCategories() {
                   return (
                     <li
                       key={index}
-                      onMouseOver={() => setAllCategoryBody(val)}
+                      onMouseOver={() =>
+                        setData({
+                          ...data,
+                          subCatagories: val.subCategoryList,
+                          categoryName: val.categoryName,
+                        })
+                      }
                       onClick={handleClick(val.categoryName)}
                       style={
-                        allCategoryBody.categoryName === val.categoryName
+                        JSON.stringify(data) ===
+                        JSON.stringify(val.subCategoryList)
                           ? { backgroundColor: "#fff", color: "#016fed" }
                           : {}
                       }
@@ -60,7 +62,14 @@ function AllCategories() {
                 })}
             </div>
             <div className="allCategories-item2">
-              <SubCategories data={allCategoryBody} />
+              {data.subCatagories ? (
+                <SubCategories
+                  data={data.subCatagories}
+                  categoryName={data.categoryName}
+                />
+              ) : (
+                <></>
+              )}
             </div>
           </ul>
         </div>
