@@ -14,9 +14,9 @@
     &-item {
       &-logo {
         margin-right: 2vw;
-        & img{
+        & img {
           width: 10rem;
-          height:3rem;
+          height: 3rem;
           // object-fit: cover;
         }
         &-text1 {
@@ -77,10 +77,6 @@
   display: block;
 }
 
-
-
-
-
 .dropdown {
   position: relative !important;
 }
@@ -116,17 +112,13 @@
   .nav-searchBar-mob {
     display: block;
   }
-  .navBar-tools-item-logo-text1 {
-    color: $color-black !important;
-    margin-left: 2rem;
-  }
 
   .navBar {
-    background-color: $color-white;
+    // background-color: $color-white;
   }
   .navBar-tools-item-logo {
-    margin-right: 1vw;
-
+    margin-right: 2vw;
+    margin-left: 2rem;
   }
   .navBar-tools-item-store {
     display: none;
@@ -158,14 +150,14 @@
 
     &-cart {
       & i {
-        color: $color-popular;
+        color: $color-white;
         font-size: 1.3rem;
       }
     }
     &-sell {
       & i {
         font-size: 1.3rem;
-        color: $color-popular;
+        color: $color-white;
       }
     }
   }

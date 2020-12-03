@@ -1,7 +1,7 @@
 @import "../../../style/variable";
 
 .sideBarMob {
-    display: none;
+  display: none;
   &-menu {
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: $color-black;
+  background: $color-white;
 }
 
 /* Position and sizing of clickable cross button */
@@ -57,8 +57,7 @@
 }
 
 @media screen and (max-width: 768px) {
-
-    .sideBarMob{
-        display: block;
-    }
+  .sideBarMob {
+    display: block;
+  }
 }
