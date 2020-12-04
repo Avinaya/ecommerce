@@ -10,7 +10,7 @@ import Banner3 from "../../components/banner/banner3/Banner3";
 import About from "../../components/about/About";
 import Banner4 from "../../components/banner/banner4/Banner4";
 import Deals from "../../components/deals/Deals";
-import Store from './../../components/store/Store';
+import Store from "./../../components/store/Store";
 
 function Home() {
   const banner2 = {

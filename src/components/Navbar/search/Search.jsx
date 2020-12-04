@@ -44,7 +44,7 @@ function Search() {
         type="text"
         className="searchTerm"
         onChange={(event) => setInputField(event.target.value)}
-        value={inputfield }
+        value={inputfield}
         placeholder="Search For Products, Brands and Categories... "
       />
       <button type="submit" className="searchButton">
@@ -57,8 +57,8 @@ function Search() {
         >
           <ul>
             <span>Suggestions</span>
-            
-            {data.length >0 ?(
+
+            {data.length > 0 ? (
               data.map((val, key) => {
                 return (
                   <li key={key} onClick={handleClick(val)}>
@@ -66,9 +66,9 @@ function Search() {
                   </li>
                 );
               })
-
-            ):<li>No data</li>}
-           
+            ) : (
+              <li>No data</li>
+            )}
           </ul>
         </div>
       ) : (

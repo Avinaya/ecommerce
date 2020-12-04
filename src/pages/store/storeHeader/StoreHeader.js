@@ -1,25 +1,27 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import "./StoreHeader.scss";
 
-function StoreHeader() {
-  const history = useHistory();
+function StoreHeader(props) {
   return (
     <div className="storeHeader">
       <div className="storeHeader-image">
         <img
-          src="http://res.cloudinary.com/ds5zgwshl/image/upload/v1606565952/hnjkzwe3gvgeg37cc9ia.jpg"
+          src={props.data?props.data.image:""}
           alt=""
         />
       </div>
       <div className="storeHeader-title">
-        {console.log(history)}
-        <h3>Pashmina Shawls</h3>
-        <h5>Fast Delivery Time. Rating: 4 <i className="fa fa-star"/></h5>
-        <h5>Lalitpur-4 - 44600</h5>
-        <h5>Pashmina Shawls Pvt Ltd</h5>
+        <h3>{props.data ? props.data.vendorName : ""}</h3>
+        <h5>
+          Fast Delivery Time. Rating: 4 <i className="fa fa-star" />
+        </h5>
+        <h5>
+          {props.data ? props.data.district : ""} - {""}
+          {props.data ? props.data.zipCode : ""}
+        </h5>
+        <h5>{props.data ? props.data.vendorName : ""} Pvt Ltd</h5>
       </div>
-    </div> 
+    </div>
   );
 }
 

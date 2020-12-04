@@ -11,7 +11,7 @@ const SubCategories = (props) => {
 
     history.push({
       pathname: `/category/${subCat.replace(/ /g, "-")}`,
-  })
+    });
   };
 
   const handleClickSubCatType = (cat, subCat, subCatType) => (e) => {
@@ -21,45 +21,45 @@ const SubCategories = (props) => {
     localStorage.setItem("subCategoryType", subCatType);
     history.push({
       pathname: `/category/${subCatType.replace(/ /g, "-")}`,
-  })
-    
+    });
   };
 
   return (
     <div className="menu-item">
       <div className="menu-item-tools">
-        {props.data.subCategoryList && props.data.subCategoryList.map((val, ind) => {
-          return (
-            <div key={ind} className="menu-item-tools-item">
-              <h5
-                onClick={handleClickSubCat(
-                  props.data.categoryName,
-                  val.subCategoryName
-                )}
-              >
-                {val.subCategoryName}
-              </h5>
+        {props.data &&
+          props.data.map((val, ind) => {
+            return (
+              <div key={ind} className="menu-item-tools-item">
+                <h5
+                  onClick={handleClickSubCat(
+                    props.categoryName,
+                    val.subCategoryName
+                  )}
+                >
+                  {val.subCategoryName}
+                </h5>
 
-              <ul className="list-group ">
-                {val.subCategoryTypeList.map((value, index) => {
-                  return (
-                    <li
-                      className="list-group-item"
-                      key={index}
-                      onClick={handleClickSubCatType(
-                        props.data.categoryName,
-                        val.subCategoryName,
-                        value.subCategoryTypeName
-                      )}
-                    >
-                      {value.subCategoryTypeName}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          );
-        })}
+                <ul className="list-group ">
+                  {val.subCategoryTypeList.map((value, index) => {
+                    return (
+                      <li
+                        className="list-group-item"
+                        key={index}
+                        onClick={handleClickSubCatType(
+                          props.categoryName,
+                          val.subCategoryName,
+                          value.subCategoryTypeName
+                        )}
+                      >
+                        {value.subCategoryTypeName}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

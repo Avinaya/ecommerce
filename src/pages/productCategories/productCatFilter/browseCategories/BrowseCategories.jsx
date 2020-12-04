@@ -12,7 +12,7 @@ function BrowseCategories(props) {
   const history = useHistory();
 
   let category = localStorage.getItem("category");
-  let subCategory = localStorage.getItem("subCategory");
+  let subCategory = localStorage.getItem("suzbCategory");
 
   useEffect(() => {
     if (value.category) {
