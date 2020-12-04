@@ -292,8 +292,8 @@ function Checkout(props) {
             key={index}
             id={item.productId}
             cartId={item.cartId}
-            image={item.product.productImageList[0].thumbnail}
-            productName={item.product.productName}
+            image={item.thumbnail}
+            productName={item.productName}
             quantity={item.quantity}
             salePrice={item.price/item.quantity}
             

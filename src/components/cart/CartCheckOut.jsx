@@ -1,13 +1,11 @@
 import React,{useState,useEffect} from 'react';
-import axios from "axios";
 import BasketItem from './BasketItem';
 import {useStateValue} from "./../contexApi/stateProvider/StateProvider";
-import CartService from "../../service/cartService/CartService";
 import {getCartByUserId} from "../../service/cartService/CartService";
 import {deleteCartByCartId} from "../../service/cartService/CartService";
 import SavedForLater from "./SavedForLater";
 import { useHistory } from 'react-router-dom';
-function CartCheckOut(props){
+function CartCheckOut(){
   const history = useHistory();
   const [{savedForLater},dispatch]=useStateValue();
   const [{basket},dispatch1]=useStateValue();
@@ -117,8 +115,8 @@ const AddToSavedForLater=(i,r,p,it)=>{
             key={index}
             id={item.productId}
             cartId={item.cartId}
-            image={item.product.productImageList[0].thumbnail}
-            productName={item.product.productName}
+            image={item.thumbnail}
+            productName={item.productName}
             quantity={item.quantity}
             salePrice={item.price/item.quantity}
             

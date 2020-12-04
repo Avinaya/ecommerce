@@ -11,13 +11,6 @@ function Cart(){
   const totalSalePrice=basket.reduce((totalSale,basket) => totalSale + (basket.salePrice*basket.productQuantity) , 0);
   return(
     <div>
-      {/* <div>
-      <DetailTopBar
-        
-        subCategory={subCategory}
-        heading={heading}
-      />  
-      </div> */}
     <div className="cart">
 
       <div className="cart-tot">

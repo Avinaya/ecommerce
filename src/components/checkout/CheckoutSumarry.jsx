@@ -16,7 +16,7 @@ function CheckoutSummary(props) {
         setCart(response.data);
         for (var i in response.data) {
           var ram = {
-            productId: response.data[i].product.productId,
+            productId: response.data[i].productId,
 
             totalQuantity: response.data[i].quantity,
           };
