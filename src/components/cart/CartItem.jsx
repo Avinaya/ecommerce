@@ -33,7 +33,7 @@ import {getCartByUserId} from "../../service/cartService/CartService";
     }
 
     
-  },[loading]);
+  },[loading,cart]);
     return(
       <div>
 

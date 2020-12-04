@@ -8,13 +8,14 @@ import {decrementCartByCartId} from "../../service/cartService/CartService";
 function BasketItem(props){
 
    const [salePrice]=useState(props.salePrice);
-    const [totalItemPrice,setTotalItemPrice]=useState(props.quantity*props.salePrice);
-    const [quantity,setQuantity]=useState(props.quantity);
+    const [totalItemPrice,setTotalItemPrice]=useState();
+    const [quantity,setQuantity]=useState();
     const [{savedForLater},dispatch]=useStateValue();
     const user=JSON.parse(localStorage.getItem("user"));
     useEffect(() => {
-        console.log("product",props.productName);
-    }); 
+        setTotalItemPrice(props.quantity*props.salePrice);
+        setQuantity(props.quantity);
+    },[props.quantity,props.salePrice]); 
     async function incerementItem() {
         if(user!=null){
             const productId=props.id;

@@ -20,7 +20,7 @@ const API_URL="https://saptasoch.herokuapp.com/cart";
 
    export async function getCartByUserId(userId){
         return await axios.get(
-           API_URL+ `/${userId}`
+           API_URL+ `/test/${userId}`
           );
     }
 

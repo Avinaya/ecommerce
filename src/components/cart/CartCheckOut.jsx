@@ -121,13 +121,14 @@ const AddToSavedForLater=(i,r,p,it)=>{
               
             
             key={index}
-            id={item.productId}
+            id={item.product.productId}
             cartId={item.cartId}
-            image={item.thumbnail}
-            productName={item.productName}
+            image={item.product.productImageList[0].thumbnail}
+            productName={item.product.productName}
             quantity={item.quantity}
             salePrice={item.price/item.quantity}
-            
+            totalItemPrice={item.quantity*item.salePrice}
+            quantity={item.quantity}
             onDelete={deleteCart}
             increment={incrementQuantity}
             // price={updatePrice}
