@@ -5,7 +5,7 @@ import {getCartByUserId} from "../../service/cartService/CartService";
 import {deleteCartByCartId} from "../../service/cartService/CartService";
 import SavedForLater from "./SavedForLater";
 import { useHistory } from 'react-router-dom';
-function CartCheckOut(){
+function CartCheckOut(props){
   const history = useHistory();
   const [{savedForLater},dispatch]=useStateValue();
   const [{basket},dispatch1]=useStateValue();
@@ -33,14 +33,22 @@ async function deleteCart(c){
   
     if(user!=null){
       
-    getCartByUserId(user.id).then(response=>{
-      setCart(response.data);
+    // getCartByUserId(user.id).then(response=>{
+    //   setCart(response.data);
 
-      const data1=response.data;
+    //   const data1=response.data;
+    //   setUserTotalQuantity(data1.reduce((totalItem1,data1) => totalItem1 + data1.quantity, 0));
+    //   setUserTotalSalePrice(data1.reduce((totalSale1,data1) => totalSale1 + (data1.price) , 0));
+     
+    //   });
+      if(props.cart!=null){
+        setCart(props.cart);
+        console.log("caart",props.cart);
+
+      const data1=props.cart;
       setUserTotalQuantity(data1.reduce((totalItem1,data1) => totalItem1 + data1.quantity, 0));
       setUserTotalSalePrice(data1.reduce((totalSale1,data1) => totalSale1 + (data1.price) , 0));
-     
-      });
+      }
     }
     else{
       setCart(null);

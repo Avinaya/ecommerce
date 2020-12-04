@@ -78,9 +78,12 @@ function BasketItem(props){
     const deleteCart = () => {
         if(user!=null){
             props.onDelete(props.cartId);
+            
+            
         }
         else{
             props.onDelete(props.id);
+           
         }
         
     }

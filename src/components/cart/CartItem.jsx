@@ -48,7 +48,7 @@ import {getCartByUserId} from "../../service/cartService/CartService";
               ) :(
                 <div>
       
-            <CartCheckOut qnt={updateQuantity} pri={updatePrice}/>
+            <CartCheckOut qnt={updateQuantity} pri={updatePrice} cart={cart}/>
         
       </div>
               )
