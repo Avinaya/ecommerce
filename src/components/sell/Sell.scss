@@ -1,178 +1,161 @@
 @import "../../style/variable";
-.sell{
-    padding:0.3em 0;
-    
-    
-    box-sizing: border-box;
-    
+.sell {
+  padding: 0.3em 0;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
 
-    &-head{
-        padding:1em 1.5em;
-        background-color: $color-white;
-        h1{
-            font-weight: 900;
-            font-size:2rem;
-        }
-       
-       
+  box-sizing: border-box;
+
+  &-head {
+    padding: 1em 1.5em;
+    background-color: $color-white;
+    h1 {
+      font-weight: 900;
+      font-size: 2rem;
     }
+  }
 
-    &-grow{
-        margin:1em 1em;
-        padding:2em 1.5em;
-        display:flex;
-        
-        
-        background-color: $color-white;
-        &-image{
-        width:40%;
-        & img{
-            width:90%;
-        } 
-        }
-        &-content{
-            width:60%;
-            display: flex;
-            flex-direction: column;
-            &-business{
-                font-weight: 900;
-                font-size:2rem;
-            }
-            &-reach{
-                font-weight:400;
-                font-size:1rem;
-            }
-            &-button{
-                padding:1em 0em;
-                & button{
-                    color: $color-primary;
-                    padding:0.5em 0.5em;
-                    background-color: $color-white;
-                    border: .088rem solid $color-primary;
-                }
-                & button:hover{
-                    background-color: none;
-                }
-                & button:focus{
-                    outline:none;
-                }
-                
-            }
-        }
+  &-grow {
+    margin: 1em 1em;
+    padding: 2em 1.5em;
+    display: flex;
+
+    background-color: $color-white;
+    &-image {
+      width: 40%;
+      & img {
+        width: 90%;
+        object-fit: contain;
+      }
     }
-
-    &-why{
-        margin:1em 1em;
-        padding:2em 1.5em;
-        background-color: $color-white;
-        &-title{
-            text-align: center;
-            padding:1em 0em;
-            h2{
-                font-weight: 900;
-                font-size:1.8rem;
-                
-            }
-            
+    &-content {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      &-business {
+        font-weight: 900;
+        font-size: 2rem;
+      }
+      &-reach {
+        font-weight: 400;
+        font-size: 1rem;
+      }
+      &-button {
+        padding: 1em 0em;
+        & button {
+          color: $color-primary;
+          padding: 0.5em 0.5em;
+          background-color: $color-white;
+          border: 0.088rem solid $color-primary;
         }
-        &-grid{
-            display:grid;
-            
-            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-            grid-gap: 0.3rem;
-                &-one{
-                    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.1);
-                   
-                    padding:1rem 3rem;
-                    text-align: center;
-                    & img{
-                
-                        display: block;
-                        margin-left: auto;
-                        margin-right: auto;
-                        width: 50%;
-                        
-                    }
-                    & h3{
-                        padding-top: 1rem;
-                        font-weight: 900;
-                        font-size:1rem;
-                    }
-                    & span{
-                        color:#8f8f8f;
-                        
-                        font-size: 0.8rem;
-                      
-                    } 
-                }
-            // text-align: center;
-           
-           
+        & button:hover {
+          background-color: none;
         }
+        & button:focus {
+          outline: none;
+        }
+      }
     }
+  }
 
-    &-earn{
-        margin:1em 1em;
-        padding:2em 1.5em;
-        background-color: $color-white;
-        display:flex;
-        height:50vh;
-        &-main{
-            width:70%;
-        }
-        &-i{
-            width:30%;
-            & img {
-                width:100%;
-                height:100%;
-                object-fit: content;
-
-            }
-        }
-        &-main{
-            display: flex;
-            flex-direction: column;
-            padding:0 6rem;
-            &-money{
-                
-                font-weight: 900;
-                font-size:2rem;
-            }
-        }
-
+  &-why {
+    margin: 1em 1em;
+    padding: 2em 1.5em;
+    background-color: $color-white;
+    &-title {
+      text-align: center;
+      padding: 1em 0em;
+      h2 {
+        font-weight: 900;
+        font-size: 1.8rem;
+      }
     }
+    &-grid {
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+      grid-gap: 0.3rem;
+      &-one {
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
+          0 1px 10px 0 rgba(0, 0, 0, 0.1);
+
+        padding: 1rem 3rem;
+        text-align: center;
+        & img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+        }
+        & h3 {
+          padding-top: 1rem;
+          font-weight: 900;
+          font-size: 1rem;
+        }
+        & span {
+          color: #8f8f8f;
+
+          font-size: 0.8rem;
+        }
+      }
+      // text-align: center;
+    }
+  }
+
+  &-earn {
+    margin: 1em 1em;
+    padding: 2em 1.5em;
+    background-color: $color-white;
+    display: flex;
+    height: 50vh;
+    &-main {
+      width: 70%;
+    }
+    &-i {
+      width: 30%;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-main {
+      display: flex;
+      flex-direction: column;
+      padding: 0 6rem;
+      &-money {
+        font-weight: 900;
+        font-size: 2rem;
+      }
+    }
+  }
 }
 @media (max-width: 650px) {
-    .sell-head{
-        & h1{
-            font-size:1rem;
-        }
-        
+  .sell-head {
+    & h1 {
+      font-size: 1rem;
     }
-.sell-grow{
+  }
+  .sell-grow {
     display: flex;
     flex-direction: column;
-    &-image{
-        display:none;
+    &-image {
+      display: none;
     }
-    &-content{
-        width:100%;
+    &-content {
+      width: 100%;
     }
-}
-.sell-earn-main{
-    padding:0 0;
-    width:100%;
-}
-.sell-earn-i{
-    display:none;
-}
+  }
+  .sell-earn-main {
+    padding: 0 0;
+    width: 100%;
+  }
+  .sell-earn-i {
+    display: none;
+  }
 
-.sell-why-grid{
-   
-width:100%;
-display:grid;
-grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-
-}
-
+  .sell-why-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
 }

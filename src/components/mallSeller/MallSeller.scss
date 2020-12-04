@@ -1,0 +1,52 @@
+@import "../../style/variable";
+.mallseller {
+  margin:0px;
+
+  text-align: center;
+  background-color:$color-white;
+  height: 100%;
+  &-head{
+   
+    padding-top: 2.5rem;
+    & h3{
+        font-weight: 600;
+        font-size:1.5rem;
+        
+    }
+    &-main{
+      height: inherit;
+    }
+  }
+ 
+  & button{
+      margin:1rem 0;
+      background-color: $color-button;
+  }
+  & button:hover{
+   background-color: $color-button;
+  }
+  & button:focus{
+    outline: none;
+    background-color: $color-button;
+  }
+  &-main {
+    margin: 2em 35em;
+    background-color: $color-white;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
+    0 1px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+.form{
+    &-group {
+        text-align: left;
+        padding: 1rem 1rem;
+      }
+      & input{
+          padding: 0.5rem 1rem;
+      }
+}
+.forgot-password{
+    padding:1rem 0.5rem;
+}
+
+

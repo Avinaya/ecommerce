@@ -21,6 +21,10 @@ import LoadingComponent from "./components/loadingComponent/LoadingComponent";
 import StoreDetail from './pages/store/StoreDetail';
 import SellOptions from './components/sell/SellOptions';
 import Sell from './components/sell/Sell';
+import MallSeller from './components/mallSeller/MallSeller';
+import OtpSeller from './components/mallSeller/OtpSeller';
+import LoginSeller from './components/mallSeller/LoginSeller';
+import SkeletonCard from './components/skeleton/SkeletonCard';
 
 function App() {
   const AuthenticatedRoute = () => {
@@ -31,7 +35,7 @@ function App() {
           <SideBarMob />
           <Navbar />
           <Mobheader />
-          <LoadingComponent />;
+          <SkeletonCard />;
         </React.Fragment>
       );
     } else {
@@ -69,12 +73,16 @@ function App() {
 
   return (
     <Switch>
+    <Route exact path="/mall" component={MallSeller}/>
       <Route exact path="/sell-options" component={SellOptions}/>
       <Route exact path="/checkout" component={Checkout} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/verify" component={OtpVerify} />
+      <Route exact path="/otp-seller" component={OtpSeller}/>
+      <Route exact path="/login-seller" component={LoginSeller}/>
       <Route component={AuthenticatedRoute} />
+     
     </Switch>
   );
 }

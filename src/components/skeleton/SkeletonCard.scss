@@ -1,0 +1,100 @@
+@import '../../style/variable';
+
+.skeleton{
+    
+    
+    &-top{
+        margin:1.5rem 2.5rem;
+        display: flex;
+        width: 95%;
+        justify-content: space-between;
+        &-one{
+            width: 60%;
+            
+        }
+        &-two{
+            width:39%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 1rem;
+        }
+    }
+    &-medium{
+         margin:1.5rem 2.5rem ;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 1rem;
+
+    }
+    &-bottom{background-color: $color-white;
+        margin:1.5rem 2.5rem ;
+        &-head{
+            padding:1rem 1rem;
+        }
+        &-grid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            padding: 0 1rem;
+            grid-gap: 1rem;
+            &-five{
+                box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1),
+                0 1px 10px 0 rgba(0, 0, 0, 0.1);
+                &-image{
+                    padding:0.5rem 1.5rem;
+                }
+                &-title{
+                    padding: 0.5rem 0.2rem;
+                }
+                &-price{
+                    padding: 0.5rem 0.2rem;
+
+                }
+                &-sell{
+                    padding: 0.5rem 0.2rem;
+
+                }
+            }
+        }
+    }
+}
+.ske{
+    height: 55vh;
+}
+@media screen and (max-width:769px){
+    .skeleton-sub{
+        display: none;
+    }
+    .skeleton-medium{
+        display: none;
+    }
+    .skeleton-top{
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        justify-content: space-between ;
+        &-one{
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        &-two{
+            width: 100%;
+        }
+    }
+    .ske{
+        height: 30vh;
+    }
+}
+@media screen and (max-width:992px){
+.skeleton-bottom-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+}
+}
+@media screen and (max-width:464){
+    .skeleton-bottom-grid{
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-gap: 1rem;
+    }
+    }
