@@ -26,6 +26,7 @@ import OtpSeller from './components/mallSeller/OtpSeller';
 import LoginSeller from './components/mallSeller/LoginSeller';
 import SkeletonCard from './components/skeleton/SkeletonCard';
 
+import Khalti from './components/Khalti';
 function App() {
   const AuthenticatedRoute = () => {
     const value = useContext(BaseDataContex);
@@ -81,6 +82,7 @@ function App() {
       <Route exact path="/verify" component={OtpVerify} />
       <Route exact path="/otp-seller" component={OtpSeller}/>
       <Route exact path="/login-seller" component={LoginSeller}/>
+      <Route exact path="/khalti" component={Khalti}/>
       <Route component={AuthenticatedRoute} />
      
     </Switch>

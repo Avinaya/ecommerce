@@ -7,6 +7,7 @@ import axios from "axios";
 import "./Login.scss";
 import AuthService from "../../service/auth.service";
 import CartService from "../../service/cartService/CartService";
+import {getCartByUserId} from "../../service/cartService/CartService";
 import FacebookSocialLogin from './../socialLogin/FacebookSocialLogin';
 
 const vpassword = (value) => {
@@ -86,9 +87,13 @@ export default class Login extends Component {
               var userId = ram.userId;
               CartService(productId, quantity, userId).then((response) => {
                 localStorage.removeItem("cart");
-                this.props.history.push("/");
+               
               });
             }
+            
+           
+            
+            this.props.history.push("/");
           } else {
             this.props.history.push("/");
             window.location.reload();

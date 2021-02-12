@@ -12,6 +12,7 @@ import {getCartByUserId} from "../../service/cartService/CartService";
   const [loading,setLoading]=useState(true);
   const [quantity,setQuantity]=useState();
   const [price,setPrice]=useState();
+  
 
   const updateQuantity=(value) =>{
     setQuantity(value);
@@ -23,17 +24,18 @@ import {getCartByUserId} from "../../service/cartService/CartService";
   useEffect(() => {
     if(user!=null){
 
-  getCartByUserId(user.id).then(response=>{
-      setCart(response.data);
-      setLoading(false);
-      });
+      getCartByUserId(user.id).then(res=>{
+        setCart(res.data);
+        setLoading(false);
+      })
+ 
     }
     else{
       setLoading(false);
     }
 
     
-  },[loading,cart]);
+  },[loading,setCart]);
     return(
       <div>
 

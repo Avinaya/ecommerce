@@ -6,14 +6,17 @@ import { useState ,useEffect } from "react";
 import CheckOutSummary from "./../checkout/CheckoutSumarry";
 import SideBar from "react-sidebar";
 import DeliveryAddress from "./../deliveryAddress/DeliveryAddress";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import {getCartByUserId} from "../../service/cartService/CartService";
 import {deleteCartByCartId} from "../../service/cartService/CartService";
-import { useLocation } from "react-router-dom";
+import { useLocation ,useHistory} from "react-router-dom";
 
 
 function Checkout(props) {
   const viewHeight = window.outerHeight;
+  const productArray=[];
+  const history=useHistory();
+  
   const [{ deliveryAddress }] = useStateValue();
   const c=localStorage.getItem("delivery");
   const [{ basket }, dispatch] = useStateValue();
@@ -22,7 +25,7 @@ function Checkout(props) {
   const [cart,setCart]=useState([]);
   const [userTotalQuantity,setUserTotalQuantity]=useState();
   const [userTotalSalePrice,setUserTotalSalePrice]=useState();
-  const location =new useLocation();
+  const location =useLocation();
 
   const totalSalePrice = basket.reduce(
     (totalSale, basket) =>
@@ -41,6 +44,7 @@ function Checkout(props) {
     console.log("delivery",c);
     console.log("user",user);
     if(user!=null){
+      
     getCartByUserId(user.id).then(response=>{
       setCart(response.data);
       const data1=response.data;
@@ -48,12 +52,26 @@ function Checkout(props) {
       setUserTotalSalePrice(data1.reduce((totalSale1,data1) => totalSale1 + (data1.price) , 0));
       console.log("sab data",response.data);
       });
+    // if(location.state!=undefined){
+    //   setCart(location.state.cart);
+    //   const data1=location.state.cart;
+    //   setUserTotalQuantity(data1.reduce((totalItem1,data1) => totalItem1 + data1.quantity, 0));
+    //   setUserTotalSalePrice(data1.reduce((totalSale1,data1) => totalSale1 + (data1.price) , 0));
+    //   console.log("sab location",location);
+    // }
+    // else{
+    //   history.push('/cart');
+     
+    // }
+   
+    
+      
     }
     else{
       setCart(null);
     }
     
-  }, [removeAnItem]);
+  }, [removeAnItem,location.state]);
 
   
 
@@ -284,16 +302,20 @@ function Checkout(props) {
                 {
          user!= null ? (
           cart.map((item,index) => (
+           productArray.push({
+             productId:item.productId,
+             totalQuantity:item.quantity
+           }),
              
             <BasketItem
             
               
             
             key={index}
-            id={item.product.productId}
+            id={item.productId}
             cartId={item.cartId}
-            image={item.product.productImageList[0].thumbnail}
-            productName={item.product.productName}
+            image={item.thumbnail}
+            productName={item.productName}
             quantity={item.quantity}
             salePrice={item.price/item.quantity}
             
@@ -339,7 +361,7 @@ function Checkout(props) {
           <div className="checkout-tools-main checkout-tools-main-payment">
             {
               cart!=null ? (
-                <CheckOutSummary total={userTotalSalePrice} />
+                <CheckOutSummary total={userTotalSalePrice} pro={productArray} />
               ) : (
                 <CheckOutSummary total={totalSalePrice} />
               )

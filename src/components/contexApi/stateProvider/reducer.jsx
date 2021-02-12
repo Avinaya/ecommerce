@@ -1,10 +1,16 @@
 import axios from "axios";
+import { useEffect, useState } from "react";
 const API_URL="https://saptasoch.herokuapp.com/order";
+const API_URL1="https://saptasoch.herokuapp.com/cart";
+let cart=[];
+const user1=JSON.parse(localStorage.getItem("user"))
+
 
 export const initialState={
     
-    basket:JSON.parse(localStorage.getItem("cart")) || [],user:null,deliveryAddress:JSON.parse(localStorage.getItem("delivery")),order:[JSON.parse(localStorage.getItem("cart")),JSON.parse(localStorage.getItem("delivery"))],savedForlater:JSON.parse(localStorage.getItem("savedForLater")) || []
+onlineCart:[cart],basket:JSON.parse(localStorage.getItem("cart")) || [],user:null,deliveryAddress:JSON.parse(localStorage.getItem("delivery")),order:[JSON.parse(localStorage.getItem("cart")),JSON.parse(localStorage.getItem("delivery"))],savedForlater:JSON.parse(localStorage.getItem("savedForLater")) || []
 };
+
 
 //Anything on data layer is state
 const reducer = (state,action) => {

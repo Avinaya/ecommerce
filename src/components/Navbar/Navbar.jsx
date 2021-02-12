@@ -28,7 +28,7 @@ const Navbar = () => {
     }else{
       setCart(null);
     }
-  });
+  },[setCart]);
   return (
     <nav className="navBar">
       <div className="navBar-tools">
