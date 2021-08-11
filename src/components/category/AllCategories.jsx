@@ -8,7 +8,7 @@ function AllCategories() {
   const value = useContext(BaseDataContex);
 
   const [data, setData] = useState({
-    subCatagories: value.category.data[0].subCategoryList,
+    subCatagories: value.category?.data[0].subCategoryList,
     categoryName: "",
   });
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from "../../../constants/constant";
 
 const BaseDataContex = React.createContext();
 
@@ -13,36 +14,35 @@ const BaseApiDataProvider = (props) => {
     bestSelling: null,
   });
 
-  const baseUrl = `https://saptasoch.herokuapp.com`;
   useEffect(() => {
     async function fetchData() {
       const categoryData = await axios
-        .get(`${baseUrl}/category`)
+        .get(`${BASE_URL}/category`)
         .catch(function (error) {
           console.log(error);
         });
       const highlightData = await axios
-        .get(`${baseUrl}/mainSlider`)
+        .get(`${BASE_URL}/mainSlider`)
         .catch(function (error) {
           console.log(error);
         });
       const secondaryHighlightData = await axios
-        .get(`${baseUrl}/topBanner`)
+        .get(`${BASE_URL}/topBanner`)
         .catch(function (error) {
           console.log(error);
         });
       const recommendedData = await axios
-        .get(`${baseUrl}/product/tag/recommended?pageNo=0&pageSize=8`)
+        .get(`${BASE_URL}/product/tag/recommended?pageNo=0&pageSize=8`)
         .catch(function (error) {
           console.log(error);
         });
       const latestData = await axios
-        .get(`${baseUrl}/product/tag/latest?pageNo=0&pageSize=8`)
+        .get(`${BASE_URL}/product/tag/latest?pageNo=0&pageSize=8`)
         .catch(function (error) {
           console.log(error);
         });
       const bestSellingData = await axios
-        .get(`${baseUrl}/product/tag/bestSelling?pageNo=0&pageSize=8`)
+        .get(`${BASE_URL}/product/tag/bestSelling?pageNo=0&pageSize=8`)
         .catch(function (error) {
           console.log(error);
         });

@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 import ReverseTimer from './Timer';
 import axios from 'axios';
 import SecondProductCard from './../productCard/secondProductCard/SecondProductCard';
+import { BASE_URL } from "../../constants/constant";
 
 function Deals(props) {
 
@@ -17,7 +18,7 @@ function Deals(props) {
       formData.append("pageNo", 0);
       formData.append("pageSize", 6);
       const catResponse = await axios.post(
-        `https://saptasoch.herokuapp.com/productSearch/filter`,
+        `${BASE_URL}/productSearch/filter`,
         formData
       );
       setData(catResponse.data.content);

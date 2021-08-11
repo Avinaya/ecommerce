@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Search.scss";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { BASE_URL } from "../../../constants/constant";
 
 function Search() {
   const history = useHistory();
@@ -26,7 +27,7 @@ function Search() {
     try {
       async function getData() {
         const res = await axios.get(
-          `https://saptasoch.herokuapp.com/productSearch/mainSearch/${inputfield}`
+          `${BASE_URL}/productSearch/mainSearch/${inputfield}`
         );
         // console.log("search ",res.data);
         var limited = res.data.filter((val, i) => i < 10);

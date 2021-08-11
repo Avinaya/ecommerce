@@ -2,6 +2,7 @@ import React from "react";
 import "./Store.scss";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../.././constants/constant";
 
 function Store() {
   const history = useHistory();
@@ -11,11 +12,11 @@ function Store() {
   React.useEffect(() => {
     async function fetchData() {
       const response = await axios
-        .get(`https://saptasoch.herokuapp.com/vendorService/featured`)
+        .get(`${BASE_URL}/vendorService/featured`)
         .catch(function (error) {
           console.log(error);
         });
-      setData(response.data);
+      setData(response?.data);
     }
 
     fetchData();

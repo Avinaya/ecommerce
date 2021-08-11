@@ -76,14 +76,14 @@ function Footer() {
             </div>
             <div className="footer-section-top-item-app-bottom">
               <div className="footer-section-top-item-app-bottom-app mr-3">
-                <i class="fa fa-apple mr-2" aria-hidden="true" />
+                <i className="fa fa-apple mr-2" aria-hidden="true" />
                 <div>
                   <p>download on the</p>
                   <span>App Store</span>
                 </div>
               </div>
               <div className="footer-section-top-item-app-bottom-app">
-                <i class="fa fa-play mr-2" aria-hidden="true"></i>
+                <i className="fa fa-play mr-2" aria-hidden="true"></i>
                 <div>
                   <p>get it on</p>
                   <span>Google Play</span>

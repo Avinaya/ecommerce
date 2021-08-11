@@ -8,6 +8,7 @@ import queryString from "query-string";
 import ProductCategoryMob from "./productCategoryMobile/ProductCategoryMob";
 import LoadingComponent from "./../../components/loadingComponent/LoadingComponent";
 import { useHistory } from "react-router-dom";
+import { BASE_URL } from "../../constants/constant";
 
 function ProductCategory(props) {
   const [data, setData] = useState([]);
@@ -49,7 +50,7 @@ function ProductCategory(props) {
       }
 
       const response = await axios.post(
-        "https://saptasoch.herokuapp.com/productSearch/filter",
+        `${BASE_URL}/productSearch/filter`,
         formData
       );
       setIsloading(false);

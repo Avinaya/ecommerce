@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import SecondProductCard from './../../../components/productCard/secondProductCard/SecondProductCard';
+import { BASE_URL } from "../../../constants/constant";
 
 function SimilarProduct(props) {
   const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ function SimilarProduct(props) {
       formData.append("pageNo", 0);
       formData.append("pageSize", 5);
       const catResponse = await axios.post(
-        `https://saptasoch.herokuapp.com/productSearch/filter`,
+        `${BASE_URL}/productSearch/filter`,
         formData
       );
       setData(catResponse.data.content.filter(val=> val.productId !== parseInt(props.productId)));
